@@ -37,4 +37,5 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_v3xdh")
 animation = &"blood_explosion"
-frame_progress = 0.191703
+autoplay = "blood_explosion"
+frame_progress = 0.815066

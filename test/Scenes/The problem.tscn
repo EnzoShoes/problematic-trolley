@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b57u5832r3hb7"]
+[gd_scene load_steps=7 format=3 uid="uid://cwjbd58dpvslw"]
 
 [ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Sprites/Background.png" id="1_ey8m2"]
 [ext_resource type="Texture2D" uid="uid://dv3bbi1vpekej" path="res://Assets/Sprites/rails_sprite.png" id="2_b664q"]
 [ext_resource type="Texture2D" uid="uid://3jlkf5b3468g" path="res://Assets/Sprites/Trolley/troley_side.png" id="4_ht758"]
+[ext_resource type="PackedScene" uid="uid://b5v5lh1cltbg8" path="res://Scenes/victims/victim.tscn" id="4_orfjt"]
+[ext_resource type="Resource" uid="uid://bkgghrgcsv3kb" path="res://resources/regular_dude.tres" id="5_ie74v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k7imb"]
 animations = [{
@@ -36,3 +38,7 @@ texture = ExtResource("2_b664q")
 position = Vector2(-144, 0)
 sprite_frames = SubResource("SpriteFrames_k7imb")
 animation = &"Turn down"
+
+[node name="victim" parent="." instance=ExtResource("4_orfjt")]
+position = Vector2(1, -1)
+ressource = ExtResource("5_ie74v")

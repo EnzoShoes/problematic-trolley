@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://b5v5lh1cltbg8"]
+
+[ext_resource type="Script" path="res://Scripts/victim.gd" id="1_37lrr"]
+[ext_resource type="PackedScene" uid="uid://cqqaoc2sbhmty" path="res://Assets/Sprites/Bloodsplats/Blood_explosion_animation/blood_explosion.tscn" id="1_snshh"]
+[ext_resource type="Resource" uid="uid://yp5qwrwufrcq" path="res://resources/rich_dude.tres" id="2_12sah"]
+[ext_resource type="Texture2D" uid="uid://bgufjrs23bqu8" path="res://Assets/Sprites/Bloodsplats/blood_splat_1.png" id="2_fv3ol"]
+[ext_resource type="Texture2D" uid="uid://cgjh5jtsdt418" path="res://Assets/Sprites/Victims/dude.png" id="2_p7oat"]
+[ext_resource type="Texture2D" uid="uid://b7u00arfjsmie" path="res://Assets/Sprites/Victims/dude_dead_upperbody.png" id="3_ldx5q"]
+[ext_resource type="Texture2D" uid="uid://2jndc7nh6ba" path="res://Assets/Sprites/Bloodsplats/blood_splat_2.png" id="3_wrlca"]
+[ext_resource type="Texture2D" uid="uid://dm2vqm8fk1pfu" path="res://Assets/Sprites/Victims/dude_dead_lowerbody.png" id="4_40mda"]
+[ext_resource type="Texture2D" uid="uid://cn3i7t3l34c72" path="res://Assets/Sprites/Bloodsplats/blood_splat_3.png" id="4_kn8al"]
+[ext_resource type="Texture2D" uid="uid://clsq0jpt5psba" path="res://Assets/Sprites/Bloodsplats/blood_splat_4.png" id="5_sb67r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w8nsf"]
+radius = 6.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qreu0"]
+radius = 5.0
+height = 16.0
+
+[node name="victim" type="Node2D"]
+script = ExtResource("1_37lrr")
+ressource = ExtResource("2_12sah")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="blood_1" type="Sprite2D" parent="Node2D"]
+visible = false
+texture = ExtResource("2_fv3ol")
+
+[node name="blood_2" type="Sprite2D" parent="Node2D"]
+visible = false
+texture = ExtResource("3_wrlca")
+
+[node name="blood_3" type="Sprite2D" parent="Node2D"]
+visible = false
+texture = ExtResource("4_kn8al")
+
+[node name="blood_4" type="Sprite2D" parent="Node2D"]
+visible = false
+texture = ExtResource("5_sb67r")
+
+[node name="blood_explosion" parent="." instance=ExtResource("1_snshh")]
+visible = false
+frame_progress = 0.0623801
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_p7oat")
+
+[node name="dead_limbs" type="Node2D" parent="."]
+
+[node name="upper_body" type="RigidBody2D" parent="dead_limbs"]
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="dead_limbs/upper_body"]
+position = Vector2(0, -5)
+texture = ExtResource("3_ldx5q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dead_limbs/upper_body"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_w8nsf")
+
+[node name="lower_body" type="RigidBody2D" parent="dead_limbs"]
+position = Vector2(-0.5, 10.5)
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="dead_limbs/lower_body"]
+position = Vector2(0, -5)
+texture = ExtResource("4_40mda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dead_limbs/lower_body"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_w8nsf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_qreu0")
