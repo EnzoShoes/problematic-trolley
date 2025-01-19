@@ -5,14 +5,14 @@
 [ext_resource type="AudioStream" uid="uid://b4bweam1dumre" path="res://Assets/Music/Trolley Song.wav" id="3_o1mlu"]
 [ext_resource type="Script" path="res://Scripts/audio_stream_player.gd" id="4_5dr2f"]
 
-[node name="MainTest" type="Node2D"]
+[node name="Title screen MainTest" type="Node2D"]
 
-[node name="Title screen" parent="." instance=ExtResource("1_eqts2")]
+[node name="Title screen_ui" parent="." instance=ExtResource("1_eqts2")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Main Camera" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)
 texture = ExtResource("2_qe6bl")
 
