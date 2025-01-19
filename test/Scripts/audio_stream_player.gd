@@ -12,4 +12,3 @@ func _process(delta: float) -> void:
 		_set_playing(true)
 	else:
 		pass
-	
