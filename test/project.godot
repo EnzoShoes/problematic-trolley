@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Title Screen"
-run/main_scene="res://Scenes/Title Screen.tscn"
+config/name="Problematic Trolley"
+run/main_scene="res://Scenes/Title Screen/Title Screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Assets/Visual/icon.svg"
 
