@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ymutnerw8tac"]
+
+[ext_resource type="PackedScene" uid="uid://cqypb1sid4fvh" path="res://Scenes/Title Screen_UI.tscn" id="1_eqts2"]
+[ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Visual/Background.png" id="2_qe6bl"]
+[ext_resource type="AudioStream" uid="uid://b4bweam1dumre" path="res://Assets/Music/Trolley Song.wav" id="3_o1mlu"]
+[ext_resource type="Script" path="res://Scripts/audio_stream_player.gd" id="4_5dr2f"]
+
+[node name="MainTest" type="Node2D"]
+
+[node name="Title screen" parent="." instance=ExtResource("1_eqts2")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("2_qe6bl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_o1mlu")
+volume_db = -10.0
+autoplay = true
+script = ExtResource("4_5dr2f")
