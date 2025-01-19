@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsklikud5hah5"
-path="res://.godot/imported/Troley.png-e6116f6fc1c4543c386f8efdf66f6b79.ctex"
+uid="uid://cgjh5jtsdt418"
+path="res://.godot/imported/dude.png-8ab24903f3a6daa2d564beb97d8c7789.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Visual/Troley.png"
-dest_files=["res://.godot/imported/Troley.png-e6116f6fc1c4543c386f8efdf66f6b79.ctex"]
+source_file="res://Assets/Visual/Victims/dude.png"
+dest_files=["res://.godot/imported/dude.png-8ab24903f3a6daa2d564beb97d8c7789.ctex"]
 
 [params]
 
