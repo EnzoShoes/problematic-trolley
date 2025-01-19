@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b57u5832r3hb7"]
 
 [ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Sprites/Background.png" id="1_ey8m2"]
-[ext_resource type="Texture2D" uid="uid://cjic2nb0gssh7" path="res://Assets/Sprites/rails_sprite.png" id="2_b664q"]
+[ext_resource type="Texture2D" uid="uid://dv3bbi1vpekej" path="res://Assets/Sprites/rails_sprite.png" id="2_b664q"]
 [ext_resource type="Texture2D" uid="uid://3jlkf5b3468g" path="res://Assets/Sprites/Trolley/troley_side.png" id="4_ht758"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k7imb"]

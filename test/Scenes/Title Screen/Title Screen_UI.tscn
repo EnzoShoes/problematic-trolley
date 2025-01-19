@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqypb1sid4fvh"]
+[gd_scene load_steps=3 format=3 uid="uid://cqypb1sid4fvh"]
 
 [ext_resource type="Theme" uid="uid://bbcxm7ji6ltx3" path="res://Theme/Pixel_art .tres" id="1_la370"]
+[ext_resource type="Script" path="res://Scripts/title_screen.gd" id="2_ocouo"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -15,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
 theme = ExtResource("1_la370")
+script = ExtResource("2_ocouo")
 
 [node name="Title" type="Label" parent="Title screen"]
 layout_mode = 1
@@ -60,3 +62,6 @@ text = "Play"
 [node name="Quit" type="Button" parent="Title screen/Buttons/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="Title screen/Buttons/VBoxContainer/Play" to="Title screen" method="_on_play_pressed"]
+[connection signal="pressed" from="Title screen/Buttons/VBoxContainer/Quit" to="Title screen" method="_on_quit_pressed"]
