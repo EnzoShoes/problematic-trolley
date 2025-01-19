@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b57u5832r3hb7"]
+
+[ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Sprites/Background.png" id="1_ey8m2"]
+[ext_resource type="Texture2D" uid="uid://cjic2nb0gssh7" path="res://Assets/Sprites/rails_sprite.png" id="2_b664q"]
+[ext_resource type="Texture2D" uid="uid://3jlkf5b3468g" path="res://Assets/Sprites/Trolley/troley_side.png" id="4_ht758"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k7imb"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Turn down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ht758")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="The problem" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("1_ey8m2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="RailsSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_b664q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-144, 0)
+sprite_frames = SubResource("SpriteFrames_k7imb")
+animation = &"Turn down"
