@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clsq0jpt5psba"
-path="res://.godot/imported/blood_splat_4.png-e214135fc91ff4ea5fc4eaa1a2afacce.ctex"
+path="res://.godot/imported/blood_splat_4.png-0c9d190762d4a615b2fb7319396536e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Visual/Bloodsplats/blood_splat_4.png"
-dest_files=["res://.godot/imported/blood_splat_4.png-e214135fc91ff4ea5fc4eaa1a2afacce.ctex"]
+source_file="res://Assets/Sprites/Bloodsplats/blood_splat_4.png"
+dest_files=["res://.godot/imported/blood_splat_4.png-0c9d190762d4a615b2fb7319396536e0.ctex"]
 
 [params]
 
