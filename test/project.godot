@@ -13,7 +13,7 @@ config_version=5
 config/name="Problematic Trolley"
 run/main_scene="res://Scenes/Title Screen/Title Screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://Assets/Visual/icon.svg"
+config/icon="res://Assets/icon.png"
 
 [display]
 

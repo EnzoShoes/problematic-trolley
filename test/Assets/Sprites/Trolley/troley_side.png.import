@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3jlkf5b3468g"
-path="res://.godot/imported/troley_side.png-c524e74b25936ef8758c7acc607abba6.ctex"
+path="res://.godot/imported/troley_side.png-7ba6cc9530dec73de5fa1011653a6205.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Visual/Trolley/troley_side.png"
-dest_files=["res://.godot/imported/troley_side.png-c524e74b25936ef8758c7acc607abba6.ctex"]
+source_file="res://Assets/Sprites/Trolley/troley_side.png"
+dest_files=["res://.godot/imported/troley_side.png-7ba6cc9530dec73de5fa1011653a6205.ctex"]
 
 [params]
 

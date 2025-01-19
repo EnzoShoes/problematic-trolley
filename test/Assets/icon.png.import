@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2nf040o5a7rr"
-path="res://.godot/imported/elder.png-04282fb9e4e7a89ddb2ff65fde04a556.ctex"
+uid="uid://dge807315sguj"
+path="res://.godot/imported/icon.png-ec880de02d5dab0aa15458af9d6c53ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Victims/elder.png"
-dest_files=["res://.godot/imported/elder.png-04282fb9e4e7a89ddb2ff65fde04a556.ctex"]
+source_file="res://Assets/icon.png"
+dest_files=["res://.godot/imported/icon.png-ec880de02d5dab0aa15458af9d6c53ed.ctex"]
 
 [params]
 

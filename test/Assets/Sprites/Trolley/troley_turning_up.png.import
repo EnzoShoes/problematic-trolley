@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2nf040o5a7rr"
-path="res://.godot/imported/elder.png-04282fb9e4e7a89ddb2ff65fde04a556.ctex"
+uid="uid://cbo4tqqa5ab2l"
+path="res://.godot/imported/troley_turning_up.png-f3b7e4abd7c5a371f256062ceb4a122f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Victims/elder.png"
-dest_files=["res://.godot/imported/elder.png-04282fb9e4e7a89ddb2ff65fde04a556.ctex"]
+source_file="res://Assets/Sprites/Trolley/troley_turning_up.png"
+dest_files=["res://.godot/imported/troley_turning_up.png-f3b7e4abd7c5a371f256062ceb4a122f.ctex"]
 
 [params]
 

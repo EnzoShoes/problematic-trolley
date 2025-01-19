@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2nf040o5a7rr"
-path="res://.godot/imported/elder.png-04282fb9e4e7a89ddb2ff65fde04a556.ctex"
+uid="uid://3qrohdl406lt"
+path="res://.godot/imported/blood_explosion0001.png-3eb0545790469f54033e86f30eae77c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Victims/elder.png"
-dest_files=["res://.godot/imported/elder.png-04282fb9e4e7a89ddb2ff65fde04a556.ctex"]
+source_file="res://Assets/Sprites/Bloodsplats/Blood_explosion_animation/blood_explosion0001.png"
+dest_files=["res://.godot/imported/blood_explosion0001.png-3eb0545790469f54033e86f30eae77c5.ctex"]
 
 [params]
 

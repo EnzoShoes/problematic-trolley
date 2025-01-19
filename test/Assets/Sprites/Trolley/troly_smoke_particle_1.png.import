@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2nf040o5a7rr"
-path="res://.godot/imported/elder.png-04282fb9e4e7a89ddb2ff65fde04a556.ctex"
+uid="uid://bi11vpi45ku6s"
+path="res://.godot/imported/troly_smoke_particle_1.png-8e77c3f2b5c752479bac9d596c0b04bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Victims/elder.png"
-dest_files=["res://.godot/imported/elder.png-04282fb9e4e7a89ddb2ff65fde04a556.ctex"]
+source_file="res://Assets/Sprites/Trolley/troly_smoke_particle_1.png"
+dest_files=["res://.godot/imported/troly_smoke_particle_1.png-8e77c3f2b5c752479bac9d596c0b04bd.ctex"]
 
 [params]
 
