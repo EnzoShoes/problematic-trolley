@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://di0y6j23jgm"]
+
+[ext_resource type="PackedScene" uid="uid://b5v5lh1cltbg8" path="res://Scenes/victims/victim.tscn" id="1_ffd8c"]
+[ext_resource type="Resource" uid="uid://6po3ti6ub4ik" path="res://resources/baby.tres" id="2_alkx3"]
+[ext_resource type="Resource" uid="uid://qgpse82pir8n" path="res://resources/bad_dude.tres" id="3_uvqjr"]
+[ext_resource type="Resource" uid="uid://c7vhveli6eh25" path="res://resources/old_dude.tres" id="4_0g04c"]
+[ext_resource type="Resource" uid="uid://bkgghrgcsv3kb" path="res://resources/regular_dude.tres" id="5_2mf2k"]
+
+[node name="Victims" type="Node2D"]
+
+[node name="victim" parent="." instance=ExtResource("1_ffd8c")]
+position = Vector2(28, -33)
+ressource = ExtResource("2_alkx3")
+
+[node name="victim2" parent="." instance=ExtResource("1_ffd8c")]
+position = Vector2(97, -33)
+ressource = ExtResource("3_uvqjr")
+
+[node name="victim3" parent="." instance=ExtResource("1_ffd8c")]
+position = Vector2(81, -33)
+ressource = ExtResource("4_0g04c")
+
+[node name="victim4" parent="." instance=ExtResource("1_ffd8c")]
+position = Vector2(64, -33)
+ressource = ExtResource("5_2mf2k")
+
+[node name="victim5" parent="." instance=ExtResource("1_ffd8c")]
+position = Vector2(46, -33)
+
+[node name="victim6" parent="." instance=ExtResource("1_ffd8c")]
+position = Vector2(67, 31)
