@@ -32,9 +32,26 @@ zoom = Vector2(3, 3)
 [node name="RailsSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_b664q")
 
-[node name="victim" parent="." instance=ExtResource("4_orfjt")]
+[node name="Victims" type="Node2D" parent="."]
+
+[node name="victim" parent="Victims" instance=ExtResource("4_orfjt")]
 position = Vector2(28, -33)
 ressource = ExtResource("5_ie74v")
+
+[node name="victim2" parent="Victims" instance=ExtResource("4_orfjt")]
+position = Vector2(97, -33)
+
+[node name="victim3" parent="Victims" instance=ExtResource("4_orfjt")]
+position = Vector2(81, -33)
+
+[node name="victim4" parent="Victims" instance=ExtResource("4_orfjt")]
+position = Vector2(64, -33)
+
+[node name="victim5" parent="Victims" instance=ExtResource("4_orfjt")]
+position = Vector2(46, -33)
+
+[node name="victim6" parent="Victims" instance=ExtResource("4_orfjt")]
+position = Vector2(67, 31)
 
 [node name="DownPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_o0a8p")

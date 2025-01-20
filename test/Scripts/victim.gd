@@ -9,7 +9,7 @@ extends Node2D
 @onready var blood_1: Sprite2D = $Node2D/blood_1
 
 @export var ressource: Resource
-@export var explosion_force: int
+var explosion_force: int = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,8 +30,8 @@ func death():
 	sprite_2d.visible = false
 	lower_body.visible = true
 	upper_body.visible = true
-	lower_body.apply_impulse(Vector2.DOWN * explosion_force)
-	upper_body.apply_impulse(Vector2.UP * explosion_force)
+	lower_body.apply_impulse(Vector2.DOWN  * explosion_force, lower_body.center_of_mass)
+	upper_body.apply_impulse(Vector2.UP * explosion_force, upper_body.center_of_mass)
 	blood_explosion.visible = true
 	blood_explosion.play("blood_explosion")
 	blood_1.visible = true

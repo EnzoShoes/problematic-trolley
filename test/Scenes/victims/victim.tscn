@@ -21,7 +21,6 @@ height = 16.0
 [node name="victim" type="Node2D"]
 script = ExtResource("1_37lrr")
 ressource = ExtResource("2_12sah")
-explosion_force = 40
 
 [node name="Node2D" type="Node2D" parent="."]
 
