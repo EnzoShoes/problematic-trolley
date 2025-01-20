@@ -36,7 +36,10 @@ func death():
 	blood_explosion.visible = true
 	blood_explosion.play("blood_explosion")
 	# need to choose between the multiple blood splats for a more appealing result
-	blood_1.visible = true
+	var chosen_blood : int = randi_range(1,4)
+	print(chosen_blood)
+	var chosen_blood_node = get_node("Node2D/blood_"+ str(chosen_blood))
+	chosen_blood_node.visible = true
 	pass
 	
 
