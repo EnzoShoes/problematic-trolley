@@ -9,13 +9,13 @@
 
 [sub_resource type="Curve2D" id="Curve2D_o0a8p"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -160, 0, 0, 0, 0, 0, -57, 0, 0, 0, 0, 0, -54, 32, 0, 0, 0, 0, 175, 32)
+"points": PackedVector2Array(0, 0, 0, 0, -160, 0, 0, 0, 0, 0, -57, 0, 0, 0, 0, 0, -57, 32, 0, 0, 0, 0, 175, 32)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_5k05q"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -160, 0, 0, 0, 0, 0, -57, 0, 0, 0, 0, 0, -55, -32, 0, 0, 0, 0, 174, -32)
+"points": PackedVector2Array(0, 0, 0, 0, -160, 0, 0, 0, 0, 0, -57, 0, 0, 0, 0, 0, -57, -32, 0, 0, 0, 0, 174, -32)
 }
 point_count = 4
 
@@ -58,6 +58,7 @@ curve = SubResource("Curve2D_o0a8p")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="DownPath"]
 position = Vector2(-160, 0)
+rotates = false
 loop = false
 
 [node name="UpPath" type="Path2D" parent="."]
@@ -65,6 +66,8 @@ curve = SubResource("Curve2D_5k05q")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="UpPath"]
 position = Vector2(-160, 0)
+rotates = false
 loop = false
 
 [node name="Trolley" parent="." instance=ExtResource("6_t8f22")]
+unique_name_in_owner = true
