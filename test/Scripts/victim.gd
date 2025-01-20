@@ -45,7 +45,3 @@ func _on_area_2d_area_entered(area: Area2D) -> void: #triggers the death method 
 	print("area entered in victim")
 	if area.is_in_group("player"):
 		death()
-		return
-	else:
-		print("area wasnt the player")
-		return
