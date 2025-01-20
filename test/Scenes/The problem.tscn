@@ -1,27 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b57u5832r3hb7"]
+[gd_scene load_steps=9 format=3 uid="uid://cwjbd58dpvslw"]
 
 [ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Sprites/Background.png" id="1_ey8m2"]
 [ext_resource type="Script" path="res://Scripts/the_problem.gd" id="1_yeojl"]
 [ext_resource type="Texture2D" uid="uid://dv3bbi1vpekej" path="res://Assets/Sprites/rails_sprite.png" id="2_b664q"]
-[ext_resource type="Texture2D" uid="uid://3jlkf5b3468g" path="res://Assets/Sprites/Trolley/troley_side.png" id="4_ht758"]
 [ext_resource type="PackedScene" uid="uid://b5v5lh1cltbg8" path="res://Scenes/victims/victim.tscn" id="4_orfjt"]
 [ext_resource type="Resource" uid="uid://bkgghrgcsv3kb" path="res://resources/regular_dude.tres" id="5_ie74v"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_k7imb"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"Turn down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_ht758")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://cah4mpd32e14d" path="res://Scenes/trolley.tscn" id="6_t8f22"]
 
 [sub_resource type="Curve2D" id="Curve2D_o0a8p"]
 _data = {
@@ -48,14 +32,8 @@ zoom = Vector2(3, 3)
 [node name="RailsSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_b664q")
 
-[node name="Trolley" type="AnimatedSprite2D" parent="."]
-position = Vector2(-160, 0)
-rotation = -0.00970843
-sprite_frames = SubResource("SpriteFrames_k7imb")
-offset = Vector2(2.35229, -10.0744)
-
 [node name="victim" parent="." instance=ExtResource("4_orfjt")]
-position = Vector2(1, -1)
+position = Vector2(28, -33)
 ressource = ExtResource("5_ie74v")
 
 [node name="DownPath" type="Path2D" parent="."]
@@ -73,3 +51,5 @@ curve = SubResource("Curve2D_5k05q")
 position = Vector2(-160, 0)
 rotation = -0.00970843
 loop = false
+
+[node name="Trolley" parent="." instance=ExtResource("6_t8f22")]

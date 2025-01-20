@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://clsq0jpt5psba" path="res://Assets/Sprites/Bloodsplats/blood_splat_4.png" id="5_sb67r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w8nsf"]
-radius = 6.0
+radius = 4.52769
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qreu0"]
 radius = 5.0
@@ -21,6 +21,7 @@ height = 16.0
 [node name="victim" type="Node2D"]
 script = ExtResource("1_37lrr")
 ressource = ExtResource("2_12sah")
+explosion_force = 40
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -42,6 +43,7 @@ texture = ExtResource("5_sb67r")
 
 [node name="blood_explosion" parent="." instance=ExtResource("1_snshh")]
 visible = false
+autoplay = ""
 frame_progress = 0.0623801
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -50,9 +52,11 @@ texture = ExtResource("2_p7oat")
 [node name="dead_limbs" type="Node2D" parent="."]
 
 [node name="upper_body" type="RigidBody2D" parent="dead_limbs"]
+visible = false
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
+linear_damp = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="dead_limbs/upper_body"]
 position = Vector2(0, -5)
@@ -63,20 +67,24 @@ position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_w8nsf")
 
 [node name="lower_body" type="RigidBody2D" parent="dead_limbs"]
+visible = false
 position = Vector2(-0.5, 10.5)
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
+linear_damp = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="dead_limbs/lower_body"]
 position = Vector2(0, -5)
 texture = ExtResource("4_40mda")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dead_limbs/lower_body"]
-position = Vector2(0, -5)
+position = Vector2(0.5, -4.5)
 shape = SubResource("CircleShape2D_w8nsf")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_qreu0")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

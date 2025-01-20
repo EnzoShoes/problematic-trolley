@@ -24,7 +24,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_0mg2q")
 }],
-"loop": true,
+"loop": false,
 "name": &"blood_explosion",
 "speed": 12.0
 }, {
