@@ -9,7 +9,8 @@ radius = 4.52769
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
-linear_damp = 4.0
+linear_damp = 6.44
+angular_damp = 6.975
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_hp6jx")

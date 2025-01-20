@@ -11,7 +11,7 @@ extends Node2D
 
 @export var ressource: Resource
 var explosion_force: int = 100
-
+var explosion_randomness: float = 0.5 #0 = no random ; 1 = full random
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	upper_body_sprite.texture = ressource.sprite_dead_upper
@@ -32,15 +32,18 @@ func death():
 	lower_body.visible = true
 	upper_body.visible = true
 	# I want to add randomness to the impulse so it is more realistic but cant manage to do it 
-	lower_body.apply_impulse(Vector2.DOWN  * explosion_force)
-	upper_body.apply_impulse(Vector2.UP * explosion_force)
+	lower_body.apply_impulse((Vector2.DOWN +Vector2(randf_range(-explosion_randomness,explosion_randomness),0)) * explosion_force, Vector2(randf_range(-explosion_randomness,explosion_randomness), randf_range(-explosion_randomness,explosion_randomness)))
+
+	upper_body.apply_impulse((Vector2.UP +Vector2(randf_range(-explosion_randomness,explosion_randomness),0)) * explosion_force, Vector2(randf_range(-explosion_randomness,explosion_randomness), randf_range(-explosion_randomness,explosion_randomness)))
+
 	blood_explosion.visible = true
 	blood_explosion.play("blood_explosion")
-	# need to choose between the multiple blood splats for a more appealing result
+	
 	var chosen_blood : int = randi_range(1,4)
 	print(chosen_blood)
 	var chosen_blood_node = get_node("Node2D/blood_"+ str(chosen_blood))
 	chosen_blood_node.visible = true
+	
 	if audio_stream_player.playing == false:
 		audio_stream_player.play()
 	
