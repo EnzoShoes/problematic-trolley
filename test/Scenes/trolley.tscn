@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cah4mpd32e14d"]
+[gd_scene load_steps=16 format=3 uid="uid://cah4mpd32e14d"]
 
 [ext_resource type="Texture2D" uid="uid://3jlkf5b3468g" path="res://Assets/Sprites/Trolley/troley_side.png" id="1_x5ib5"]
 [ext_resource type="Texture2D" uid="uid://cjy017tjdqn3h" path="res://Assets/Sprites/Trolley/troley_turning_down.png" id="2_yv6h1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cbo4tqqa5ab2l" path="res://Assets/Sprites/Trolley/troley_turning_up.png" id="4_t4lm6"]
 [ext_resource type="Texture2D" uid="uid://cox6j1gqsdcvi" path="res://Assets/Sprites/Trolley/troley_up.png" id="5_oqnm0"]
 [ext_resource type="Script" path="res://Scenes/animation_player.gd" id="6_7aifo"]
+[ext_resource type="Texture2D" uid="uid://bi11vpi45ku6s" path="res://Assets/Sprites/Trolley/troly_smoke_particle_1.png" id="7_k7e6q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k7imb"]
 animations = [{
@@ -38,6 +39,39 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tggoq"]
 radius = 8.0
 
+[sub_resource type="Curve" id="Curve_6y6x6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.619718, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4rthj"]
+curve = SubResource("Curve_6y6x6")
+
+[sub_resource type="CurveTexture" id="CurveTexture_3p32a"]
+
+[sub_resource type="Curve" id="Curve_i2k82"]
+max_value = 2.0
+_data = [Vector2(0.0028169, 0.701427), 0.0, 0.0, 0, 0, Vector2(0.994366, 1.32931), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jhk6h"]
+curve = SubResource("Curve_i2k82")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4yki0"]
+lifetime_randomness = 0.14
+particle_flag_disable_z = true
+direction = Vector3(1, -10, 0)
+spread = 10.0
+initial_velocity_min = 33.25
+initial_velocity_max = 40.92
+gravity = Vector3(0, 0, 0)
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_jhk6h")
+alpha_curve = SubResource("CurveTexture_4rthj")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+hue_variation_curve = SubResource("CurveTexture_3p32a")
+
 [node name="Trolley" type="AnimatedSprite2D"]
 position = Vector2(-160, 0)
 sprite_frames = SubResource("SpriteFrames_k7imb")
@@ -51,3 +85,10 @@ shape = SubResource("CircleShape2D_tggoq")
 
 [node name="animation_player" type="Node2D" parent="."]
 script = ExtResource("6_7aifo")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(6, -22)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_4yki0")
+texture = ExtResource("7_k7e6q")
+lifetime = 2.0
