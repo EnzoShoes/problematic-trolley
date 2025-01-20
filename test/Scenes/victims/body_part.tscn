@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://vcvdojw0j4jv"]
+
+[ext_resource type="Texture2D" uid="uid://b7u00arfjsmie" path="res://Assets/Sprites/Victims/dude_dead_upperbody.png" id="1_hp6jx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w8nsf"]
+radius = 4.52769
+
+[node name="upper_body" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+linear_damp = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hp6jx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w8nsf")
