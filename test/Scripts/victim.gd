@@ -7,6 +7,7 @@ extends Node2D
 @onready var lower_body: RigidBody2D = $dead_limbs/lower_body
 @onready var blood_explosion: AnimatedSprite2D = $blood_explosion
 @onready var blood_1: Sprite2D = $Node2D/blood_1
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 @export var ressource: Resource
 var explosion_force: int = 100
@@ -40,9 +41,10 @@ func death():
 	print(chosen_blood)
 	var chosen_blood_node = get_node("Node2D/blood_"+ str(chosen_blood))
 	chosen_blood_node.visible = true
-	pass
+	if audio_stream_player.playing == false:
+		audio_stream_player.play()
 	
-
+	pass
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	print("area entered in victim")
