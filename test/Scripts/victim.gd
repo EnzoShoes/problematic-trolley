@@ -30,10 +30,12 @@ func death():
 	sprite_2d.visible = false
 	lower_body.visible = true
 	upper_body.visible = true
+	# I want to add randomness to the impulse so it is more realistic but cant manage to do it 
 	lower_body.apply_impulse(Vector2.DOWN  * explosion_force, lower_body.center_of_mass)
 	upper_body.apply_impulse(Vector2.UP * explosion_force, upper_body.center_of_mass)
 	blood_explosion.visible = true
 	blood_explosion.play("blood_explosion")
+	# need to choose between the multiple blood splats for a more appealing result
 	blood_1.visible = true
 	pass
 	
