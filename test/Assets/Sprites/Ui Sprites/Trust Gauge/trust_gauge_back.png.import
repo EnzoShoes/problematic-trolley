@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db66k1inn830b"
-path="res://.godot/imported/trust_gauge_frame.png-1646ce0b2e33ed13748864e7e7fb5a57.ctex"
+uid="uid://dpfr2at4pacn2"
+path="res://.godot/imported/trust_gauge_back.png-5902226ed4064d982011a89a487f290d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Trust Gauge/trust_gauge_frame.png"
-dest_files=["res://.godot/imported/trust_gauge_frame.png-1646ce0b2e33ed13748864e7e7fb5a57.ctex"]
+source_file="res://Assets/Sprites/Ui Sprites/Trust Gauge/trust_gauge_back.png"
+dest_files=["res://.godot/imported/trust_gauge_back.png-5902226ed4064d982011a89a487f290d.ctex"]
 
 [params]
 

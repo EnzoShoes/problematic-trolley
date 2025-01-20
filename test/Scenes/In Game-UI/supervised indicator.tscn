@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bejr8bpjpjl1m"]
+
+[ext_resource type="Texture2D" uid="uid://rta0fk8bo252" path="res://Assets/Sprites/Ui Sprites/Superivsed Icon/supervised1.png" id="1_echfb"]
+[ext_resource type="Texture2D" uid="uid://3d0kt7n3hkj8" path="res://Assets/Sprites/Ui Sprites/Superivsed Icon/supervised2.png" id="2_3xbsu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rf5w0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_echfb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3xbsu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Supervised indicator" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(-21.3333, 13.3333)
+sprite_frames = SubResource("SpriteFrames_rf5w0")
+autoplay = "default"
+frame_progress = 0.0913195
