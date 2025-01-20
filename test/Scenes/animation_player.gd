@@ -21,8 +21,6 @@ func _process(delta: float) -> void:
 		trolley.frame = 1
 	elif direction.normalized().y < 0 and direction.normalized().y != -1:
 		trolley.frame = 3
-	elif direction.normalized().x < 0:
-		trolley.frame = 0
 	else:
 		trolley.frame = 0
 
