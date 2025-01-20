@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciklr34io8d5n"
-path="res://.godot/imported/freedom_gauge_frame.png-ce886bddffe694230b51a10b995c43ab.ctex"
+uid="uid://3d0kt7n3hkj8"
+path="res://.godot/imported/supervised2.png-610f023c2ff18dc079272c8011c6aa1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Freedom Gauge/freedom_gauge_frame.png"
-dest_files=["res://.godot/imported/freedom_gauge_frame.png-ce886bddffe694230b51a10b995c43ab.ctex"]
+source_file="res://Assets/Sprites/Ui Sprites/Superivsed Icon/supervised2.png"
+dest_files=["res://.godot/imported/supervised2.png-610f023c2ff18dc079272c8011c6aa1b.ctex"]
 
 [params]
 

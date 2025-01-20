@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4sulu48tajai"
-path="res://.godot/imported/freedom_gauge_back.png-3ef4c610a668537aebfc9dcc8f3b51f3.ctex"
+uid="uid://dpfr2at4pacn2"
+path="res://.godot/imported/trust_gauge_back.png-5902226ed4064d982011a89a487f290d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Freedom Gauge/freedom_gauge_back.png"
-dest_files=["res://.godot/imported/freedom_gauge_back.png-3ef4c610a668537aebfc9dcc8f3b51f3.ctex"]
+source_file="res://Assets/Sprites/Ui Sprites/Trust Gauge/trust_gauge_back.png"
+dest_files=["res://.godot/imported/trust_gauge_back.png-5902226ed4064d982011a89a487f290d.ctex"]
 
 [params]
 
