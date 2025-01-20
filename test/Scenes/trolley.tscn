@@ -23,7 +23,6 @@ radius = 8.0
 
 [node name="Trolley" type="AnimatedSprite2D"]
 position = Vector2(-160, 0)
-rotation = -0.00970843
 sprite_frames = SubResource("SpriteFrames_k7imb")
 offset = Vector2(2.35229, -10.0744)
 
