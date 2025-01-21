@@ -27,8 +27,9 @@ func _ready() -> void:
 
 func death():
 	animated_sprite_2d.visible = false #makes the main sprite go away because the character is dead and we want to display the dead sprite
-	lower_body.visible = true #displays the dead sprites
-	upper_body.visible = true
+	if ressource.have_dead_limbs:
+		lower_body.visible = true #displays the dead sprites
+		upper_body.visible = true
 	
 	#create the impulse and adds randomness to it
 	lower_body.apply_impulse((Vector2.DOWN +Vector2(randf_range(-explosion_randomness,explosion_randomness),0)) * explosion_force, Vector2(randf_range(-explosion_randomness,explosion_randomness), randf_range(-explosion_randomness,explosion_randomness)))
