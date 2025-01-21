@@ -14,13 +14,13 @@
 
 [sub_resource type="Curve2D" id="Curve2D_o0a8p"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -160, 0, 0, 0, 0, 0, -57, 0, 0, 0, 0, 0, -57, 32, 0, 0, 0, 0, 175, 32)
+"points": PackedVector2Array(0, 0, 0, 0, -160, 0, 0, 0, 0, 0, -57, 0, 0, 0, 0, 0, -57, 32, 0, 0, 0, 0, 233, 32)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_5k05q"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -160, 0, 0, 0, 0, 0, -57, 0, 0, 0, 0, 0, -57, -32, 0, 0, 0, 0, 174, -32)
+"points": PackedVector2Array(0, 0, 0, 0, -160, 0, 0, 0, 0, 0, -57, 0, 0, 0, 0, 0, -57, -32, 0, 0, 0, 0, 232, -32)
 }
 point_count = 4
 
@@ -106,13 +106,13 @@ position = Vector2(133, 32)
 [node name="Gauges" parent="." instance=ExtResource("4_ka6ww")]
 
 [node name="good_choice" type="Area2D" parent="."]
-position = Vector2(180, -32)
+position = Vector2(173, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="good_choice"]
 shape = SubResource("CircleShape2D_4aeny")
 
 [node name="bad_choice" type="Area2D" parent="."]
-position = Vector2(182, 32)
+position = Vector2(174, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bad_choice"]
 shape = SubResource("CircleShape2D_xsr0y")

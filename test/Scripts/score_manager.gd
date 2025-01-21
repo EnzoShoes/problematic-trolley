@@ -46,10 +46,5 @@ func update_best_freedom_score():
 
 func _on_good_choice_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		area.monitoring = false
 		add_score(1)
-
-func _on_good_choice_area_exited(area: Area2D) -> void:
-	area.monitoring = true
-	print("exited")
-	pass # Replace with function body.
+		print(area)

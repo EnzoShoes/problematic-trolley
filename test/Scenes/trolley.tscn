@@ -93,7 +93,9 @@ shape = SubResource("CircleShape2D_tggoq")
 script = ExtResource("6_7aifo")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
 position = Vector2(6, -22)
+emitting = false
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_4yki0")
 texture = ExtResource("7_k7e6q")
