@@ -20,7 +20,8 @@ func _ready() -> void:
 	upper_body_sprite.texture = ressource.sprite_dead_upper
 	lower_body_sprite.texture = ressource.sprite_dead_lower
 	sprite_2d.sprite_frames = ressource.sprite_alive
-	sprite_2d.play("default")
+	sprite_2d.play("default", randf_range(0.90,1.10))
+	sprite_2d.frame = randi_range(0, sprite_2d.sprite_frames.get_frame_count("default")-1)
 
 func death():
 	sprite_2d.visible = false #makes the main sprite go away because the character is dead and we want to display the dead sprite
