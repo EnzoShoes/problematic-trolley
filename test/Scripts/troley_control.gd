@@ -10,7 +10,7 @@ func _ready() -> void:
 	initialTrolleyPos = trolley.position
 	pass # Replace with function body.
 	
-var speed = 0.5
+var speed = 0.8
 var path_selected : PathFollow2D = null
 
 func update_trolley_path():
@@ -34,7 +34,7 @@ func update_trolley_path():
 func _process(delta: float) -> void:
 	update_trolley_path()
 	if (path_selected != null):
-		path_selected.progress_ratio += delta * speed
+		path_selected.progress_ratio += delta * speed * ((path_selected.progress_ratio + 0.1))
 		if (path_selected.progress_ratio == 1):
 			# Detach trolley from path and reset position
 			trolley.get_parent().remove_child(trolley)

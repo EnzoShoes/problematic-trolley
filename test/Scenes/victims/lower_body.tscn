@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3ayce3pbq40o"]
+
+[ext_resource type="PackedScene" uid="uid://vcvdojw0j4jv" path="res://Scenes/victims/body_part.tscn" id="1_6svt7"]
+
+[node name="upper_body" instance=ExtResource("1_6svt7")]
+
+[node name="GPUParticles2D" parent="." index="2"]
+position = Vector2(0, -5)
+rotation = -2.82503

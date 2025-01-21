@@ -1,9 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://vcvdojw0j4jv"]
+[gd_scene load_steps=4 format=3 uid="uid://vcvdojw0j4jv"]
 
 [ext_resource type="Texture2D" uid="uid://b7u00arfjsmie" path="res://Assets/Sprites/Victims/dude_dead_upperbody.png" id="1_hp6jx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w8nsf"]
 radius = 4.52769
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d8rmd"]
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+velocity_pivot = Vector3(5, 5, 0)
+direction = Vector3(1, 10, 0)
+spread = 75.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+damping_min = 2.0
+damping_max = 10.0
+color = Color(0.678431, 0, 0, 1)
 
 [node name="upper_body" type="RigidBody2D"]
 collision_layer = 2
@@ -17,3 +32,9 @@ texture = ExtResource("1_hp6jx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_w8nsf")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, 5)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_d8rmd")
+lifetime = 5.0
