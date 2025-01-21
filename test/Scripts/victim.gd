@@ -3,7 +3,7 @@ extends Node2D
 @onready var area_2d: Area2D = $Area2D
 @onready var upper_body_sprite: Sprite2D = $dead_limbs/upper_body/Sprite2D
 @onready var lower_body_sprite: Sprite2D = $dead_limbs/lower_body/Sprite2D
-@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var upper_body: RigidBody2D = $dead_limbs/upper_body
 @onready var lower_body: RigidBody2D = $dead_limbs/lower_body
 @onready var blood_explosion: AnimatedSprite2D = $blood_explosion
@@ -15,16 +15,18 @@ var explosion_force: int = 100
 var explosion_randomness: float = 0.5 #0 = no random ; 1 = full random
 var living_status : bool = true
 
+const anim_speed_rand:float = 0.1
+
 func _ready() -> void:
-	# loading the texture from the chosen ressource file because many resources could be used, this script is the same for all types of victims
+	# loading the textures from the chosen ressource file because many resources could be used, this script is the same for all types of victims
 	upper_body_sprite.texture = ressource.sprite_dead_upper
 	lower_body_sprite.texture = ressource.sprite_dead_lower
-	sprite_2d.sprite_frames = ressource.sprite_alive
-	sprite_2d.play("default", randf_range(0.90,1.10))
-	sprite_2d.frame = randi_range(0, sprite_2d.sprite_frames.get_frame_count("default")-1)
+	animated_sprite_2d.sprite_frames = ressource.sprite_alive 	#loading the anim
+	animated_sprite_2d.play("default", randf_range(1-anim_speed_rand,1+anim_speed_rand))	#playing the anim with rand speed
+	animated_sprite_2d.frame = randi_range(0, animated_sprite_2d.sprite_frames.get_frame_count("default")-1) #starting anim at random frame
 
 func death():
-	sprite_2d.visible = false #makes the main sprite go away because the character is dead and we want to display the dead sprite
+	animated_sprite_2d.visible = false #makes the main sprite go away because the character is dead and we want to display the dead sprite
 	lower_body.visible = true #displays the dead sprites
 	upper_body.visible = true
 	
