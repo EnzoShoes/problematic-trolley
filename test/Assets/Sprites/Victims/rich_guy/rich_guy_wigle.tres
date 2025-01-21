@@ -1,0 +1,38 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://b3rqovyraalay"]
+
+[ext_resource type="Texture2D" uid="uid://cm8vp0yhx2ssl" path="res://Assets/Sprites/Victims/rich_guy/rich_guy0000.png" id="1_t3ilf"]
+[ext_resource type="Texture2D" uid="uid://c0rjiknrbsgis" path="res://Assets/Sprites/Victims/rich_guy/rich_guy0001.png" id="2_4i3w0"]
+[ext_resource type="Texture2D" uid="uid://0781hatqggvk" path="res://Assets/Sprites/Victims/rich_guy/rich_guy0002.png" id="3_v3gnk"]
+[ext_resource type="Texture2D" uid="uid://ta1hievx84rc" path="res://Assets/Sprites/Victims/rich_guy/rich_guy0003.png" id="4_bi5j3"]
+[ext_resource type="Texture2D" uid="uid://bxe3wf18dp338" path="res://Assets/Sprites/Victims/rich_guy/rich_guy0004.png" id="5_hhj4k"]
+[ext_resource type="Texture2D" uid="uid://crj66iig7mxxs" path="res://Assets/Sprites/Victims/rich_guy/rich_guy0005.png" id="6_f4u8t"]
+[ext_resource type="Texture2D" uid="uid://dqnnyp36c87v2" path="res://Assets/Sprites/Victims/rich_guy/rich_guy0006.png" id="7_0i7wt"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t3ilf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4i3w0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_v3gnk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bi5j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hhj4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f4u8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0i7wt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]

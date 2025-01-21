@@ -1,0 +1,34 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://b1xe53xep2fyv"]
+
+[ext_resource type="Texture2D" uid="uid://3txk3a1xxjdi" path="res://Assets/Sprites/Victims/baby/baby_wigle0000.png" id="1_wh74d"]
+[ext_resource type="Texture2D" uid="uid://chth4lomjoo0i" path="res://Assets/Sprites/Victims/baby/baby_wigle0001.png" id="2_dko44"]
+[ext_resource type="Texture2D" uid="uid://b0f7k2q8aqejj" path="res://Assets/Sprites/Victims/baby/baby_wigle0002.png" id="3_sad76"]
+[ext_resource type="Texture2D" uid="uid://dxogg5156k20d" path="res://Assets/Sprites/Victims/baby/baby_wigle0003.png" id="4_r7egh"]
+[ext_resource type="Texture2D" uid="uid://bonas6643l0ag" path="res://Assets/Sprites/Victims/baby/baby_wigle0004.png" id="5_itra1"]
+[ext_resource type="Texture2D" uid="uid://k80vj43mc6x5" path="res://Assets/Sprites/Victims/baby/baby_wigle0005.png" id="6_50s5j"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wh74d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dko44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sad76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r7egh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_itra1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_50s5j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]

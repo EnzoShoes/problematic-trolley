@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://cqqaoc2sbhmty" path="res://Assets/Sprites/Bloodsplats/Blood_explosion_animation/blood_explosion.tscn" id="1_snshh"]
 [ext_resource type="Resource" uid="uid://yp5qwrwufrcq" path="res://resources/rich_dude.tres" id="2_12sah"]
 [ext_resource type="Texture2D" uid="uid://bgufjrs23bqu8" path="res://Assets/Sprites/Bloodsplats/blood_splat_1.png" id="2_fv3ol"]
-[ext_resource type="Texture2D" uid="uid://cgjh5jtsdt418" path="res://Assets/Sprites/Victims/dude.png" id="2_p7oat"]
 [ext_resource type="Texture2D" uid="uid://2jndc7nh6ba" path="res://Assets/Sprites/Bloodsplats/blood_splat_2.png" id="3_wrlca"]
 [ext_resource type="Texture2D" uid="uid://cn3i7t3l34c72" path="res://Assets/Sprites/Bloodsplats/blood_splat_3.png" id="4_kn8al"]
 [ext_resource type="Texture2D" uid="uid://clsq0jpt5psba" path="res://Assets/Sprites/Bloodsplats/blood_splat_4.png" id="5_sb67r"]
+[ext_resource type="SpriteFrames" uid="uid://caphkmc3msy5w" path="res://Assets/Sprites/Victims/regular_guy/regular_guy_wigle.tres" id="8_8qphg"]
 [ext_resource type="PackedScene" uid="uid://vcvdojw0j4jv" path="res://Scenes/victims/body_part.tscn" id="9_xj6l5"]
 [ext_resource type="AudioStream" uid="uid://bxtobffd5dge5" path="res://Assets/Sound_effect/crushing_sound_effects/crush_1.mp3" id="11_5n1a6"]
 [ext_resource type="AudioStream" uid="uid://ciiwmlv615m7k" path="res://Assets/Sound_effect/crushing_sound_effects/crush_2.mp3" id="12_n683d"]
@@ -60,8 +60,11 @@ visible = false
 autoplay = ""
 frame_progress = 0.0623801
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_p7oat")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("8_8qphg")
+autoplay = "default"
+frame = 4
+frame_progress = 0.178978
 
 [node name="dead_limbs" type="Node2D" parent="."]
 

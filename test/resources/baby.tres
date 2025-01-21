@@ -1,15 +1,15 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://6po3ti6ub4ik"]
 
-[ext_resource type="Texture2D" uid="uid://cvuwji5t3opa2" path="res://Assets/Sprites/Victims/baby.png" id="1_63ll3"]
+[ext_resource type="SpriteFrames" uid="uid://b1xe53xep2fyv" path="res://Assets/Sprites/Victims/baby/baby_wigle.tres" id="1_aefok"]
 
 [sub_resource type="GDScript" id="GDScript_j6hqj"]
 script/source = "extends Resource
 
-@export var sprite_alive: Texture2D
+@export var sprite_alive: SpriteFrames
 @export var sprite_dead_lower: Texture2D
 @export var sprite_dead_upper: Texture2D
 "
 
 [resource]
 script = SubResource("GDScript_j6hqj")
-sprite_alive = ExtResource("1_63ll3")
+sprite_alive = ExtResource("1_aefok")

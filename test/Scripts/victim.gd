@@ -3,7 +3,7 @@ extends Node2D
 @onready var area_2d: Area2D = $Area2D
 @onready var upper_body_sprite: Sprite2D = $dead_limbs/upper_body/Sprite2D
 @onready var lower_body_sprite: Sprite2D = $dead_limbs/lower_body/Sprite2D
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var upper_body: RigidBody2D = $dead_limbs/upper_body
 @onready var lower_body: RigidBody2D = $dead_limbs/lower_body
 @onready var blood_explosion: AnimatedSprite2D = $blood_explosion
@@ -19,7 +19,8 @@ func _ready() -> void:
 	# loading the texture from the chosen ressource file because many resources could be used, this script is the same for all types of victims
 	upper_body_sprite.texture = ressource.sprite_dead_upper
 	lower_body_sprite.texture = ressource.sprite_dead_lower
-	sprite_2d.texture = ressource.sprite_alive
+	sprite_2d.sprite_frames = ressource.sprite_alive
+	sprite_2d.play("default")
 
 func death():
 	sprite_2d.visible = false #makes the main sprite go away because the character is dead and we want to display the dead sprite

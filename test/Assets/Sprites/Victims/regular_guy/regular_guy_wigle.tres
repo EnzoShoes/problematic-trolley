@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://caphkmc3msy5w"]
+
+[ext_resource type="Texture2D" uid="uid://bxyh3tpayfp0u" path="res://Assets/Sprites/Victims/regular_guy/regular_dude_wigle0000.png" id="1_3v015"]
+[ext_resource type="Texture2D" uid="uid://c1mrf6dkdtema" path="res://Assets/Sprites/Victims/regular_guy/regular_dude_wigle0001.png" id="2_5l7jr"]
+[ext_resource type="Texture2D" uid="uid://sa8ep0kt5ibc" path="res://Assets/Sprites/Victims/regular_guy/regular_dude_wigle0002.png" id="3_kbdwx"]
+[ext_resource type="Texture2D" uid="uid://rhh7bvwgjchm" path="res://Assets/Sprites/Victims/regular_guy/regular_dude_wigle0003.png" id="4_7ip5x"]
+[ext_resource type="Texture2D" uid="uid://b3agh4o8lok3t" path="res://Assets/Sprites/Victims/regular_guy/regular_dude_wigle0004.png" id="5_pws6d"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3v015")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5l7jr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kbdwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7ip5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pws6d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]

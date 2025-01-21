@@ -1,0 +1,38 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://bfk4avdo8r8ur"]
+
+[ext_resource type="Texture2D" uid="uid://b451xsgbuvmtk" path="res://Assets/Sprites/Victims/bad_guy/bad_guy_wigle0000.png" id="1_145dj"]
+[ext_resource type="Texture2D" uid="uid://du7eb5koidipj" path="res://Assets/Sprites/Victims/bad_guy/bad_guy_wigle0001.png" id="2_qi3yo"]
+[ext_resource type="Texture2D" uid="uid://l5f1hioxyw3d" path="res://Assets/Sprites/Victims/bad_guy/bad_guy_wigle0002.png" id="3_1qc2m"]
+[ext_resource type="Texture2D" uid="uid://bjw37mg4q6133" path="res://Assets/Sprites/Victims/bad_guy/bad_guy_wigle0003.png" id="4_3d25s"]
+[ext_resource type="Texture2D" uid="uid://0ykhj77tqvgw" path="res://Assets/Sprites/Victims/bad_guy/bad_guy_wigle0004.png" id="5_uf756"]
+[ext_resource type="Texture2D" uid="uid://b548pgyk53ebw" path="res://Assets/Sprites/Victims/bad_guy/bad_guy_wigle0005.png" id="6_w6awd"]
+[ext_resource type="Texture2D" uid="uid://u3f3035a0jtj" path="res://Assets/Sprites/Victims/bad_guy/bad_guy_wigle0006.png" id="7_7myop"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_145dj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qi3yo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1qc2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3d25s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uf756")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w6awd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7myop")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
