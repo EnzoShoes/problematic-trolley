@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://6po3ti6ub4ik"]
 
 [ext_resource type="SpriteFrames" uid="uid://b1xe53xep2fyv" path="res://Assets/Sprites/Victims/baby/baby_wigle.tres" id="1_aefok"]
-[ext_resource type="Script" path="res://Scripts/victim_ressource.gd" id="1_cxavp"]
+[ext_resource type="Script" path="res://Scripts/Victims/victim_ressource.gd" id="1_cxavp"]
 
 [resource]
 script = ExtResource("1_cxavp")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cwjbd58dpvslw"]
 
-[ext_resource type="Script" path="res://Scenes/main_problem_scene.gd" id="1_gwoya"]
+[ext_resource type="Script" path="res://Scripts/main_problem_scene.gd" id="1_gwoya"]
 [ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Sprites/Background.png" id="2_rnsq6"]
 [ext_resource type="Texture2D" uid="uid://dv3bbi1vpekej" path="res://Assets/Sprites/rails_sprite.png" id="3_1loqc"]
 [ext_resource type="PackedScene" uid="uid://bmw4hbao1f851" path="res://Scenes/In Game-UI/Score bars.tscn" id="4_ka6ww"]
