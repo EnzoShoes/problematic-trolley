@@ -1,9 +1,5 @@
 extends Node2D
 
-# instantiate with ressource, 
-
-var lvls_map = [
-]
 var loaded_victims = {
 	"top": [],
 	"bot": []
@@ -20,8 +16,6 @@ func _process(delta: float) -> void:
 		spawn_victims(randi_range(2, 10), "bot")
 	if Input.is_action_just_pressed("ui_cancel"):
 		free_victims(loaded_victims)
-	
-	print(str(calculate_winner()))
 		
 func calculate_winner() -> String:
 	var top_score = 0
