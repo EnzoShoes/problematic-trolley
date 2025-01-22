@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdry7d0kklssj"]
+[gd_scene load_steps=9 format=3 uid="uid://bdry7d0kklssj"]
 
+[ext_resource type="Shader" path="res://resources/Shaders/Chaning one color shader.gdshader" id="1_0ln3j"]
 [ext_resource type="Shader" path="res://resources/Shaders/displacing texture.gdshader" id="1_xtf6c"]
 [ext_resource type="Texture2D" uid="uid://dge807315sguj" path="res://Assets/icon.png" id="2_bkr4s"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gt45s"]
+shader = ExtResource("1_0ln3j")
+shader_parameter/new_color = Color(0.887601, 0.470456, 0.436079, 1)
+shader_parameter/old_color = Color(1, 0.611765, 0.694118, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hho07"]
 shader = ExtResource("1_xtf6c")
-shader_parameter/margin = 1.0
+shader_parameter/margin = 2.0
 
 [sub_resource type="Gradient" id="Gradient_q417m"]
 
@@ -21,10 +27,9 @@ noise = SubResource("FastNoiseLite_l3sth")
 [node name="Theme" type="Node2D"]
 
 [node name="Group 1" type="Node2D" parent="."]
-visible = false
 
 [node name="Icon" type="Sprite2D" parent="Group 1"]
-material = SubResource("ShaderMaterial_hho07")
+material = SubResource("ShaderMaterial_gt45s")
 position = Vector2(9, 9)
 texture = ExtResource("2_bkr4s")
 
@@ -44,5 +49,6 @@ position = Vector2(48, 49)
 texture = ExtResource("2_bkr4s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-400, 24)
 texture = SubResource("NoiseTexture2D_vs4b6")
