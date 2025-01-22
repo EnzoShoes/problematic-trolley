@@ -18,10 +18,3 @@ texture = ExtResource("2_bkr4s")
 [node name="Icon2" type="Sprite2D" parent="."]
 position = Vector2(48, 8)
 texture = ExtResource("2_bkr4s")
-
-[node name="ColorPicker" type="ColorPicker" parent="."]
-offset_left = 160.0
-offset_top = 96.0
-offset_right = 458.0
-offset_bottom = 672.0
-color = Color(1, 0.611765, 0.694118, 1)
