@@ -2,29 +2,21 @@ extends Node2D
 @onready var time_to_solve: Timer = $time_to_solve
 @onready var score_manager: Node = $Score_manager
 @onready var ui_manager: Control = $UI/Control
-
+@onready var troley_controls: Node2D = $troley_controls
 
 var loaded_victims = {
 	"top": [],
 	"bot": []
 }
-# Called when the node enters the scene tree for the first time.
+var num_choice_made: int = 0
+var choices_to_make: int = 5
+
 func _ready() -> void:
 	load_next_choice()
-	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	update_time_ui(int(time_to_solve.time_left))
-
-	#if Input.is_action_just_pressed("ui_accept"):
-		#spawn_victims(randi_range(2, 10), "top")
-		#spawn_victims(randi_range(2, 10), "bot")
-	#if Input.is_action_just_pressed("ui_cancel"):
-		#free_victims(loaded_victims)
-	
-	print(str(calculate_winner()))
-		
+	check_for_end()
 func calculate_winner() -> String:
 	var top_score = 0
 	var bot_score = 0
@@ -57,6 +49,7 @@ func load_next_choice():
 	spawn_victims(randi_range(2, 10), "top")
 	spawn_victims(randi_range(2, 10), "bot")
 	time_to_solve.start()
+	num_choice_made += 1
 	pass
 
 func bad_choice():
@@ -65,20 +58,31 @@ func bad_choice():
 
 func good_choice():
 	load_next_choice()
-	
+	score_manager.add_score(1)
 	pass
 
 func _on_time_to_solve_timeout() -> void:
 	bad_choice()
 
-func _on_good_choice_area_entered(area: Area2D) -> void:
+func _on_top_choice_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		score_manager.add_score(1)
-		good_choice()
+		if calculate_winner() == "bot":
+			good_choice()
+		else:
+			bad_choice()
 
-func _on_bad_choice_area_entered(area: Area2D) -> void:
+func _on_bot_choice_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		bad_choice()
+		if calculate_winner() == "top":
+			good_choice()
+		else:
+			bad_choice()
 
 func update_time_ui(time_left):
 	ui_manager.update_timer_label(time_left)
+
+func check_for_end():
+	if num_choice_made == choices_to_make:
+		troley_controls.in_control = false
+		score_manager.game_end() #sending info to score manager so it can send score to ui manager
+		print("game ends")

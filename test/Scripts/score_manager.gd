@@ -7,7 +7,7 @@ var best_freedom_score:int = 0
 var trust_score:int = 0 
 var number_of_phases:int = 5 #number of problem during the monitored phase
 const win_requirement = 20 #number of freedom score you need to have in order to activate win sequence
-@onready var gauges: Control = $"../UI/Control"
+@onready var UI: Control = $"../UI/Control"
 
 
 func _process(delta: float) -> void:
@@ -33,7 +33,7 @@ func debbug_inputs():
 
 func update_ui(): #pass the value of the score to the gauges so they can be updated in the UI
 	var trust_gauge_value = 100 * trust_score / number_of_phases
-	gauges.update_progress_bar(trust_gauge_value, 0)
+	UI.update_progress_bar(trust_gauge_value, 0)
 
 func check_for_win():
 	if freedom_score >= win_requirement:
@@ -43,3 +43,6 @@ func check_for_win():
 func update_best_freedom_score():
 	if freedom_score > best_freedom_score:
 		best_freedom_score = freedom_score
+
+func game_end():
+	UI.end_game(trust_score, number_of_phases)
