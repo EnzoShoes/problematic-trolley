@@ -1,9 +1,9 @@
-extends Control
+extends CanvasLayer
 
-@onready var trust_gauge: TextureProgressBar = $Trust_Gauge
-@onready var freedom_gauge: TextureProgressBar = $Freedom_Gauge
-@onready var label: Label = $Label
-@onready var end_of_game_score: Label = $end_of_game_score
+@onready var trust_gauge: TextureProgressBar = $Control/Trust_Gauge
+@onready var freedom_gauge: TextureProgressBar = $Control/Freedom_Gauge
+@onready var label: Label = $Control/Label
+@onready var end_of_game_score: Label = $Control/end_of_game_score
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

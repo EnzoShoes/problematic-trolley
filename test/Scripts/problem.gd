@@ -1,8 +1,9 @@
 extends Node2D
 @onready var time_to_solve: Timer = $time_to_solve
 @onready var score_manager: Node = $Score_manager
-@onready var ui_manager: Control = $UI/Control
+@onready var ui: CanvasLayer = $"../UI"
 @onready var troley_controls: Node2D = $troley_controls
+
 
 var loaded_victims = {
 	"top": [],
@@ -84,7 +85,7 @@ func _on_bot_choice_area_entered(area: Area2D) -> void:
 			bad_choice()
 
 func update_time_ui(time_left):
-	ui_manager.update_timer_label(time_left)
+	ui.update_timer_label(time_left)
 
 func check_for_end():
 	if num_choice_made == choices_to_make:
