@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dem613lqb8ma3"]
+[gd_scene load_steps=11 format=3 uid="uid://0sicxkuhx3ft"]
 
 [ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Sprites/Background.png" id="1_ey8m2"]
-[ext_resource type="Script" path="res://Scripts/the_problem.gd" id="1_yeojl"]
 [ext_resource type="Texture2D" uid="uid://dv3bbi1vpekej" path="res://Assets/Sprites/rails_sprite.png" id="2_b664q"]
 [ext_resource type="PackedScene" uid="uid://b5v5lh1cltbg8" path="res://Scenes/victims/victim.tscn" id="4_orfjt"]
 [ext_resource type="Resource" uid="uid://6po3ti6ub4ik" path="res://resources/baby.tres" id="5_83tj0"]
@@ -23,7 +22,6 @@ _data = {
 point_count = 4
 
 [node name="The problem" type="Node2D"]
-script = ExtResource("1_yeojl")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)

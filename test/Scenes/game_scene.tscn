@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwjbd58dpvslw"]
+
+[ext_resource type="Script" path="res://Scripts/problem.gd" id="1_awx8x"]
+[ext_resource type="PackedScene" uid="uid://3kyfnxlgf6vo" path="res://Scenes/problem.tscn" id="2_30vgv"]
+[ext_resource type="PackedScene" uid="uid://ck87kr8c554r3" path="res://Scenes/score_manager.tscn" id="3_stu2i"]
+[ext_resource type="PackedScene" uid="uid://bmw4hbao1f851" path="res://Scenes/In Game-UI/Score bars.tscn" id="4_6pwvn"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_awx8x")
+
+[node name="problem_scene" parent="." instance=ExtResource("2_30vgv")]
+
+[node name="Score_manager" parent="." instance=ExtResource("3_stu2i")]
+
+[node name="UI" parent="." instance=ExtResource("4_6pwvn")]
