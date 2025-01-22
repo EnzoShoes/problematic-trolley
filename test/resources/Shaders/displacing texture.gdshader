@@ -24,7 +24,7 @@ void fragment() {
 	vec2 scale_vector = vec2(margin);
 	vec2 scaled = (UV * scale_vector) - direction;
 	//Output
-
+	vec4 mescouilles = COLOR;
 
 	COLOR = texture(TEXTURE, scaled);
 }
