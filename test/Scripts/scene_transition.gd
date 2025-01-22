@@ -1,8 +1,13 @@
 extends CanvasLayer
-@onready var animation_player = $Control/ColorRect/AnimationPlayer	
 
-func change_scene (target: String) -> void:
-	$Control/ColorRect/AnimationPlayer.play("Transition")
-	await $Control/ColorRect/AnimationPlayer.animation_finished
-	
-	$Control/ColorRect/AnimationPlayer.play_backwards("Transition")
+@onready var color_rect: ColorRect = $Control/ColorRect
+@onready var animation_player: AnimationPlayer = $Control/ColorRect/AnimationPlayer
+
+func fade_in():
+	animation_player.play("Transition")
+	await animation_player.animation_finished
+	animation_player.play_backwards("Transition")
+
+func fade_out():
+	animation_player.play_backwards("Transition")
+	await animation_player.animation_finished

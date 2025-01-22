@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://cwjbd58dpvslw"]
 
-[ext_resource type="Script" path="res://Scenes/main_problem_scene.gd" id="1_gwoya"]
+[ext_resource type="Script" path="res://Scripts/main_problem_scene.gd" id="1_gwoya"]
 [ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Sprites/Background.png" id="2_rnsq6"]
 [ext_resource type="Texture2D" uid="uid://dv3bbi1vpekej" path="res://Assets/Sprites/rails_sprite.png" id="3_1loqc"]
 [ext_resource type="PackedScene" uid="uid://bmw4hbao1f851" path="res://Scenes/In Game-UI/Score bars.tscn" id="4_ka6ww"]
 [ext_resource type="Script" path="res://Scripts/troley_control.gd" id="5_qwhgc"]
 [ext_resource type="PackedScene" uid="uid://cah4mpd32e14d" path="res://Scenes/trolley.tscn" id="6_k2tx0"]
-[ext_resource type="Script" path="res://Scripts/score_manager.gd" id="7_f3hnr"]
+[ext_resource type="PackedScene" uid="uid://ck87kr8c554r3" path="res://Scenes/score_manager.tscn" id="7_ea38s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4aeny"]
 
@@ -103,18 +103,18 @@ position = Vector2(-11, 32)
 [node name="spawn_bot_10" type="Node2D" parent="spawn_points/spawn_bot"]
 position = Vector2(133, 32)
 
-[node name="Gauges" parent="." instance=ExtResource("4_ka6ww")]
+[node name="UI" parent="." instance=ExtResource("4_ka6ww")]
 
-[node name="good_choice" type="Area2D" parent="."]
+[node name="top_path_end" type="Area2D" parent="."]
 position = Vector2(173, -32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="good_choice"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top_path_end"]
 shape = SubResource("CircleShape2D_4aeny")
 
-[node name="bad_choice" type="Area2D" parent="."]
+[node name="bot_path_end" type="Area2D" parent="."]
 position = Vector2(174, 32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bad_choice"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bot_path_end"]
 shape = SubResource("CircleShape2D_xsr0y")
 
 [node name="troley_controls" type="Node2D" parent="."]
@@ -139,8 +139,12 @@ loop = false
 [node name="Trolley" parent="troley_controls" instance=ExtResource("6_k2tx0")]
 unique_name_in_owner = true
 
-[node name="Score_manager" type="Node" parent="."]
-script = ExtResource("7_f3hnr")
+[node name="Score_manager" parent="." instance=ExtResource("7_ea38s")]
 
-[connection signal="area_entered" from="good_choice" to="Score_manager" method="_on_good_choice_area_entered"]
-[connection signal="area_exited" from="good_choice" to="Score_manager" method="_on_good_choice_area_exited"]
+[node name="time_to_solve" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[connection signal="area_entered" from="top_path_end" to="." method="_on_top_choice_area_entered"]
+[connection signal="area_entered" from="bot_path_end" to="." method="_on_bot_choice_area_entered"]
+[connection signal="timeout" from="time_to_solve" to="." method="_on_time_to_solve_timeout"]

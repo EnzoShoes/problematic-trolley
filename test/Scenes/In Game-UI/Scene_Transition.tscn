@@ -63,3 +63,5 @@ mouse_filter = 2
 libraries = {
 "": SubResource("AnimationLibrary_8grah")
 }
+
+[connection signal="animation_finished" from="Control/ColorRect/AnimationPlayer" to="Control" method="_on_animation_player_animation_finished"]

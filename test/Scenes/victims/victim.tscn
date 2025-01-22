@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://b5v5lh1cltbg8"]
 
-[ext_resource type="Script" path="res://Scripts/victim.gd" id="1_37lrr"]
+[ext_resource type="Script" path="res://Scripts/Victims/victim.gd" id="1_37lrr"]
 [ext_resource type="PackedScene" uid="uid://cqqaoc2sbhmty" path="res://Assets/Sprites/Bloodsplats/Blood_explosion_animation/blood_explosion.tscn" id="1_snshh"]
 [ext_resource type="Resource" uid="uid://yp5qwrwufrcq" path="res://resources/rich_dude.tres" id="2_12sah"]
 [ext_resource type="Texture2D" uid="uid://bgufjrs23bqu8" path="res://Assets/Sprites/Bloodsplats/blood_splat_1.png" id="2_fv3ol"]
@@ -88,5 +88,7 @@ shape = SubResource("CapsuleShape2D_qreu0")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_be4pi")
 pitch_scale = 0.73
+
+[node name="Node" type="Node" parent="."]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

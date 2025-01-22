@@ -1,3 +1,4 @@
+class_name Victim
 extends Node2D
 
 @onready var area_2d: Area2D = $Area2D
@@ -10,10 +11,11 @@ extends Node2D
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 @export var ressource: Resource
+@export var value: int
 
 var explosion_force: int = 100
 var explosion_randomness: float = 0.5 #0 = no random ; 1 = full random
-var living_status : bool = true
+var is_living : bool = true
 
 const anim_speed_rand:float = 0.1
 
@@ -47,11 +49,11 @@ func death():
 	if audio_stream_player.playing == false:
 		audio_stream_player.play()
 	
-	living_status = false # the victim is dead so we dont want the train to be able to trigger death method again so we turn off the area2D for good
+	is_living = false # the victim is dead so we dont want the train to be able to trigger death method again so we turn off the area2D for good
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void: #triggers the death method when the victim is hit by the train
 	print("area entered in victim")
 	if area.is_in_group("player"):
-		if living_status:
+		if is_living:
 			death()

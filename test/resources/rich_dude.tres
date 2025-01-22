@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=5 format=3 uid="uid://yp5qwrwufrcq"]
 
 [ext_resource type="SpriteFrames" uid="uid://b3rqovyraalay" path="res://Assets/Sprites/Victims/rich_guy/rich_guy_wigle.tres" id="1_p3vas"]
-[ext_resource type="Script" path="res://Scripts/victim_ressource.gd" id="1_wm4he"]
+[ext_resource type="Script" path="res://Scripts/Victims/victim_ressource.gd" id="1_wm4he"]
 [ext_resource type="Texture2D" uid="uid://be8q0ku4nlosw" path="res://Assets/Sprites/Victims/richdude_dead_lowerbody.png" id="2_o6hgq"]
 [ext_resource type="Texture2D" uid="uid://4fcq2p6reusr" path="res://Assets/Sprites/Victims/richdude_dead_upperbody.png" id="3_o6kb4"]
 
