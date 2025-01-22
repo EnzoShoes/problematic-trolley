@@ -19,6 +19,7 @@ func update_trolley_path():
 		
 	if (Input.is_action_just_pressed("down")):
 		path_selected = $DownPath/PathFollow2D
+		
 	elif (Input.is_action_just_pressed("up")):
 		path_selected = $UpPath/PathFollow2D
 	else:
