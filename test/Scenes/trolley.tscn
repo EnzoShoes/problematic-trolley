@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cah4mpd32e14d"]
+[gd_scene load_steps=17 format=3 uid="uid://cah4mpd32e14d"]
 
 [ext_resource type="Texture2D" uid="uid://3jlkf5b3468g" path="res://Assets/Sprites/Trolley/troley_side.png" id="1_x5ib5"]
 [ext_resource type="Texture2D" uid="uid://cjy017tjdqn3h" path="res://Assets/Sprites/Trolley/troley_turning_down.png" id="2_yv6h1"]
@@ -46,7 +46,13 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_4rthj"]
 curve = SubResource("Curve_6y6x6")
 
+[sub_resource type="Curve" id="Curve_pxkhg"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_3p32a"]
+curve = SubResource("Curve_pxkhg")
 
 [sub_resource type="Curve" id="Curve_i2k82"]
 max_value = 2.0
@@ -87,7 +93,9 @@ shape = SubResource("CircleShape2D_tggoq")
 script = ExtResource("6_7aifo")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
 position = Vector2(6, -22)
+emitting = false
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_4yki0")
 texture = ExtResource("7_k7e6q")

@@ -37,8 +37,8 @@ func _process(delta: float) -> void:
 		path_selected.progress_ratio += delta * speed * ((path_selected.progress_ratio + 0.1))
 		if (path_selected.progress_ratio == 1):
 			# Detach trolley from path and reset position
-			trolley.get_parent().remove_child(trolley)
 			trolley.position = initialTrolleyPos
+			trolley.get_parent().remove_child(trolley)
 			add_child(trolley)
 			# Reset selected path
 			path_selected.progress_ratio = 0
