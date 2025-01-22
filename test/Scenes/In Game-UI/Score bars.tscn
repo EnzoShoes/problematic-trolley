@@ -13,6 +13,7 @@ outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Gauges" type="CanvasLayer"]
+script = ExtResource("1_ddhxu")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -25,7 +26,6 @@ offset_right = -24.0
 offset_bottom = 32.0
 grow_horizontal = 2
 scale = Vector2(3, 3)
-script = ExtResource("1_ddhxu")
 
 [node name="Trust_Gauge" type="TextureProgressBar" parent="Control"]
 layout_mode = 1

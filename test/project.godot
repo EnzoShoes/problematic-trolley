@@ -19,7 +19,6 @@ config/icon="res://Assets/icon.png"
 
 Globals="*res://Scripts/globals.gd"
 SceneTransition="*res://Scenes/In Game-UI/Scene_Transition.tscn"
-ScoreManager="*res://Scenes/score_manager.tscn"
 
 [display]
 
