@@ -1,4 +1,8 @@
 extends Node2D
+@onready var time_to_solve: Timer = $time_to_solve
+@onready var score_manager: Node = $Score_manager
+@onready var ui_manager: Control = $UI/Control
+
 
 var loaded_victims = {
 	"top": [],
@@ -6,16 +10,20 @@ var loaded_victims = {
 }
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	load_next_choice()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		spawn_victims(randi_range(2, 10), "top")
-		spawn_victims(randi_range(2, 10), "bot")
-	if Input.is_action_just_pressed("ui_cancel"):
-		free_victims(loaded_victims)
+	update_time_ui(int(time_to_solve.time_left))
+
+	#if Input.is_action_just_pressed("ui_accept"):
+		#spawn_victims(randi_range(2, 10), "top")
+		#spawn_victims(randi_range(2, 10), "bot")
+	#if Input.is_action_just_pressed("ui_cancel"):
+		#free_victims(loaded_victims)
+	
+	print(str(calculate_winner()))
 		
 func calculate_winner() -> String:
 	var top_score = 0
@@ -37,7 +45,40 @@ func spawn_victims(vic_num: int,vic_side: String) -> void:
 			loaded_victims[vic_side].append(new_victim)
 
 func free_victims(victims: Dictionary):
-	for i in range(len(victims)):
-		victims[i].queue_free()
+	for i in victims["top"]:
+		i.queue_free()
+	for i in victims["bot"]:
+		i.queue_free()
 	victims["top"].clear()
 	victims["bot"].clear()
+
+func load_next_choice():
+	free_victims(loaded_victims)
+	spawn_victims(randi_range(2, 10), "top")
+	spawn_victims(randi_range(2, 10), "bot")
+	time_to_solve.start()
+	pass
+
+func bad_choice():
+	load_next_choice()
+	pass
+
+func good_choice():
+	load_next_choice()
+	
+	pass
+
+func _on_time_to_solve_timeout() -> void:
+	bad_choice()
+
+func _on_good_choice_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		score_manager.add_score(1)
+		good_choice()
+
+func _on_bad_choice_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		bad_choice()
+
+func update_time_ui(time_left):
+	ui_manager.update_timer_label(time_left)

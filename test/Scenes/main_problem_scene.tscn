@@ -103,7 +103,7 @@ position = Vector2(-11, 32)
 [node name="spawn_bot_10" type="Node2D" parent="spawn_points/spawn_bot"]
 position = Vector2(133, 32)
 
-[node name="Gauges" parent="." instance=ExtResource("4_ka6ww")]
+[node name="UI" parent="." instance=ExtResource("4_ka6ww")]
 
 [node name="good_choice" type="Area2D" parent="."]
 position = Vector2(173, -32)
@@ -142,5 +142,10 @@ unique_name_in_owner = true
 [node name="Score_manager" type="Node" parent="."]
 script = ExtResource("7_f3hnr")
 
-[connection signal="area_entered" from="good_choice" to="Score_manager" method="_on_good_choice_area_entered"]
-[connection signal="area_exited" from="good_choice" to="Score_manager" method="_on_good_choice_area_exited"]
+[node name="time_to_solve" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[connection signal="area_entered" from="good_choice" to="." method="_on_good_choice_area_entered"]
+[connection signal="area_entered" from="bad_choice" to="." method="_on_bad_choice_area_entered"]
+[connection signal="timeout" from="time_to_solve" to="." method="_on_time_to_solve_timeout"]

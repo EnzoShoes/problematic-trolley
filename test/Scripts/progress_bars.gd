@@ -12,14 +12,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	update_timer_label(125)
 	pass
 
 func update_progress_bar(trust_progress_value, freedom_progress_value):
 	trust_gauge.value = trust_progress_value
 	freedom_gauge.value = freedom_progress_value
 
-func update_timer_label(time_left):
+func update_timer_label(time_left:int):
 	var minutes:int = round((time_left - (time_left % 60)) / 60)
 	var seconds:int = time_left % 60
 	if seconds < 10:

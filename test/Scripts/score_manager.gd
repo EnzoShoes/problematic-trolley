@@ -7,7 +7,7 @@ var best_freedom_score:int = 0
 var trust_score:int = 0 
 var number_of_phases:int = 5 #number of problem during the monitored phase
 const win_requirement = 20 #number of freedom score you need to have in order to activate win sequence
-@onready var gauges: Control = $"../Gauges/Control"
+@onready var gauges: Control = $"../UI/Control"
 
 
 func _process(delta: float) -> void:
@@ -43,8 +43,3 @@ func check_for_win():
 func update_best_freedom_score():
 	if freedom_score > best_freedom_score:
 		best_freedom_score = freedom_score
-
-func _on_good_choice_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player"):
-		add_score(1)
-		print(area)
