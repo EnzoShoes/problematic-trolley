@@ -11,8 +11,7 @@ const win_requirement = 20 #number of freedom score you need to have in order to
 
 
 func _process(delta: float) -> void:
-	debbug_inputs()
-	update_ui() 
+	update_ui()
 	check_for_win()
 	update_best_freedom_score()
 
@@ -25,11 +24,6 @@ func add_score(points): #adds a point to the right score depending on the phase 
 		print("freedom increased") 
 	else:
 		printerr("no conditions met")
-
-func debbug_inputs():
-	if Input.is_action_just_pressed("ui_accept"):
-		print("adding score")
-		add_score(1)
 
 func update_ui(): #pass the value of the score to the gauges so they can be updated in the UI
 	var trust_gauge_value = 100 * trust_score / number_of_phases

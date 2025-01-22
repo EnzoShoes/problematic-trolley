@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bmw4hbao1f851" path="res://Scenes/In Game-UI/Score bars.tscn" id="4_ka6ww"]
 [ext_resource type="Script" path="res://Scripts/troley_control.gd" id="5_qwhgc"]
 [ext_resource type="PackedScene" uid="uid://cah4mpd32e14d" path="res://Scenes/trolley.tscn" id="6_k2tx0"]
-[ext_resource type="Script" path="res://Scripts/score_manager.gd" id="7_f3hnr"]
+[ext_resource type="PackedScene" uid="uid://ck87kr8c554r3" path="res://Scenes/score_manager.tscn" id="7_ea38s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4aeny"]
 
@@ -139,8 +139,7 @@ loop = false
 [node name="Trolley" parent="troley_controls" instance=ExtResource("6_k2tx0")]
 unique_name_in_owner = true
 
-[node name="Score_manager" type="Node" parent="."]
-script = ExtResource("7_f3hnr")
+[node name="Score_manager" parent="." instance=ExtResource("7_ea38s")]
 
 [node name="time_to_solve" type="Timer" parent="."]
 wait_time = 20.0
