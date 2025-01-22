@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://clsq0jpt5psba" path="res://Assets/Sprites/Bloodsplats/blood_splat_4.png" id="5_sb67r"]
 [ext_resource type="SpriteFrames" uid="uid://caphkmc3msy5w" path="res://Assets/Sprites/Victims/regular_guy/regular_guy_wigle.tres" id="8_8qphg"]
 [ext_resource type="PackedScene" uid="uid://vcvdojw0j4jv" path="res://Scenes/victims/body_part.tscn" id="9_xj6l5"]
-[ext_resource type="PackedScene" path="res://Scenes/victims/lower_body.tscn" id="10_uyx7h"]
+[ext_resource type="PackedScene" uid="uid://b3ayce3pbq40o" path="res://Scenes/victims/lower_body.tscn" id="10_uyx7h"]
 [ext_resource type="AudioStream" uid="uid://bxtobffd5dge5" path="res://Assets/Sound_effect/crushing_sound_effects/crush_1.mp3" id="11_5n1a6"]
 [ext_resource type="AudioStream" uid="uid://ciiwmlv615m7k" path="res://Assets/Sound_effect/crushing_sound_effects/crush_2.mp3" id="12_n683d"]
 [ext_resource type="AudioStream" uid="uid://d2cyuf7q46cr4" path="res://Assets/Sound_effect/crushing_sound_effects/crush_3.mp3" id="13_gieke"]

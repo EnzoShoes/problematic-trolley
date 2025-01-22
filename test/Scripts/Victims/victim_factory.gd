@@ -24,12 +24,3 @@ static func new_victim(type: int) -> Victim:
 	victim.ressource = victim_resource_map[type]
 	victim.value = victim_value_map[type]
 	return victim
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
