@@ -45,12 +45,17 @@ func free_victims(victims: Dictionary):
 	victims["bot"].clear()
 
 func load_next_choice():
+	var animation_player = SceneTransition.get_node("Control/ColorRect/AnimationPlayer")
+	SceneTransition.fade_in()
+	await animation_player.animation_finished
 	free_victims(loaded_victims)
 	spawn_victims(randi_range(2, 10), "top")
 	spawn_victims(randi_range(2, 10), "bot")
-	time_to_solve.start()
 	num_choice_made += 1
-	pass
+	SceneTransition.fade_out()
+	
+	await animation_player.animation_finished
+	time_to_solve.start()	
 
 func bad_choice():
 	load_next_choice()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgwgqfwt5ngrx"]
+[gd_scene load_steps=5 format=3 uid="uid://rm5lqis3fho2"]
 
 [ext_resource type="Script" path="res://Scripts/scene_transition.gd" id="1_ilsop"]
 
@@ -63,3 +63,5 @@ mouse_filter = 2
 libraries = {
 "": SubResource("AnimationLibrary_8grah")
 }
+
+[connection signal="animation_finished" from="Control/ColorRect/AnimationPlayer" to="Control" method="_on_animation_player_animation_finished"]

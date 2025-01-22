@@ -65,6 +65,7 @@ label_settings = SubResource("LabelSettings_wy0no")
 horizontal_alignment = 2
 
 [node name="end_of_game_score" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 10.6667
 offset_top = 73.6667
 offset_right = 96.6667

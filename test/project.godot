@@ -18,6 +18,7 @@ config/icon="res://Assets/icon.png"
 [autoload]
 
 Globals="*res://Scripts/globals.gd"
+SceneTransition="*res://Scenes/In Game-UI/Scene_Transition.tscn"
 
 [display]
 
