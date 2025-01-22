@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdry7d0kklssj"]
+
+[ext_resource type="Shader" path="res://resources/Shaders/Chaning one color shader.gdshader" id="1_ncmtw"]
+[ext_resource type="Texture2D" uid="uid://dge807315sguj" path="res://Assets/icon.png" id="2_bkr4s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hho07"]
+shader = ExtResource("1_ncmtw")
+shader_parameter/new_color = Color(0.213722, 0.42705, 0.231864, 1)
+shader_parameter/old_color = Color(1, 0.611765, 0.694118, 1)
+
+[node name="Theme" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hho07")
+position = Vector2(8, 8)
+texture = ExtResource("2_bkr4s")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(48, 8)
+texture = ExtResource("2_bkr4s")
+
+[node name="ColorPicker" type="ColorPicker" parent="."]
+offset_left = 160.0
+offset_top = 96.0
+offset_right = 458.0
+offset_bottom = 672.0
+color = Color(1, 0.611765, 0.694118, 1)
