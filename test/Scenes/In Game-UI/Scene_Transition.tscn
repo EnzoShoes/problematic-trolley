@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqu8167g2xwf3"]
+[gd_scene load_steps=5 format=3 uid="uid://dgwgqfwt5ngrx"]
+
+[ext_resource type="Script" path="res://Scripts/scene_transition.gd" id="1_ilsop"]
 
 [sub_resource type="Animation" id="Animation_kxwlc"]
 resource_name = "RESET"
@@ -37,6 +39,7 @@ _data = {
 }
 
 [node name="SceneTransition" type="CanvasLayer"]
+script = ExtResource("1_ilsop")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
