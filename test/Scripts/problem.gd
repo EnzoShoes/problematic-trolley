@@ -7,7 +7,6 @@ signal choice_made
 @onready var troley: Node2D = $troley
 @onready var rails: Node2D = $rails
 
-
 func _process(_delta: float) -> void:
 	update_time_ui(int(time_to_solve.time_left))
 

@@ -18,7 +18,6 @@ func _on_score_updated(score, max_score):
 	print("score : " + str(score))
 	
 func _on_phase_finished():
-	print("on game finished entered")
 	ui.end_game(score_manager.trust_score, score_manager.choices_to_make)
 	problem.troley.in_control = false
 
