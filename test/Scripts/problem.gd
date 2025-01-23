@@ -6,18 +6,16 @@ signal choice_made
 @onready var time_to_solve: Timer = $time_to_solve
 @onready var troley: Node2D = $troley
 
-
-
 var loaded_victims = {
 	"top": [],
 	"bot": []
 }
 
-func _ready() -> void:
-	load_next_choice()
-
 func _process(_delta: float) -> void:
 	update_time_ui(int(time_to_solve.time_left))
+
+func update_time_ui(time_left):
+	time_updated.emit(time_left)
 
 func calculate_winner() -> String:
 	var top_score = 0
@@ -46,9 +44,6 @@ func free_victims(victims: Dictionary):
 	victims["top"].clear()
 	victims["bot"].clear()
 
-func load_next_choice():
-	time_to_solve.start()
-
 func bad_choice():
 	print(" bad choice ;/")
 	choice_made.emit("bad")
@@ -73,6 +68,3 @@ func _on_bot_choice_area_entered(area: Area2D) -> void:
 			good_choice()
 		else:
 			bad_choice()
-
-func update_time_ui(time_left):
-	time_updated.emit(time_left)
