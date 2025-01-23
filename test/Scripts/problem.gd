@@ -9,6 +9,7 @@ signal choice_made
 
 func _process(_delta: float) -> void:
 	update_time_ui(int(time_to_solve.time_left))
+	print(time_to_solve.time_left)
 
 func update_time_ui(time_left):
 	time_updated.emit(time_left)
@@ -26,14 +27,14 @@ func _on_time_to_solve_timeout() -> void:
 
 func _on_top_choice_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		if get_node("rails").calculate_winner() == "bot":
+		if rails.calculate_winner() == "bot":
 			good_choice()
 		else:
 			bad_choice()
 
 func _on_bot_choice_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		if get_node("rails").calculate_winner() == "top":
+		if rails.calculate_winner() == "top":
 			good_choice()
 		else:
 			bad_choice()

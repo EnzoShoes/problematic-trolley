@@ -37,6 +37,7 @@ func _on_choice_made(choice: String):
 	).call_deferred()
 
 func _on_time_updated(time):
+	print("time update")
 	ui.update_timer_label(time)
 
 func spawn_victims():
