@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://3kyfnxlgf6vo"]
+[gd_scene load_steps=11 format=3 uid="uid://3kyfnxlgf6vo"]
 
 [ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Sprites/Background.png" id="1_cjxo3"]
 [ext_resource type="Script" path="res://Scripts/problem.gd" id="1_lxmd5"]
 [ext_resource type="Texture2D" uid="uid://dv3bbi1vpekej" path="res://Assets/Sprites/rails_sprite.png" id="2_j0b3x"]
+[ext_resource type="Script" path="res://Scripts/rails.gd" id="3_kc77o"]
 [ext_resource type="Script" path="res://Scripts/troley_control.gd" id="3_r1u4a"]
 [ext_resource type="PackedScene" uid="uid://cah4mpd32e14d" path="res://Scenes/trolley.tscn" id="4_ejfoj"]
 
@@ -33,6 +34,7 @@ texture = ExtResource("1_cjxo3")
 zoom = Vector2(3, 3)
 
 [node name="rails" type="Node2D" parent="."]
+script = ExtResource("3_kc77o")
 
 [node name="RailsSprite" type="Sprite2D" parent="rails"]
 texture = ExtResource("2_j0b3x")

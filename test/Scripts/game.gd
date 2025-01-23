@@ -39,8 +39,8 @@ func _on_time_updated(time):
 	ui.update_timer_label(time)
 
 func spawn_victims():
-	problem.spawn_victims(randi_range(2, 10), "top")
-	problem.spawn_victims(randi_range(2, 10), "bot")
+	problem.rails.spawn_victims(randi_range(2, 10), "top")
+	problem.rails.spawn_victims(randi_range(2, 10), "bot")
 
 func free_victims():
-	problem.free_victims(problem.loaded_victims)
+	problem.rails.free_victims(problem.rails.loaded_victims)
