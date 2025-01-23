@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bmw4hbao1f851"]
 
-[ext_resource type="Script" path="res://Scripts/progress_bars.gd" id="1_ddhxu"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_ddhxu"]
 [ext_resource type="Texture2D" uid="uid://dpfr2at4pacn2" path="res://Assets/Sprites/Ui Sprites/Trust Gauge/trust_gauge_back.png" id="1_vy30r"]
 [ext_resource type="Texture2D" uid="uid://db66k1inn830b" path="res://Assets/Sprites/Ui Sprites/Trust Gauge/trust_gauge_frame.png" id="2_fr187"]
 [ext_resource type="Texture2D" uid="uid://bunjmb2nmhwlg" path="res://Assets/Sprites/Ui Sprites/Trust Gauge/trust_gauge_fill.png" id="3_bqlfb"]
@@ -12,7 +12,7 @@
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Gauges" type="CanvasLayer"]
+[node name="in_game_ui" type="CanvasLayer"]
 script = ExtResource("1_ddhxu")
 
 [node name="Control" type="Control" parent="."]
@@ -41,6 +41,7 @@ texture_over = ExtResource("2_fr187")
 texture_progress = ExtResource("3_bqlfb")
 
 [node name="Freedom_Gauge" type="TextureProgressBar" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -54,7 +55,7 @@ texture_under = ExtResource("4_4nk7u")
 texture_over = ExtResource("5_ujhof")
 texture_progress = ExtResource("6_8mloe")
 
-[node name="Label" type="Label" parent="Control"]
+[node name="timer_clock" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = -79.0
 offset_top = -4.0
@@ -65,6 +66,7 @@ label_settings = SubResource("LabelSettings_wy0no")
 horizontal_alignment = 2
 
 [node name="end_of_game_score" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 10.6667
 offset_top = 73.6667
