@@ -10,13 +10,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -22.0
-offset_top = -5.5
-offset_right = 22.0
-offset_bottom = 5.5
+offset_left = -79.0
+offset_top = -50.0
+offset_right = 79.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(22.0932, 18.937)
+scale = Vector2(3, 3)
+pivot_offset = Vector2(79.0414, 49.972)
 theme = ExtResource("1_ldcte")
 
 [node name="Bug" type="Button" parent="HBoxContainer"]
