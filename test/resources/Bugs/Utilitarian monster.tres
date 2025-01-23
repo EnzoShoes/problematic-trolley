@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ybvew1p63ga5"]
+
+[ext_resource type="Script" path="res://Scripts/bug_ressource.gd" id="1_fk7o5"]
+
+[resource]
+script = ExtResource("1_fk7o5")
+Bug_name = "Utilitarian monster"
+bug_description = ""
