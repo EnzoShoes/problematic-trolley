@@ -10,20 +10,22 @@ void vertex() {
 	// half it so that it centers the picture
 	vec2 half_of_pixtel_texture = pixel_texture/vec2(2);
 	// reposition it to match the later UV scaling. 
-	vec2 vertex_reposition = vec2(margin-1.0) * half_of_pixtel_texture;
-	vec2 end_vertex = vertex_scale + vertex_reposition;
-	VERTEX = end_vertex;
+	//vec2 vertex_reposition = vec2(margin-1.0) * half_of_pixtel_texture;
+	//vec2 end_vertex = vertex_scale + vertex_reposition;
+	VERTEX = vertex_scale;
 }
 
 void fragment() {
 	// Variables for displacing the texture
-	vec2 direction = vec2 (0, 0);
+	vec2 direction = vec2 ((margin/2.0) -0.5);
 	vec2 displacement = UV + direction;
 	
 	//SCaling the texture back to it's original size
 	vec2 scale_vector = vec2(margin);
-	vec2 scaled = UV * scale_vector;
+	vec2 scaled = (UV * scale_vector) - direction;
 	//Output
+	vec4 mescouilles = COLOR;
+
 	COLOR = texture(TEXTURE, scaled);
 }
 
