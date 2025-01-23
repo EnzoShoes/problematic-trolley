@@ -26,14 +26,14 @@ func _on_time_to_solve_timeout() -> void:
 
 func _on_top_choice_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		if rails.calculate_winner() == "bot":
+		if get_node("rails").calculate_winner() == "bot":
 			good_choice()
 		else:
 			bad_choice()
 
 func _on_bot_choice_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		if rails.calculate_winner() == "top":
+		if get_node("rails").calculate_winner() == "top":
 			good_choice()
 		else:
 			bad_choice()

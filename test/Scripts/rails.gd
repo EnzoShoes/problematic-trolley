@@ -21,7 +21,7 @@ func spawn_victims(vic_num: int,vic_side: String) -> void:
 	for i in range(vic_num):
 			var new_victim = VictimFactory.new_victim(randi_range(0, len(Globals.victim_types) - 1))
 			var current_spawn_point = get_node("spawn_points/spawn_" + vic_side + "/spawn_" + vic_side + "_" + str(i+1))
-			current_spawn_point.add_child(new_victim)
+			current_spawn_point.call_deferred("add_child", new_victim)
 			loaded_victims[vic_side].append(new_victim)
 
 func free_victims(victims: Dictionary):
