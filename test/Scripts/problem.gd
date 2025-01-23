@@ -16,7 +16,7 @@ var loaded_victims = {
 func _ready() -> void:
 	load_next_choice()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_time_ui(int(time_to_solve.time_left))
 
 func calculate_winner() -> String:

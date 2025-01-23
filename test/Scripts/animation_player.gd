@@ -8,7 +8,7 @@ func _ready() -> void:
 	if trolley == null:
 		printerr("trolley has no parent")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	direction = get_dir(old_position, global_position)
 	old_position = global_position
 	if direction.normalized() == Vector2.RIGHT:
