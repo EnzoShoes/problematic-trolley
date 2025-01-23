@@ -4,6 +4,7 @@ uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 uniform float Stripe_Size : hint_range(0.0, 30.0, 0.1);
 uniform float Displacement : hint_range(-0.5, 0.4, 0.01);
 uniform float Aberation_Intensity : hint_range(0.0, 1.0, 0.1);
+uniform bool shaderenabled = false;
 //uniform vec4 Aberation_Color1 : source_color;
 //uniform vec4 Aberation_Color2 : source_color;
 
@@ -24,13 +25,17 @@ void fragment() {
 	// Isolate stripes of texture. The argument of the condition is the expression that defines that
 	// the stripes are going to be affected. When the conditions are met, the next line displaces those
 	// fragments. 
+	if (shaderenabled == true){
 	if (int(UV.y*Stripe_Size)%2 == 0) {
-		COLOR = displaced_image_right + blue;
+		COLOR = displaced_image_right * blue;
 	}
 	else {
-		COLOR = displaced_image_left + red;
+		COLOR = displaced_image_left * red;
 	}
-	
+	}
+	else {
+		COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
 }
 
 //void light() {

@@ -1,13 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cebay8iqikl52"]
+[gd_scene load_steps=9 format=3 uid="uid://cebay8iqikl52"]
 
 [ext_resource type="Script" path="res://Scripts/scene_transition.gd" id="1_ilsop"]
 [ext_resource type="Shader" path="res://resources/Shaders/bug shader_fullscreen.gdshader" id="2_d51ds"]
+[ext_resource type="Texture2D" uid="uid://3jlkf5b3468g" path="res://Assets/Sprites/Trolley/troley_side.png" id="2_dqhhx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xkpyi"]
 shader = ExtResource("2_d51ds")
 shader_parameter/Stripe_Size = 30.0
 shader_parameter/Displacement = 7.4506e-09
 shader_parameter/Aberation_Intensity = 0.0
+shader_parameter/shaderenabled = false
 
 [sub_resource type="Animation" id="Animation_kxwlc"]
 resource_name = "RESET"
@@ -47,6 +49,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ColorRect_Glitch:material:shader_parameter/shaderenabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_rln1q"]
 resource_name = "Transition"
@@ -72,10 +86,10 @@ tracks/0/path = NodePath("../ColorRect_Glitch:material:shader_parameter/Aberatio
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 0.0333333, 0.1674, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(-0.0333333, 0.0333333, 0.1674),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 0.2, 0.5, 0.0]
+"values": [0.0, 0.2, 0.5]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -84,10 +98,22 @@ tracks/1/path = NodePath("../ColorRect_Glitch:material:shader_parameter/Displace
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.166667, 0.466667, 0.566667, 0.633333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.166667, 0.466667, 0.566667, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.05, 7.4506e-09, -0.04, -0.2, -0.05, 0.16, 7.4506e-09]
+"values": [0.05, 7.4506e-09, -0.04, -0.2, -0.05, 0.16]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ColorRect_Glitch:material:shader_parameter/shaderenabled")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8grah"]
@@ -107,6 +133,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TroleySide" type="Sprite2D" parent="Control"]
+position = Vector2(301.625, 250.5)
+scale = Vector2(6.17857, 6.17857)
+texture = ExtResource("2_dqhhx")
 
 [node name="ColorRect_Fade_to_black" type="ColorRect" parent="Control"]
 modulate = Color(0, 0, 0, 0)
