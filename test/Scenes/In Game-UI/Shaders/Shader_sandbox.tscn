@@ -12,8 +12,10 @@ shader_parameter/old_color = Color(1, 0.611765, 0.694118, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sc5oj"]
 shader = ExtResource("3_8xtrk")
-shader_parameter/Stripe_Size = 6.0
-shader_parameter/Displacement = 7.4506e-09
+shader_parameter/Stripe_Size = 3.5
+shader_parameter/Displacement = -0.05
+shader_parameter/Aberation_Color1 = Color(0, 0, 0.5, 1)
+shader_parameter/Aberation_Color2 = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hho07"]
 shader = ExtResource("1_xtf6c")
