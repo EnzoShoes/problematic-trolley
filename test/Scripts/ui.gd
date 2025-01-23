@@ -10,8 +10,9 @@ func update_trust_bar(trust_progress_value, freedom_progress_value):
 	freedom_gauge.value = freedom_progress_value
 	print("trus prog = " + str(trust_progress_value))
 
+@warning_ignore("integer_division")
 func update_timer_label(time_left:int):
-	var minutes:int = round((time_left - (time_left % 60)) / 60)
+	var minutes:int = (time_left - (time_left % 60)) / 60
 	var seconds:int = time_left % 60
 	if seconds < 10:
 		timer_clock.text = str(minutes)+":0"+str(seconds)
