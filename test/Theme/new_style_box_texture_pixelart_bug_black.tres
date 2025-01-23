@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cvqr8w3fe0dy5"]
+
+[ext_resource type="Texture2D" uid="uid://h8b2ffourldx" path="res://Theme/Assets for teme/just_black.png" id="1_k47ef"]
+
+[resource]
+texture = ExtResource("1_k47ef")
+texture_margin_left = 6.0
+texture_margin_top = 4.0
+texture_margin_right = 6.0
+texture_margin_bottom = 7.0
