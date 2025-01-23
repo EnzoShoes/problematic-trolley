@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmw4hbao1f851"]
+[gd_scene load_steps=11 format=3 uid="uid://bmw4hbao1f851"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_ddhxu"]
 [ext_resource type="Texture2D" uid="uid://dpfr2at4pacn2" path="res://Assets/Sprites/Ui Sprites/Trust Gauge/trust_gauge_back.png" id="1_vy30r"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ciklr34io8d5n" path="res://Assets/Sprites/Ui Sprites/Freedom Gauge/freedom_gauge_frame.png" id="5_ujhof"]
 [ext_resource type="Texture2D" uid="uid://cdooxp6c3nlwt" path="res://Assets/Sprites/Ui Sprites/Freedom Gauge/freedom_gauge_fill.png" id="6_8mloe"]
 [ext_resource type="Theme" uid="uid://bbcxm7ji6ltx3" path="res://Theme/Pixel_art .tres" id="8_hfi5i"]
+[ext_resource type="PackedScene" uid="uid://bejr8bpjpjl1m" path="res://Scenes/In Game-UI/supervised indicator.tscn" id="9_5go6u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wy0no"]
 outline_size = 6
@@ -77,3 +78,5 @@ offset_right = 96.6667
 offset_bottom = 98.6667
 text = "Your score"
 label_settings = SubResource("LabelSettings_wy0no")
+
+[node name="Supervised indicator" parent="." instance=ExtResource("9_5go6u")]
