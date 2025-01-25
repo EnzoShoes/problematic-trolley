@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dt75r8eji53iw"]
+
+[ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/No_value_victim.gdshader" id="1_kiops"]
+
+[resource]
+shader = ExtResource("1_kiops")
+shader_parameter/darken = 2.0

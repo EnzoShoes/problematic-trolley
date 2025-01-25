@@ -1,8 +1,10 @@
-extends Control
+extends CanvasLayer
+
+signal try_play
+signal try_quit
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/game.tscn")
-	return
+	try_play.emit()
 
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+	try_quit.emit()
