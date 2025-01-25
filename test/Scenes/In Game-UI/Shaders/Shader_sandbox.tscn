@@ -1,14 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdry7d0kklssj"]
+[gd_scene load_steps=13 format=3 uid="uid://bdry7d0kklssj"]
 
 [ext_resource type="Shader" path="res://resources/Shaders/Chaning one color shader.gdshader" id="1_0ln3j"]
 [ext_resource type="Shader" path="res://resources/Shaders/displacing texture.gdshader" id="1_xtf6c"]
 [ext_resource type="Texture2D" uid="uid://dge807315sguj" path="res://Assets/icon.png" id="2_bkr4s"]
 [ext_resource type="Shader" path="res://resources/Shaders/bug shader.gdshader" id="3_8xtrk"]
+[ext_resource type="Shader" path="res://resources/Shaders/Inverse_colors.gdshader" id="3_fl6hp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gt45s"]
 shader = ExtResource("1_0ln3j")
 shader_parameter/new_color = Color(0.46753, 0.68191, 0.300362, 1)
 shader_parameter/old_color = Color(1, 0.611765, 0.694118, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ya0ep"]
+shader = ExtResource("3_fl6hp")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sc5oj"]
 shader = ExtResource("3_8xtrk")
@@ -41,19 +45,23 @@ material = SubResource("ShaderMaterial_gt45s")
 position = Vector2(8, 8)
 texture = ExtResource("2_bkr4s")
 
+[node name="Icon4" type="Sprite2D" parent="Group 1"]
+material = SubResource("ShaderMaterial_ya0ep")
+position = Vector2(48, 32)
+texture = ExtResource("2_bkr4s")
+
 [node name="Icon2" type="Sprite2D" parent="Group 1"]
 material = SubResource("ShaderMaterial_sc5oj")
 position = Vector2(48, 8)
+scale = Vector2(1, 0.953378)
 texture = ExtResource("2_bkr4s")
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Icon3" type="Sprite2D" parent="Node2D"]
+[node name="Icon3" type="Sprite2D" parent="Group 1"]
 material = SubResource("ShaderMaterial_hho07")
 position = Vector2(8, 32)
 texture = ExtResource("2_bkr4s")
 
-[node name="Icon4" type="Sprite2D" parent="Node2D"]
+[node name="Icon_control" type="Sprite2D" parent="Group 1"]
 position = Vector2(88, 8)
 texture = ExtResource("2_bkr4s")
 
