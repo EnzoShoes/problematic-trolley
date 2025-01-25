@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://bdry7d0kklssj"]
 
-[ext_resource type="Shader" path="res://resources/Shaders/Chaning one color shader.gdshader" id="1_0ln3j"]
-[ext_resource type="Shader" path="res://resources/Shaders/displacing texture.gdshader" id="1_xtf6c"]
+[ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/Changing one color shader.gdshader" id="1_0ln3j"]
+[ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/displacing texture.gdshader" id="1_xtf6c"]
 [ext_resource type="Texture2D" uid="uid://dge807315sguj" path="res://Assets/icon.png" id="2_bkr4s"]
-[ext_resource type="Shader" path="res://resources/Shaders/bug shader.gdshader" id="3_8xtrk"]
-[ext_resource type="Shader" path="res://resources/Shaders/Inverse_colors.gdshader" id="3_fl6hp"]
+[ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/bug shader.gdshader" id="3_8xtrk"]
+[ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/Inverse_colors.gdshader" id="3_fl6hp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gt45s"]
 shader = ExtResource("1_0ln3j")
@@ -17,13 +17,13 @@ shader = ExtResource("3_fl6hp")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sc5oj"]
 shader = ExtResource("3_8xtrk")
 shader_parameter/Stripe_Size = 3.5
-shader_parameter/Displacement = -0.05
+shader_parameter/Displacement = 0.15
 shader_parameter/Aberation_Color1 = Color(0, 0, 0.5, 1)
 shader_parameter/Aberation_Color2 = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hho07"]
 shader = ExtResource("1_xtf6c")
-shader_parameter/margin = 1.0
+shader_parameter/margin = 1.335
 
 [sub_resource type="Gradient" id="Gradient_q417m"]
 
