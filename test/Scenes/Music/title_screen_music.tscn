@@ -6,4 +6,5 @@
 [node name="title_screen_music" type="AudioStreamPlayer"]
 stream = ExtResource("1_xxxf0")
 volume_db = -10.0
+parameters/looping = true
 script = ExtResource("2_bf3hj")

@@ -26,8 +26,10 @@ script = ExtResource("5_x5h7i")
 
 [node name="problem_solving" type="AudioStreamPlayer" parent="music_manager"]
 stream = ExtResource("6_bqh0a")
+parameters/looping = true
 
 [node name="frenzy" type="AudioStreamPlayer" parent="music_manager"]
 stream = ExtResource("7_2nc1r")
+parameters/looping = true
 
 [connection signal="timeout" from="unsupervised_time" to="." method="_on_unsupervised_time_timeout"]
