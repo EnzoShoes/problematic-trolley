@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfktvnfckevaf"]
+
+[ext_resource type="AudioStream" uid="uid://c5q6ulxca5iha" path="res://Assets/Music/trolley_song.mp3" id="1_xxxf0"]
+[ext_resource type="Script" path="res://Scripts/audio_stream_player.gd" id="2_bf3hj"]
+
+[node name="title_screen_music" type="AudioStreamPlayer"]
+stream = ExtResource("1_xxxf0")
+volume_db = -10.0
+script = ExtResource("2_bf3hj")

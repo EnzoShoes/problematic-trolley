@@ -15,8 +15,6 @@ func _process(_delta: float) -> void:
 func _ready() -> void:
 	score_manager.score_updated.connect(_on_score_updated)
 	score_manager.phase_finished.connect(_on_phase_finished)
-	score_manager.game_win.connect(_on_game_win)
-
 	init_problem(LevelFactory.premade_lvls_map["lvl_" + str(current_lvl)])
 
 func new_problem():
@@ -93,10 +91,3 @@ func _on_choice_made(choice: String):
 	if Globals.game_state == Globals.game_states.SUPERVISED:
 		score_manager.num_choice_made += 1
 	new_problem()
-func _on_game_win():
-	Globals.game_state = Globals.game_states.END
-	var win_screen = WIN_SCREEN.instantiate()
-	for i in get_children():
-		i.queue_free()
-	add_child(win_screen)
-	print("YOU WIN !!!")

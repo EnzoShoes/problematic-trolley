@@ -8,37 +8,6 @@
 [ext_resource type="Script" path="res://Scripts/animation_player.gd" id="6_7aifo"]
 [ext_resource type="Texture2D" uid="uid://bi11vpi45ku6s" path="res://Assets/Sprites/Trolley/troly_smoke_particle_1.png" id="7_k7e6q"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_k7imb"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"Turn down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_x5ib5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_yv6h1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_4spjs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_t4lm6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_oqnm0")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_tggoq"]
-radius = 8.0
-
 [sub_resource type="Curve" id="Curve_6y6x6"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.619718, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -78,25 +47,55 @@ hue_variation_min = -2.23517e-08
 hue_variation_max = -2.23517e-08
 hue_variation_curve = SubResource("CurveTexture_3p32a")
 
-[node name="Trolley" type="AnimatedSprite2D"]
-position = Vector2(-160, 0)
-sprite_frames = SubResource("SpriteFrames_k7imb")
-offset = Vector2(2.35229, -10.0744)
+[sub_resource type="SpriteFrames" id="SpriteFrames_k7imb"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Turn down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x5ib5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_yv6h1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4spjs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t4lm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oqnm0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
-[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_tggoq"]
+radius = 8.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.0291248, -2.99986)
-shape = SubResource("CircleShape2D_tggoq")
-
-[node name="animation_player" type="Node2D" parent="."]
-script = ExtResource("6_7aifo")
+[node name="Node2D" type="Node2D"]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-visible = false
-position = Vector2(6, -22)
-emitting = false
+position = Vector2(6, -26)
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_4yki0")
 texture = ExtResource("7_k7e6q")
 lifetime = 2.0
+
+[node name="Trolley" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k7imb")
+offset = Vector2(2.35229, -10.0744)
+
+[node name="Area2D" type="Area2D" parent="Trolley" groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trolley/Area2D"]
+position = Vector2(0.0291248, -2.99986)
+shape = SubResource("CircleShape2D_tggoq")
+
+[node name="animation_player" type="Node2D" parent="Trolley"]
+script = ExtResource("6_7aifo")
