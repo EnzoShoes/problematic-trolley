@@ -21,10 +21,13 @@ func _ready() -> void:
 	
 
 func new_problem():
+	if Globals.game_state == Globals.game_states.END:
+		return
 	print("______________")
 	SceneTransition.fade_in()
 	await SceneTransition.animation_player.animation_finished
-	problem.queue_free()
+	if problem != null:
+		problem.queue_free()
 	problem = PROBLEM.instantiate()
 	if Globals.game_state != Globals.game_states.END:
 		(func():
