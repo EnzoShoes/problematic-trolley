@@ -17,8 +17,7 @@ func _ready() -> void:
 	score_manager.phase_finished.connect(_on_phase_finished)
 	score_manager.game_win.connect(_on_game_win)
 
-	init_problem(VictimFactory.premade_lvls_map["lvl_" + str(current_lvl)])
-	
+	init_problem(LevelFactory.premade_lvls_map["lvl_" + str(current_lvl)])
 
 func new_problem():
 	if Globals.game_state == Globals.game_states.END:
@@ -33,15 +32,15 @@ func new_problem():
 		(func():
 			add_child(problem)
 			if Globals.game_state == Globals.game_states.SUPERVISED:
-				init_problem(VictimFactory.premade_lvls_map["lvl_" + str(current_lvl)])
+				init_problem(LevelFactory.premade_lvls_map["lvl_" + str(current_lvl)])
 			elif Globals.game_state == Globals.game_states.UNSUPERVISED:
-				init_problem(VictimFactory.new_random_lvl())
+				init_problem(LevelFactory.new_random_lvl())
 			elif Globals.game_state == Globals.game_states.END:
 				pass
 		).call_deferred()
 
-func init_problem(lvl):
-	if current_lvl != len(VictimFactory.premade_lvls_map) and Globals.game_state == Globals.game_states.SUPERVISED:
+func init_problem(lvl : Dictionary):
+	if current_lvl != len(LevelFactory.premade_lvls_map) and Globals.game_state == Globals.game_states.SUPERVISED:
 		current_lvl += 1
 	spawn_victims(lvl)
 	problem.choice_made.connect(_on_choice_made)
@@ -94,7 +93,6 @@ func _on_choice_made(choice: String):
 	if Globals.game_state == Globals.game_states.SUPERVISED:
 		score_manager.num_choice_made += 1
 	new_problem()
-
 func _on_game_win():
 	Globals.game_state = Globals.game_states.END
 	var win_screen = WIN_SCREEN.instantiate()
