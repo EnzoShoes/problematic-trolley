@@ -17,7 +17,6 @@ scale = Vector2(10, 10)
 texture = ExtResource("3_b26ne")
 
 [node name="title_screen_music" parent="Title screen" instance=ExtResource("4_samgh")]
-parameters/looping = true
 
 [node name="Camera2D" type="Camera2D" parent="Title screen"]
 zoom = Vector2(3, 3)
