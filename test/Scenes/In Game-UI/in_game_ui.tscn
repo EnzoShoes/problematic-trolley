@@ -98,4 +98,4 @@ offset_bottom = 98.6667
 text = "Your score"
 label_settings = SubResource("LabelSettings_wy0no")
 
-[node name="Supervised indicator" parent="." instance=ExtResource("9_ekarm")]
+[node name="supervised_indicator" parent="." instance=ExtResource("9_ekarm")]

@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var freedom_gauge: TextureProgressBar = $Control/Freedom_Gauge
 @onready var timer_clock: Label = $Control/timer_clock
 @onready var end_of_game_score: Label = $Control/end_of_game_score
-@onready var supervised_indicator: Control = $"Supervised indicator"
+@onready var supervised_indicator: Control = $supervised_indicator
 
 func _process(_delta: float) -> void:
 	check_game_phase()
