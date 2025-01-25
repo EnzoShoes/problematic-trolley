@@ -3,7 +3,7 @@ extends Node
 signal score_updated
 signal phase_finished
 
-@export var choices_to_make: int = 5
+@export var choices_to_make: int = 2
 var freedom_score:int 
 var game_state = Globals.game_states.SUPERVISED
 

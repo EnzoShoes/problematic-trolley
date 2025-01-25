@@ -1,17 +1,10 @@
 extends Node2D
 
-signal time_updated
 signal choice_made
 
 @onready var time_to_solve: Timer = $time_to_solve
 @onready var troley: Node2D = $troley
 @onready var rails: Node2D = $rails
-
-func _process(_delta: float) -> void:
-	update_time_ui(int(time_to_solve.time_left))
-
-func update_time_ui(time_left):
-	time_updated.emit(time_left)
 
 func bad_choice():
 	print(" bad choice ;/")

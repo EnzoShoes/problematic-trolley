@@ -42,8 +42,20 @@ static var premade_lvls_map = {
 	},
 } 
 
+
 static func new_victim(type: int) -> Victim:
 	var victim: Victim = victim_scene.instantiate()
 	victim.ressource = victim_resource_map[type]
 	victim.value = victim_value_map[type]
 	return victim
+
+static func new_random_lvl() -> Dictionary:
+	var random_lvl = {
+		"top" : [],
+		"bot" : []
+	}
+	for i in range(randi_range(1,5)):
+		random_lvl["top"].append(randi_range(0,len(Globals.victim_types)-1))
+	for i in range(randi_range(1,5)):
+		random_lvl["bot"].append(randi_range(0,len(Globals.victim_types)-1))
+	return random_lvl

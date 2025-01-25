@@ -13,3 +13,9 @@ script = ExtResource("1_3skgd")
 [node name="Score_manager" parent="." instance=ExtResource("3_stu2i")]
 
 [node name="UI" parent="." instance=ExtResource("4_6pwvn")]
+
+[node name="unsupervised_time" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="unsupervised_time" to="." method="_on_unsupervised_time_timeout"]
