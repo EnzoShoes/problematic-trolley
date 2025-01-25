@@ -3,7 +3,9 @@ extends Node
 
 enum glitches {NONE, AI_UPLOADING}
 
-var active_glitch: int
+static var active_glitch: int = glitches.NONE
+
+static var active_glitches = []
 
 static var victim_value_map = {
 	glitches.NONE : {

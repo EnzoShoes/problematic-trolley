@@ -6,8 +6,6 @@ extends CanvasLayer
 @onready var end_of_game_score: Label = $Control/end_of_game_score
 @onready var supervised_indicator: Control = $supervised_indicator
 
-func _process(_delta: float) -> void:
-	check_game_phase()
 
 func update_trust_bar(trust_progress_value, freedom_progress_value):
 	trust_gauge.value = trust_progress_value

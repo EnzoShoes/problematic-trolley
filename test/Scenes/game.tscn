@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/music_manager.gd" id="5_x5h7i"]
 [ext_resource type="AudioStream" uid="uid://cbwmbuygkrkld" path="res://Assets/Music/problem_solving.mp3" id="6_bqh0a"]
 [ext_resource type="AudioStream" uid="uid://bliuf1xryy7gg" path="res://Assets/Music/frenzy.mp3" id="7_2nc1r"]
-[ext_resource type="Script" path="res://Scripts/ui.gd" id="7_q52h4"]
+[ext_resource type="Script" path="res://Scripts/ui/ui.gd" id="7_q52h4"]
 [ext_resource type="PackedScene" uid="uid://cy4vfdd11xb6c" path="res://Scenes/Background.tscn" id="8_47iqf"]
 [ext_resource type="Script" path="res://Scripts/ui/front_ui.gd" id="9_wcblv"]
 
