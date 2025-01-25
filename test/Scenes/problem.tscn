@@ -125,6 +125,7 @@ loop = false
 
 [node name="Trolley" parent="troley" instance=ExtResource("4_ejfoj")]
 unique_name_in_owner = true
+position = Vector2(-161, 0)
 
 [node name="top_path_end" type="Area2D" parent="troley"]
 position = Vector2(173, -32)

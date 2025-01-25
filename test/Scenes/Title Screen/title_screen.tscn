@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ymutnerw8tac"]
+
+[ext_resource type="Script" path="res://Scripts/scene_manager.gd" id="1_7lwrh"]
+[ext_resource type="PackedScene" uid="uid://cqypb1sid4fvh" path="res://Scenes/Title Screen/title_screen_ui.tscn" id="2_xu3av"]
+[ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Sprites/Background.png" id="3_b26ne"]
+[ext_resource type="PackedScene" uid="uid://cfktvnfckevaf" path="res://Scenes/Music/title_screen_music.tscn" id="4_samgh"]
+
+[node name="scene_manager" type="Node"]
+script = ExtResource("1_7lwrh")
+
+[node name="Title screen" type="Node2D" parent="."]
+
+[node name="title_screen_ui" parent="Title screen" instance=ExtResource("2_xu3av")]
+
+[node name="Background" type="Sprite2D" parent="Title screen"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_b26ne")
+
+[node name="title_screen_music" parent="Title screen" instance=ExtResource("4_samgh")]
+
+[node name="Camera2D" type="Camera2D" parent="Title screen"]
+zoom = Vector2(3, 3)
