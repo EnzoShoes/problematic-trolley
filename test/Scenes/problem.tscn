@@ -27,7 +27,6 @@ point_count = 4
 script = ExtResource("1_lxmd5")
 
 [node name="Background" type="Sprite2D" parent="."]
-scale = Vector2(10, 10)
 texture = ExtResource("1_cjxo3")
 
 [node name="Camera2D" type="Camera2D" parent="."]

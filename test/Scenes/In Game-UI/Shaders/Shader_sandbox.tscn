@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdry7d0kklssj"]
+[gd_scene load_steps=17 format=3 uid="uid://bdry7d0kklssj"]
 
 [ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/Changing one color shader.gdshader" id="1_0ln3j"]
 [ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/displacing texture.gdshader" id="1_xtf6c"]
 [ext_resource type="Texture2D" uid="uid://dge807315sguj" path="res://Assets/icon.png" id="2_bkr4s"]
 [ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/bug shader.gdshader" id="3_8xtrk"]
 [ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/Inverse_colors.gdshader" id="3_fl6hp"]
+[ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/No_value_victim.gdshader" id="6_bgye3"]
+[ext_resource type="Texture2D" uid="uid://bvju8cf82nbpp" path="res://Assets/Sprites/icon.svg" id="7_x6rml"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gt45s"]
 shader = ExtResource("1_0ln3j")
@@ -24,6 +26,12 @@ shader_parameter/Aberation_Color2 = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hho07"]
 shader = ExtResource("1_xtf6c")
 shader_parameter/margin = 1.335
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_quxt5"]
+shader = ExtResource("6_bgye3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sxr3v"]
+shader = ExtResource("6_bgye3")
 
 [sub_resource type="Gradient" id="Gradient_q417m"]
 
@@ -64,6 +72,16 @@ texture = ExtResource("2_bkr4s")
 [node name="Icon_control" type="Sprite2D" parent="Group 1"]
 position = Vector2(88, 8)
 texture = ExtResource("2_bkr4s")
+
+[node name="Icon5" type="Sprite2D" parent="Group 1"]
+material = SubResource("ShaderMaterial_quxt5")
+position = Vector2(88, 32)
+texture = ExtResource("2_bkr4s")
+
+[node name="Icon6" type="Sprite2D" parent="Group 1"]
+material = SubResource("ShaderMaterial_sxr3v")
+position = Vector2(176, 32)
+texture = ExtResource("7_x6rml")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

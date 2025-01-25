@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://p5v84kf855pq"]
+
+[ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Sprites/Background.png" id="1_6b0sj"]
+
+[node name="Background" type="Node2D"]
+
+[node name="Ground Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_6b0sj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Ground Sprite")
