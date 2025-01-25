@@ -13,12 +13,14 @@ func _process(_delta: float) -> void:
 func _ready() -> void:
 	score_manager.score_updated.connect(_on_score_updated)
 	score_manager.phase_finished.connect(_on_phase_finished)
+	score_manager.game_win.connect(_on_game_win)
 	init_problem(VictimFactory.premade_lvls_map["lvl_" + str(current_lvl)])
 
 func new_problem():
+	print("______________")
 	problem.queue_free()
 	problem = PROBLEM.instantiate()
-
+	
 	(func():
 		add_child(problem)
 		if Globals.game_state == Globals.game_states.SUPERVISED:
@@ -36,7 +38,6 @@ func init_problem(lvl):
 	problem.choice_made.connect(_on_choice_made)
 
 func spawn_victims(lvl):
-	print(problem.get_child(2))
 	problem.rails.spawn_victims(lvl)
 
 func free_victims():
@@ -62,9 +63,13 @@ func _on_phase_finished():
 	if Globals.game_state == Globals.game_states.SUPERVISED:
 		Globals.game_state = Globals.game_states.UNSUPERVISED
 		activate_timer()
+		
 	elif Globals.game_state == Globals.game_states.UNSUPERVISED:
 		Globals.game_state = Globals.game_states.SUPERVISED
-
+	score_manager.num_choice_made = 0
+	score_manager.freedom_score = 0
+	score_manager.trust_score = 0
+	print("you are now in phase " + str(Globals.game_state))
 func _on_choice_made(choice: String):
 	if choice == "good":
 		score_manager.add_score(1)
@@ -73,5 +78,9 @@ func _on_choice_made(choice: String):
 	else:
 		printerr("this type of choice is invalid")
 		return
-	score_manager.num_choice_made += 1
+	if Globals.game_state == Globals.game_states.SUPERVISED:
+		score_manager.num_choice_made += 1
 	new_problem()
+
+func _on_game_win():
+	print("YOU WIN !!!")
