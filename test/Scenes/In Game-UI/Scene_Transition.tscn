@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cebay8iqikl52"]
+[gd_scene load_steps=8 format=3 uid="uid://cebay8iqikl52"]
 
 [ext_resource type="Script" path="res://Scripts/scene_transition.gd" id="1_ilsop"]
 [ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/bug shader_fullscreen.gdshader" id="2_d51ds"]
-[ext_resource type="Texture2D" uid="uid://dge807315sguj" path="res://Assets/icon.png" id="2_i4gin"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xkpyi"]
 shader = ExtResource("2_d51ds")
@@ -109,11 +108,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Icon" type="Sprite2D" parent="Control"]
-position = Vector2(458, 303)
-scale = Vector2(8.43908, 8.43908)
-texture = ExtResource("2_i4gin")
 
 [node name="ColorRect_Fade_to_black" type="ColorRect" parent="Control"]
 modulate = Color(0, 0, 0, 0)
