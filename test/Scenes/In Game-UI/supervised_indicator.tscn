@@ -17,9 +17,7 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Supervised indicator" type="CanvasLayer"]
-
-[node name="Control" type="Control" parent="."]
+[node name="supervised_indicator" type="Control"]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -28,7 +26,7 @@ grow_horizontal = 0
 scale = Vector2(3, 3)
 size_flags_horizontal = 4
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-21.3333, 13.3333)
 sprite_frames = SubResource("SpriteFrames_rf5w0")
 autoplay = "default"
