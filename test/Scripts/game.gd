@@ -16,10 +16,14 @@ func _ready() -> void:
 	score_manager.score_updated.connect(_on_score_updated)
 	score_manager.phase_finished.connect(_on_phase_finished)
 	score_manager.game_win.connect(_on_game_win)
+
 	init_problem(VictimFactory.premade_lvls_map["lvl_" + str(current_lvl)])
+	
 
 func new_problem():
 	print("______________")
+	SceneTransition.fade_in()
+	await SceneTransition.animation_player.animation_finished
 	problem.queue_free()
 	problem = PROBLEM.instantiate()
 	if Globals.game_state != Globals.game_states.END:
@@ -57,9 +61,13 @@ func _on_unsupervised_time_timeout() -> void:
 	pass # Replace with function body.
 
 func _on_score_updated(score, max_score):
-	var trust_gauge_value = 100 * score / max_score
-	ui.update_trust_bar(trust_gauge_value, 0)
-	print("score : " + str(score))
+	var trust_gauge_value: float
+	var freedom_gauge_value: float
+	if Globals.game_state == Globals.game_states.SUPERVISED:
+		trust_gauge_value = 100 * score / max_score
+	elif Globals.game_state == Globals.game_states.UNSUPERVISED:
+		freedom_gauge_value = 100 * score / max_score
+	ui.update_trust_bar(trust_gauge_value, freedom_gauge_value)
 	
 func _on_phase_finished():
 	if Globals.game_state == Globals.game_states.SUPERVISED:
