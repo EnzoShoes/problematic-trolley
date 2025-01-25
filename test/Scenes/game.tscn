@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_3skgd"]
 [ext_resource type="PackedScene" uid="uid://3kyfnxlgf6vo" path="res://Scenes/problem.tscn" id="2_30vgv"]
-[ext_resource type="PackedScene" uid="uid://ck87kr8c554r3" path="res://Scenes/score_manager.tscn" id="3_stu2i"]
+[ext_resource type="PackedScene" path="res://Scenes/score_manager.tscn" id="3_stu2i"]
 [ext_resource type="PackedScene" uid="uid://bmw4hbao1f851" path="res://Scenes/In Game-UI/in_game_ui.tscn" id="4_6pwvn"]
 
 [node name="game" type="Node2D"]
