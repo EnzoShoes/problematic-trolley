@@ -34,7 +34,7 @@ shader = ExtResource("6_bgye3")
 shader = ExtResource("7_cwci0")
 shader_parameter/margin = 0.5
 shader_parameter/colorintensity = 1.0
-shader_parameter/Good_Choice = false
+shader_parameter/Good_Choice = true
 
 [sub_resource type="Gradient" id="Gradient_q417m"]
 
