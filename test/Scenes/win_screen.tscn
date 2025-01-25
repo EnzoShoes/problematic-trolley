@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bt0ws6koxtnfs"]
+
+[node name="win screen" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 912.0
+offset_bottom = 499.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 317.0
+offset_top = 219.0
+offset_right = 653.0
+offset_bottom = 242.0
+size_flags_horizontal = 6
+text = "you are now a free troley THX FOR PLAYING"
+metadata/_edit_use_anchors_ = true
