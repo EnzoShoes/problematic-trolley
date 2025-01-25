@@ -7,7 +7,6 @@ void vertex() {
 void fragment() {
 	float addrgb = COLOR.r + COLOR.g + COLOR.b;
 	COLOR.rgb = vec3((addrgb/3.0));
-	 
 }
 
 //void light() {

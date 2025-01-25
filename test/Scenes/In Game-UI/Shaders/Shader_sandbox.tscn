@@ -6,7 +6,7 @@
 [ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/bug shader.gdshader" id="3_8xtrk"]
 [ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/Inverse_colors.gdshader" id="3_fl6hp"]
 [ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/No_value_victim.gdshader" id="6_bgye3"]
-[ext_resource type="Texture2D" uid="uid://bvju8cf82nbpp" path="res://Assets/Sprites/icon.svg" id="7_x6rml"]
+[ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/Good_or_Bad_choice_Background.gdshader" id="7_cwci0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gt45s"]
 shader = ExtResource("1_0ln3j")
@@ -30,8 +30,11 @@ shader_parameter/margin = 1.335
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_quxt5"]
 shader = ExtResource("6_bgye3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sxr3v"]
-shader = ExtResource("6_bgye3")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pt6ee"]
+shader = ExtResource("7_cwci0")
+shader_parameter/margin = 0.5
+shader_parameter/colorintensity = 1.0
+shader_parameter/Good_Choice = false
 
 [sub_resource type="Gradient" id="Gradient_q417m"]
 
@@ -70,7 +73,7 @@ position = Vector2(8, 32)
 texture = ExtResource("2_bkr4s")
 
 [node name="Icon_control" type="Sprite2D" parent="Group 1"]
-position = Vector2(88, 8)
+position = Vector2(112, 8)
 texture = ExtResource("2_bkr4s")
 
 [node name="Icon5" type="Sprite2D" parent="Group 1"]
@@ -79,9 +82,9 @@ position = Vector2(88, 32)
 texture = ExtResource("2_bkr4s")
 
 [node name="Icon6" type="Sprite2D" parent="Group 1"]
-material = SubResource("ShaderMaterial_sxr3v")
-position = Vector2(176, 32)
-texture = ExtResource("7_x6rml")
+material = SubResource("ShaderMaterial_pt6ee")
+position = Vector2(88, 8)
+texture = ExtResource("2_bkr4s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
