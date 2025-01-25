@@ -21,6 +21,7 @@ damping_max = 10.0
 color = Color(0.678431, 0, 0, 1)
 
 [node name="upper_body" type="RigidBody2D"]
+use_parent_material = true
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.0
@@ -28,6 +29,7 @@ linear_damp = 6.44
 angular_damp = 6.975
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
 texture = ExtResource("1_hp6jx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

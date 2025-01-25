@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/title_screen.gd" id="2_ocouo"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("2_ocouo")
 
 [node name="Title screen" type="Control" parent="."]
 layout_mode = 3
@@ -16,7 +17,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
 theme = ExtResource("1_la370")
-script = ExtResource("2_ocouo")
 
 [node name="Title" type="Label" parent="Title screen"]
 layout_mode = 1
@@ -63,5 +63,5 @@ text = "Play"
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="Title screen/Buttons/VBoxContainer/Play" to="Title screen" method="_on_play_pressed"]
-[connection signal="pressed" from="Title screen/Buttons/VBoxContainer/Quit" to="Title screen" method="_on_quit_pressed"]
+[connection signal="pressed" from="Title screen/Buttons/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Title screen/Buttons/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

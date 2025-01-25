@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://b5v5lh1cltbg8"]
+[gd_scene load_steps=22 format=3 uid="uid://b5v5lh1cltbg8"]
 
+[ext_resource type="Material" uid="uid://dt75r8eji53iw" path="res://resources/Shaders/shader_materials/no_value_victim.tres" id="1_7xtf6"]
 [ext_resource type="Script" path="res://Scripts/Victims/victim.gd" id="1_37lrr"]
 [ext_resource type="PackedScene" uid="uid://cqqaoc2sbhmty" path="res://Assets/Sprites/Bloodsplats/Blood_explosion_animation/blood_explosion.tscn" id="1_snshh"]
 [ext_resource type="Resource" uid="uid://yp5qwrwufrcq" path="res://resources/rich_dude.tres" id="2_12sah"]
@@ -35,10 +36,14 @@ stream_6/stream = ExtResource("17_r7jy0")
 stream_7/stream = ExtResource("18_7ru46")
 
 [node name="victim" type="Node2D"]
+material = ExtResource("1_7xtf6")
 script = ExtResource("1_37lrr")
 ressource = ExtResource("2_12sah")
 
+[node name="particle_holder" type="Node2D" parent="."]
+
 [node name="Node2D" type="Node2D" parent="."]
+use_parent_material = true
 
 [node name="blood_1" type="Sprite2D" parent="Node2D"]
 visible = false
@@ -58,16 +63,19 @@ texture = ExtResource("5_sb67r")
 
 [node name="blood_explosion" parent="." instance=ExtResource("1_snshh")]
 visible = false
+use_parent_material = true
 autoplay = ""
 frame_progress = 0.0623801
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
 sprite_frames = ExtResource("8_8qphg")
 autoplay = "default"
 frame = 4
 frame_progress = 0.178978
 
 [node name="dead_limbs" type="Node2D" parent="."]
+use_parent_material = true
 
 [node name="upper_body" parent="dead_limbs" instance=ExtResource("9_xj6l5")]
 visible = false
