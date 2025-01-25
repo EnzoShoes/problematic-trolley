@@ -7,10 +7,11 @@ var speed = 0.8
 var path_selected : PathFollow2D = null
 
 func _ready() -> void:
+	update_control_status()
 	trolley = $Trolley
 	initialTrolleyPos = trolley.position
 	pass # Replace with function body.
-	
+
 func _process(delta: float) -> void:
 	update_trolley_path()
 	if (path_selected != null):
@@ -41,3 +42,9 @@ func update_trolley_path():
 		
 		path_selected.add_child(trolley)
 		trolley.transform = Transform2D.IDENTITY	
+
+func update_control_status():
+	if Globals.game_state != Globals.game_states.END:
+		in_control = true
+	else: 
+		in_control = false

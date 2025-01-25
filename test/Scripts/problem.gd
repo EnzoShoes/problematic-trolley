@@ -9,7 +9,6 @@ signal choice_made
 
 func _process(_delta: float) -> void:
 	update_time_ui(int(time_to_solve.time_left))
-	print(time_to_solve.time_left)
 
 func update_time_ui(time_left):
 	time_updated.emit(time_left)
