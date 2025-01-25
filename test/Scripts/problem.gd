@@ -2,6 +2,7 @@ extends Node2D
 
 signal choice_made
 
+@onready var background: Node2D = $background
 @onready var troley: Node2D = $troley
 @onready var rails: Node2D = $rails
 

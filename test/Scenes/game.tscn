@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwjbd58dpvslw"]
+[gd_scene load_steps=11 format=3 uid="uid://cwjbd58dpvslw"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_3skgd"]
 [ext_resource type="PackedScene" uid="uid://3kyfnxlgf6vo" path="res://Scenes/problem.tscn" id="2_30vgv"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://Scripts/music_manager.gd" id="5_x5h7i"]
 [ext_resource type="AudioStream" uid="uid://cbwmbuygkrkld" path="res://Assets/Music/problem_solving.mp3" id="6_bqh0a"]
 [ext_resource type="AudioStream" uid="uid://bliuf1xryy7gg" path="res://Assets/Music/frenzy.mp3" id="7_2nc1r"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="7_q52h4"]
+[ext_resource type="PackedScene" uid="uid://cy4vfdd11xb6c" path="res://Scenes/Background.tscn" id="8_47iqf"]
+[ext_resource type="Script" path="res://Scripts/ui/front_ui.gd" id="9_wcblv"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_3skgd")
@@ -14,8 +17,6 @@ script = ExtResource("1_3skgd")
 [node name="problem" parent="." instance=ExtResource("2_30vgv")]
 
 [node name="Score_manager" parent="." instance=ExtResource("3_stu2i")]
-
-[node name="UI" parent="." instance=ExtResource("4_6pwvn")]
 
 [node name="unsupervised_time" type="Timer" parent="."]
 wait_time = 30.0
@@ -31,5 +32,16 @@ parameters/looping = true
 [node name="frenzy" type="AudioStreamPlayer" parent="music_manager"]
 stream = ExtResource("7_2nc1r")
 parameters/looping = true
+
+[node name="ui_manager" type="Node" parent="."]
+script = ExtResource("7_q52h4")
+
+[node name="UI" parent="ui_manager" instance=ExtResource("4_6pwvn")]
+script = ExtResource("9_wcblv")
+
+[node name="background" type="CanvasLayer" parent="ui_manager"]
+layer = -1
+
+[node name="Background" parent="ui_manager/background" instance=ExtResource("8_47iqf")]
 
 [connection signal="timeout" from="unsupervised_time" to="." method="_on_unsupervised_time_timeout"]

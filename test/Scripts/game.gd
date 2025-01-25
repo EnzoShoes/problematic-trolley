@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var unsupervised_time: Timer = $unsupervised_time
-@onready var ui: CanvasLayer = $UI
+@onready var ui_manager: Node = $ui_manager
 @onready var score_manager: Node = $Score_manager
 @onready var problem: Node2D = $problem
 const PROBLEM = preload("res://Scenes/problem.tscn")
@@ -53,7 +53,7 @@ func activate_timer():
 	unsupervised_time.start()
 
 func update_timer_ui():
-	ui.update_timer_label(int(unsupervised_time.time_left))
+	ui_manager.ui.update_timer_label(int(unsupervised_time.time_left))
 
 func _on_unsupervised_time_timeout() -> void:
 	score_manager.phase_finished.emit()
@@ -67,7 +67,7 @@ func _on_score_updated(score, max_score):
 		trust_gauge_value = 100 * score / max_score
 	elif Globals.game_state == Globals.game_states.UNSUPERVISED:
 		freedom_gauge_value = 100 * score / max_score
-	ui.update_trust_bar(trust_gauge_value, freedom_gauge_value)
+	ui_manager.ui.update_trust_bar(trust_gauge_value, freedom_gauge_value)
 	
 func _on_phase_finished():
 	if Globals.game_state == Globals.game_states.SUPERVISED:
@@ -82,8 +82,12 @@ func _on_phase_finished():
 	print("you are now in phase " + str(Globals.game_state))
 func _on_choice_made(choice: String):
 	if choice == "good":
+		ui_manager.background.flash("Good_Choice")
+		await ui_manager.background.animation_finished
 		score_manager.add_score(1)
 	elif choice == "bad":
+		ui_manager.background.flash("Bad_Choice")
+		await ui_manager.background.animation_finished
 		pass
 	else:
 		printerr("this type of choice is invalid")
