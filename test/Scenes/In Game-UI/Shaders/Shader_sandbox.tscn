@@ -6,7 +6,6 @@
 [ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/bug shader.gdshader" id="3_8xtrk"]
 [ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/Inverse_colors.gdshader" id="3_fl6hp"]
 [ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/No_value_victim.gdshader" id="6_bgye3"]
-[ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/Good_or_Bad_choice_Background.gdshader" id="7_cwci0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gt45s"]
 shader = ExtResource("1_0ln3j")
@@ -30,9 +29,50 @@ shader_parameter/margin = 1.335
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_quxt5"]
 shader = ExtResource("6_bgye3")
 
+[sub_resource type="Shader" id="Shader_4xake"]
+code = "shader_type canvas_item;
+
+uniform float margin: hint_range(0.0, 3.0, 0.01);
+uniform float colorintensity: hint_range(0.0, 1.0, 0.01);
+uniform bool Good_Choice;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+
+	
+	float colorintensity_tapered = (abs(UV.x/margin - 0.5/margin) + abs(UV.y/margin - 0.5/margin)) * colorintensity;
+
+	vec4 reversed_green = vec4 (colorintensity_tapered,0.0,colorintensity_tapered,0.0);
+	vec4 reversed_red = vec4 (0.0,colorintensity_tapered,colorintensity_tapered,0.0);
+	
+	vec2 where_there_is_color = vec2(margin);
+	
+	// the border of the screen : is UV.xy is 0-0.20 or 0.80-1.0
+
+	//if (UV.x < margin || UV.x > (1.0 - margin) || UV.y > (1.0 - margin) || (UV.y < margin)) {
+		if (Good_Choice == true)
+		{
+			COLOR = COLOR - reversed_green;
+		}
+		else 
+		{
+			COLOR = COLOR - reversed_red;
+		}
+	//}
+}	
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pt6ee"]
-shader = ExtResource("7_cwci0")
-shader_parameter/margin = 0.5
+shader = SubResource("Shader_4xake")
+shader_parameter/margin = 0.6
 shader_parameter/colorintensity = 1.0
 shader_parameter/Good_Choice = true
 
