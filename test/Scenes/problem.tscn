@@ -1,0 +1,143 @@
+[gd_scene load_steps=11 format=3 uid="uid://3kyfnxlgf6vo"]
+
+[ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Sprites/Background.png" id="1_cjxo3"]
+[ext_resource type="Script" path="res://Scripts/problem.gd" id="1_lxmd5"]
+[ext_resource type="Texture2D" uid="uid://dv3bbi1vpekej" path="res://Assets/Sprites/rails_sprite.png" id="2_j0b3x"]
+[ext_resource type="Script" path="res://Scripts/rails.gd" id="3_kc77o"]
+[ext_resource type="Script" path="res://Scripts/troley_control.gd" id="3_r1u4a"]
+[ext_resource type="PackedScene" uid="uid://cah4mpd32e14d" path="res://Scenes/trolley.tscn" id="4_ejfoj"]
+
+[sub_resource type="Curve2D" id="Curve2D_o0a8p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -160, 0, 0, 0, 0, 0, -57, 0, 0, 0, 0, 0, -57, 32, 0, 0, 0, 0, 233, 32)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_5k05q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -160, 0, 0, 0, 0, 0, -57, 0, 0, 0, 0, 0, -57, -32, 0, 0, 0, 0, 232, -32)
+}
+point_count = 4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4aeny"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xsr0y"]
+
+[node name="problem" type="Node2D"]
+script = ExtResource("1_lxmd5")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("1_cjxo3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="rails" type="Node2D" parent="."]
+script = ExtResource("3_kc77o")
+
+[node name="RailsSprite" type="Sprite2D" parent="rails"]
+texture = ExtResource("2_j0b3x")
+
+[node name="spawn_points" type="Node2D" parent="rails"]
+
+[node name="spawn_top" type="Node2D" parent="rails/spawn_points"]
+
+[node name="spawn_top_1" type="Node2D" parent="rails/spawn_points/spawn_top"]
+position = Vector2(53, -32)
+
+[node name="spawn_top_2" type="Node2D" parent="rails/spawn_points/spawn_top"]
+position = Vector2(69, -32)
+
+[node name="spawn_top_3" type="Node2D" parent="rails/spawn_points/spawn_top"]
+position = Vector2(37, -32)
+
+[node name="spawn_top_4" type="Node2D" parent="rails/spawn_points/spawn_top"]
+position = Vector2(85, -32)
+
+[node name="spawn_top_5" type="Node2D" parent="rails/spawn_points/spawn_top"]
+position = Vector2(20, -32)
+
+[node name="spawn_top_6" type="Node2D" parent="rails/spawn_points/spawn_top"]
+position = Vector2(100, -32)
+
+[node name="spawn_top_7" type="Node2D" parent="rails/spawn_points/spawn_top"]
+position = Vector2(5, -32)
+
+[node name="spawn_top_8" type="Node2D" parent="rails/spawn_points/spawn_top"]
+position = Vector2(117, -32)
+
+[node name="spawn_top_9" type="Node2D" parent="rails/spawn_points/spawn_top"]
+position = Vector2(-11, -32)
+
+[node name="spawn_top_10" type="Node2D" parent="rails/spawn_points/spawn_top"]
+position = Vector2(133, -32)
+
+[node name="spawn_bot" type="Node2D" parent="rails/spawn_points"]
+
+[node name="spawn_bot_1" type="Node2D" parent="rails/spawn_points/spawn_bot"]
+position = Vector2(53, 32)
+
+[node name="spawn_bot_2" type="Node2D" parent="rails/spawn_points/spawn_bot"]
+position = Vector2(69, 32)
+
+[node name="spawn_bot_3" type="Node2D" parent="rails/spawn_points/spawn_bot"]
+position = Vector2(37, 32)
+
+[node name="spawn_bot_4" type="Node2D" parent="rails/spawn_points/spawn_bot"]
+position = Vector2(85, 32)
+
+[node name="spawn_bot_5" type="Node2D" parent="rails/spawn_points/spawn_bot"]
+position = Vector2(21, 32)
+
+[node name="spawn_bot_6" type="Node2D" parent="rails/spawn_points/spawn_bot"]
+position = Vector2(101, 32)
+
+[node name="spawn_bot_7" type="Node2D" parent="rails/spawn_points/spawn_bot"]
+position = Vector2(5, 32)
+
+[node name="spawn_bot_8" type="Node2D" parent="rails/spawn_points/spawn_bot"]
+position = Vector2(117, 32)
+
+[node name="spawn_bot_9" type="Node2D" parent="rails/spawn_points/spawn_bot"]
+position = Vector2(-11, 32)
+
+[node name="spawn_bot_10" type="Node2D" parent="rails/spawn_points/spawn_bot"]
+position = Vector2(133, 32)
+
+[node name="troley" type="Node2D" parent="."]
+script = ExtResource("3_r1u4a")
+
+[node name="DownPath" type="Path2D" parent="troley"]
+curve = SubResource("Curve2D_o0a8p")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="troley/DownPath"]
+position = Vector2(-160, 0)
+rotates = false
+loop = false
+
+[node name="UpPath" type="Path2D" parent="troley"]
+curve = SubResource("Curve2D_5k05q")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="troley/UpPath"]
+position = Vector2(-160, 0)
+rotates = false
+loop = false
+
+[node name="Trolley" parent="troley" instance=ExtResource("4_ejfoj")]
+unique_name_in_owner = true
+
+[node name="top_path_end" type="Area2D" parent="troley"]
+position = Vector2(173, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="troley/top_path_end"]
+shape = SubResource("CircleShape2D_4aeny")
+
+[node name="bot_path_end" type="Area2D" parent="troley"]
+position = Vector2(174, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="troley/bot_path_end"]
+shape = SubResource("CircleShape2D_xsr0y")
+
+[connection signal="area_entered" from="troley/top_path_end" to="." method="_on_top_choice_area_entered"]
+[connection signal="area_entered" from="troley/bot_path_end" to="." method="_on_bot_choice_area_entered"]

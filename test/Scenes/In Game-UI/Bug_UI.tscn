@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://rjaaavhtouch"]
+
+[ext_resource type="Theme" uid="uid://m5p0fuseq3nn" path="res://Theme/Pixel_art_bug .tres" id="1_ldcte"]
+
+[node name="BugUi_prototype" type="CanvasLayer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -50.0
+offset_right = 79.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+pivot_offset = Vector2(79.0414, 49.972)
+theme = ExtResource("1_ldcte")
+
+[node name="Bug" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "This is a bug"
+autowrap_mode = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Bug2" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "This is a bug"
+autowrap_mode = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Bug3" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "This is a bug"
+autowrap_mode = 3
+icon_alignment = 1
+vertical_icon_alignment = 0

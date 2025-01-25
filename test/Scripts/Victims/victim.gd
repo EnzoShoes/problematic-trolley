@@ -53,7 +53,6 @@ func death():
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void: #triggers the death method when the victim is hit by the train
-	print("area entered in victim")
 	if area.is_in_group("player"):
 		if is_living:
 			death()

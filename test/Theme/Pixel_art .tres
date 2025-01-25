@@ -6,7 +6,7 @@
 [resource]
 Button/colors/font_color = Color(0.321728, 0.321728, 0.321728, 1)
 Button/colors/font_focus_color = Color(0, 0, 0, 1)
-Button/colors/font_hover_color = Color(0.854902, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 1, 1)
 Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(0, 0, 0, 1)
 Button/font_sizes/font_size = 8

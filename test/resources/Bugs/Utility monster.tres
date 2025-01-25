@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ybvew1p63ga5"]
+
+[ext_resource type="Script" path="res://Scripts/bug_ressource.gd" id="1_1v3tn"]
+[ext_resource type="Texture2D" uid="uid://c6gll7jyn44y2" path="res://Assets/Sprites/Bug_Icons/utility_monster_happy.png" id="1_mwxgv"]
+
+[resource]
+script = ExtResource("1_1v3tn")
+bug_icon = ExtResource("1_mwxgv")
+Bug_name = "Utility monster"
+bug_description = "The utility monster is a being of pure well-being."

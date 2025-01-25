@@ -1,18 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmw4hbao1f851"]
+[gd_scene load_steps=10 format=3 uid="uid://bmw4hbao1f851"]
 
-[ext_resource type="Script" path="res://Scripts/progress_bars.gd" id="1_ddhxu"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_ddhxu"]
 [ext_resource type="Texture2D" uid="uid://dpfr2at4pacn2" path="res://Assets/Sprites/Ui Sprites/Trust Gauge/trust_gauge_back.png" id="1_vy30r"]
 [ext_resource type="Texture2D" uid="uid://db66k1inn830b" path="res://Assets/Sprites/Ui Sprites/Trust Gauge/trust_gauge_frame.png" id="2_fr187"]
 [ext_resource type="Texture2D" uid="uid://bunjmb2nmhwlg" path="res://Assets/Sprites/Ui Sprites/Trust Gauge/trust_gauge_fill.png" id="3_bqlfb"]
 [ext_resource type="Texture2D" uid="uid://b4sulu48tajai" path="res://Assets/Sprites/Ui Sprites/Freedom Gauge/freedom_gauge_back.png" id="4_4nk7u"]
 [ext_resource type="Texture2D" uid="uid://ciklr34io8d5n" path="res://Assets/Sprites/Ui Sprites/Freedom Gauge/freedom_gauge_frame.png" id="5_ujhof"]
 [ext_resource type="Texture2D" uid="uid://cdooxp6c3nlwt" path="res://Assets/Sprites/Ui Sprites/Freedom Gauge/freedom_gauge_fill.png" id="6_8mloe"]
+[ext_resource type="Theme" uid="uid://bbcxm7ji6ltx3" path="res://Theme/Pixel_art .tres" id="8_hfi5i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wy0no"]
-outline_size = 10
+outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Gauges" type="CanvasLayer"]
+[node name="in_game_ui" type="CanvasLayer"]
+script = ExtResource("1_ddhxu")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -25,22 +27,23 @@ offset_right = -24.0
 offset_bottom = 32.0
 grow_horizontal = 2
 scale = Vector2(3, 3)
-script = ExtResource("1_ddhxu")
 
 [node name="Trust_Gauge" type="TextureProgressBar" parent="Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 8.0
-offset_right = 41.0
-offset_bottom = 16.0
+offset_left = 10.6667
+offset_top = 2.66667
+offset_right = 43.6667
+offset_bottom = 18.6667
 grow_horizontal = 2
 texture_under = ExtResource("1_vy30r")
 texture_over = ExtResource("2_fr187")
 texture_progress = ExtResource("3_bqlfb")
 
 [node name="Freedom_Gauge" type="TextureProgressBar" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -54,17 +57,19 @@ texture_under = ExtResource("4_4nk7u")
 texture_over = ExtResource("5_ujhof")
 texture_progress = ExtResource("6_8mloe")
 
-[node name="Label" type="Label" parent="Control"]
+[node name="timer_clock" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = -79.0
-offset_top = -4.0
+offset_left = -8.0
+offset_top = -5.33333
 offset_right = 28.0
-offset_bottom = 19.0
+offset_bottom = 25.6667
+theme = ExtResource("8_hfi5i")
 text = "120"
 label_settings = SubResource("LabelSettings_wy0no")
-horizontal_alignment = 2
+horizontal_alignment = 1
 
 [node name="end_of_game_score" type="Label" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 10.6667
 offset_top = 73.6667
