@@ -24,7 +24,7 @@ func new_problem():
 	if Globals.game_state == Globals.game_states.END:
 		return
 	print("______________")
-	SceneTransition.fade_in()
+	SceneTransition.fade_in("glitch")
 	await SceneTransition.animation_player.animation_finished
 	if problem != null:
 		problem.queue_free()

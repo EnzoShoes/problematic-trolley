@@ -94,8 +94,8 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8grah"]
 _data = {
 "RESET": SubResource("Animation_kxwlc"),
-"Transition_Fade_in": SubResource("Animation_rln1q"),
-"Transition_Glitch": SubResource("Animation_k6jjy")
+"fade_in": SubResource("Animation_rln1q"),
+"glitch": SubResource("Animation_k6jjy")
 }
 
 [node name="SceneTransition" type="CanvasLayer"]
