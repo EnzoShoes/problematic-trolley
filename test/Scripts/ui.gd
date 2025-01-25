@@ -4,6 +4,10 @@ extends CanvasLayer
 @onready var freedom_gauge: TextureProgressBar = $Control/Freedom_Gauge
 @onready var timer_clock: Label = $Control/timer_clock
 @onready var end_of_game_score: Label = $Control/end_of_game_score
+@onready var supervised_indicator: Control = $"Supervised indicator"
+
+func _process(_delta: float) -> void:
+	check_game_phase()
 
 func update_trust_bar(trust_progress_value, freedom_progress_value):
 	trust_gauge.value = trust_progress_value
@@ -22,3 +26,11 @@ func update_timer_label(time_left:int):
 func end_game(score:int, max_score:int):
 	end_of_game_score.visible = true
 	end_of_game_score.text = "your score is : " + str(score) + " / " + str(max_score)
+
+func check_game_phase():
+	if Globals.game_state == Globals.game_states.UNSUPERVISED:
+		timer_clock.visible = true
+		supervised_indicator.visible = false
+	elif Globals.game_state == Globals.game_states.SUPERVISED:
+		timer_clock.visible = false
+		supervised_indicator.visible = true

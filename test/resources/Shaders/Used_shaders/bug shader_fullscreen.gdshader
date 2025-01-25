@@ -16,6 +16,9 @@ void fragment() {
 	// These are the variables used later
 	vec4 displaced_image_right = texture(SCREEN_TEXTURE, (SCREEN_UV-vec2(Displacement,0.0)));
 	vec4 displaced_image_left = texture(SCREEN_TEXTURE, (SCREEN_UV-vec2(-Displacement,0.0)));
+	// Reversing the colors for more pazaz
+	vec4 reversed_colors_right = vec4(1.0 - displaced_image_right.xyz, displaced_image_right.a);
+	vec4 reversed_colors_left = vec4(1.0 - displaced_image_left.xyz, displaced_image_left.a);
 	
 	// now into the chromatic aberation (now exported)
 	vec4 blue = vec4 (0.0,0.0,Aberation_Intensity,1.0);
@@ -25,10 +28,10 @@ void fragment() {
 	// the stripes are going to be affected. When the conditions are met, the next line displaces those
 	// fragments. 
 	if (int(UV.y*Stripe_Size)%2 == 0) {
-		COLOR = displaced_image_right + blue;
+		COLOR = reversed_colors_right;
 	}
 	else {
-		COLOR = displaced_image_left + red;
+		COLOR = reversed_colors_left;
 	}
 	
 }
