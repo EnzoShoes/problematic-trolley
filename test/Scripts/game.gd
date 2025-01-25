@@ -15,8 +15,8 @@ func _process(_delta: float) -> void:
 func _ready() -> void:
 	score_manager.score_updated.connect(_on_score_updated)
 	score_manager.phase_finished.connect(_on_phase_finished)
-	init_problem(LevelFactory.premade_lvls_map["lvl_" + str(current_lvl)])
-
+	new_problem()
+	
 func new_problem():
 	if Globals.game_state == Globals.game_states.END:
 		return
@@ -73,7 +73,6 @@ func _on_phase_finished():
 	if Globals.game_state == Globals.game_states.SUPERVISED:
 		Globals.game_state = Globals.game_states.UNSUPERVISED
 		activate_timer()
-		
 	elif Globals.game_state == Globals.game_states.UNSUPERVISED:
 		Globals.game_state = Globals.game_states.SUPERVISED
 	score_manager.num_choice_made = 0
