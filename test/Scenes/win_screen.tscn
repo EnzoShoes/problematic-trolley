@@ -59,6 +59,6 @@ offset_right = 14.6667
 offset_bottom = 48.3333
 grow_horizontal = 2
 grow_vertical = 2
-text = "Go back to humanlife"
+text = "Go back to human life"
 
 [node name="title_screen_music" parent="." instance=ExtResource("2_dxe8w")]
