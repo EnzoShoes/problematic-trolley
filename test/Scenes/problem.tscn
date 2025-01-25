@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://3kyfnxlgf6vo"]
 
 [ext_resource type="Script" path="res://Scripts/problem.gd" id="1_lxmd5"]
-[ext_resource type="PackedScene" uid="uid://p5v84kf855pq" path="res://Scenes/Background.tscn" id="2_cbmf6"]
+[ext_resource type="PackedScene" path="res://Scenes/Background.tscn" id="2_cbmf6"]
 [ext_resource type="Texture2D" uid="uid://dv3bbi1vpekej" path="res://Assets/Sprites/rails_sprite.png" id="2_j0b3x"]
 [ext_resource type="Script" path="res://Scripts/rails.gd" id="3_kc77o"]
 [ext_resource type="Script" path="res://Scripts/troley_control.gd" id="3_r1u4a"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cv853npxbi7r0"]
+[gd_scene load_steps=6 format=3 uid="uid://cv853npxbi7r0"]
 
 [sub_resource type="Curve" id="Curve_omfiv"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.726667, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -7,7 +7,13 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_4ad73"]
 curve = SubResource("Curve_omfiv")
 
+[sub_resource type="Curve" id="Curve_t57nn"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_spew4"]
+curve = SubResource("Curve_t57nn")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jqegd"]
 particle_flag_disable_z = true
