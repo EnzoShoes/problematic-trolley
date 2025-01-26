@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkup5nwwr6t5"]
+
+[ext_resource type="Texture2D" uid="uid://c6gll7jyn44y2" path="res://Assets/Sprites/Bug_Icons/utility_monster_happy.png" id="1_bhg2v"]
+[ext_resource type="Theme" uid="uid://m5p0fuseq3nn" path="res://Theme/Pixel_art_bug .tres" id="1_n7kcs"]
+[ext_resource type="Theme" uid="uid://dpfwiykyleyad" path="res://Theme/Pixel_art_bug_no_borders .tres" id="2_c0sq7"]
+
+[node name="Bug_Button" type="Control"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bug Background" type="Panel" parent="."]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -50.0
+offset_right = 25.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_n7kcs")
+
+[node name="Bug_Icon" type="TextureRect" parent="Bug Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -12.0
+offset_top = 10.5
+offset_right = 13.0
+offset_bottom = 35.5
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+mouse_filter = 2
+texture = ExtResource("1_bhg2v")
+stretch_mode = 2
+
+[node name="Bug description" type="Label" parent="Bug Background"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.3333
+offset_top = -4.66667
+offset_right = 64.6667
+offset_bottom = 90.3333
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("2_c0sq7")
+text = "This is a description"
+autowrap_mode = 2
