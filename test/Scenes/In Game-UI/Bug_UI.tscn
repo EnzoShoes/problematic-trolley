@@ -92,3 +92,15 @@ scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_wcyhn")
 text = "This is a description"
 autowrap_mode = 2
+
+[node name="Explaination" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -5.33333
+offset_top = -76.6667
+offset_right = 7.66667
+offset_bottom = -55.6667
+grow_horizontal = 2
+text = "Choose one effect to occasionaly affect a choice"
