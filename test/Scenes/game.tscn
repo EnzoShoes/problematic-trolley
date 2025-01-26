@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwjbd58dpvslw"]
+[gd_scene load_steps=15 format=3 uid="uid://cwjbd58dpvslw"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_3skgd"]
 [ext_resource type="PackedScene" uid="uid://3kyfnxlgf6vo" path="res://Scenes/problem.tscn" id="2_30vgv"]
+[ext_resource type="Script" path="res://Scripts/problem_manager.gd" id="2_yvalm"]
 [ext_resource type="PackedScene" uid="uid://ck87kr8c554r3" path="res://Scenes/score_manager.tscn" id="3_stu2i"]
 [ext_resource type="PackedScene" uid="uid://bmw4hbao1f851" path="res://Scenes/In Game-UI/in_game_ui.tscn" id="4_6pwvn"]
 [ext_resource type="Script" path="res://Scripts/music_manager.gd" id="5_x5h7i"]
@@ -9,17 +10,22 @@
 [ext_resource type="AudioStream" uid="uid://bliuf1xryy7gg" path="res://Assets/Music/frenzy.mp3" id="7_2nc1r"]
 [ext_resource type="AudioStream" uid="uid://dl72s22ons2g5" path="res://Assets/Sound_effect/sfx_glitch_trans.mp3" id="7_lxgji"]
 [ext_resource type="Script" path="res://Scripts/ui/ui.gd" id="7_q52h4"]
-[ext_resource type="PackedScene" uid="uid://cy4vfdd11xb6c" path="res://Scenes/Background.tscn" id="8_47iqf"]
+[ext_resource type="PackedScene" uid="uid://c0x6xjsp1cqi7" path="res://Scenes/Background.tscn" id="8_47iqf"]
 [ext_resource type="AudioStream" uid="uid://cl58bkelxqw0q" path="res://Assets/Sound_effect/sfx_bad_choice.mp3" id="8_qpmhr"]
 [ext_resource type="Script" path="res://Scripts/ui/front_ui.gd" id="9_wcblv"]
 [ext_resource type="AudioStream" uid="uid://1ic8j5gyjrx7" path="res://Assets/Sound_effect/sfx_good_choice.mp3" id="9_wlly3"]
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" node_paths=PackedStringArray("unsupervised_time", "ui_manager", "score_manager", "problem", "music_manager", "problem_manager")]
 script = ExtResource("1_3skgd")
+unsupervised_time = NodePath("unsupervised_time")
+ui_manager = NodePath("ui_manager")
+score_manager = NodePath("Score_manager")
+problem = NodePath("Score_manager/problem_manager/problem")
+music_manager = NodePath("music_manager")
+problem_manager = NodePath("Score_manager/problem_manager")
 
-[node name="problem" parent="." instance=ExtResource("2_30vgv")]
-
-[node name="Score_manager" parent="." instance=ExtResource("3_stu2i")]
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
 
 [node name="music_manager" type="Node" parent="."]
 script = ExtResource("5_x5h7i")
@@ -41,8 +47,9 @@ stream = ExtResource("8_qpmhr")
 [node name="sfx_good_choice" type="AudioStreamPlayer" parent="music_manager"]
 stream = ExtResource("9_wlly3")
 
-[node name="ui_manager" type="Node" parent="."]
+[node name="ui_manager" type="Node" parent="." node_paths=PackedStringArray("score_manager")]
 script = ExtResource("7_q52h4")
+score_manager = NodePath("../Score_manager")
 
 [node name="UI" parent="ui_manager" instance=ExtResource("4_6pwvn")]
 script = ExtResource("9_wcblv")
@@ -55,5 +62,17 @@ layer = -1
 [node name="unsupervised_time" type="Timer" parent="."]
 wait_time = 30.0
 one_shot = true
+
+[node name="Score_manager" parent="." node_paths=PackedStringArray("game") instance=ExtResource("3_stu2i")]
+game = NodePath("..")
+
+[node name="problem_manager" type="Node" parent="Score_manager" node_paths=PackedStringArray("game", "score_manager", "music_manager", "ui_manager")]
+script = ExtResource("2_yvalm")
+game = NodePath("../..")
+score_manager = NodePath("..")
+music_manager = NodePath("../../music_manager")
+ui_manager = NodePath("../../ui_manager")
+
+[node name="problem" parent="Score_manager/problem_manager" instance=ExtResource("2_30vgv")]
 
 [connection signal="timeout" from="unsupervised_time" to="." method="_on_unsupervised_time_timeout"]

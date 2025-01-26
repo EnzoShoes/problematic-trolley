@@ -2,7 +2,7 @@ extends Node
 
 @onready var ui: CanvasLayer = $UI
 @onready var background: Node2D = $background/Background
-@onready var score_manager: Node = $"../Score_manager"
+@export var score_manager: Node
 
 func _ready() -> void:
 	score_manager.freedom_score_updated.connect(_on_freedom_score_updated)

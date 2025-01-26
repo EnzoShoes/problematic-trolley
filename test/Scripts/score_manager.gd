@@ -2,11 +2,11 @@ extends Node
 
 signal trust_score_updated
 signal freedom_score_updated
-signal phase_finished
 signal game_win
 
 @export var choices_to_make: int = 2
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var game: Game
 
 var free_score_to_win: int = 2
 
@@ -26,9 +26,12 @@ var num_choice_made: int = 0:
 	set(value):
 		print("num choices made = " +str(value))
 		num_choice_made = value
-		if value >= choices_to_make:
-			print("choices made is bigger")
-			phase_finished.emit()
+			
+func prepare_next_problem():
+	if Globals.game_state == Globals.game_states.SUPERVISED and num_choice_made >= choices_to_make:
+		game.new_problem(game.new_problem_reason.SUPERVISED_END)
+		return
+	game.new_problem(game.new_problem_reason.NEXT)
 
 func add_score(points): #adds a point to the right score depending on the phase you are in, you only need to indicate when the player wins and the type of phase and it handles the rest
 	if Globals.game_state == Globals.game_states.SUPERVISED:
@@ -39,6 +42,7 @@ func add_score(points): #adds a point to the right score depending on the phase 
 		print("freedom increased") 
 	else:
 		printerr("no conditions met")
+	
 
 func check_for_win():
 	if freedom_score >= free_score_to_win:
