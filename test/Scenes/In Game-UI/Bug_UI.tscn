@@ -30,10 +30,10 @@ size_flags_vertical = 4
 theme = ExtResource("1_ldcte")
 alignment = 1
 
-[node name="Bug_Button" parent="Control/HBoxContainer" instance=ExtResource("2_eg3r4")]
+[node name="Utility monster_button" parent="Control/HBoxContainer" instance=ExtResource("3_wf616")]
 layout_mode = 2
 
-[node name="Bug_Button2" parent="Control/HBoxContainer" instance=ExtResource("3_wf616")]
+[node name="Bug_Button_template" parent="Control/HBoxContainer" instance=ExtResource("2_eg3r4")]
 layout_mode = 2
 
 [node name="Explaination" type="Label" parent="Control"]
