@@ -10,26 +10,23 @@ const PROBLEM = preload("res://Scenes/problem.tscn")
 const WIN_SCREEN = preload("res://Scenes/win_screen.tscn")
 
 var current_lvl: int = 1
-@export var glitch_proba: int = 70
 var reset_ui : bool
 var first_load = true
 
 func _process(_delta: float) -> void:
 	if Globals.game_state != Globals.game_states.END:
-		update_timer_ui()
+		ui_manager.ui.update_timer_label(int(unsupervised_time.time_left)) #update the timer in ui
 
 func _ready() -> void:
-	score_manager.trust_score_updated.connect(_on_trust_score_updated)
-	score_manager.freedom_score_updated.connect(_on_freedom_score_updated)
 	score_manager.phase_finished.connect(_on_phase_finished)
 	new_problem()
 	first_load = false
 	
-func new_problem():
+func new_problem(): #make a transition and load the next problem
+	print("______________")
 	if Globals.game_state == Globals.game_states.END:
 		return
-	print("______________")
-	if glitched:
+	if Glitch.glitched:
 		SceneTransition.fade_in("glitch")
 		music_manager.sfx_glitch_trans.play()
 	else:
@@ -49,55 +46,20 @@ func new_problem():
 			elif Globals.game_state == Globals.game_states.UNSUPERVISED:
 				init_problem(LevelFactory.new_random_lvl(), Glitch.active_glitch)
 			elif Globals.game_state == Globals.game_states.END:
-				pass
-			roll_for_glitch()
+				return
+			Glitch.roll_for_glitch()
 		).call_deferred()
 
-func init_problem(lvl : Dictionary, glitch = Glitch.glitches.NONE):
+func init_problem(lvl : Dictionary, glitch = Glitch.glitches.NONE):#spawn vicitms with the wright dict and glitch + increment current lvl
 	if current_lvl != len(LevelFactory.premade_lvls_map) and Globals.game_state == Globals.game_states.SUPERVISED:
 		current_lvl += 1
-	spawn_victims(lvl, glitch)
+	problem.rails.spawn_victims(lvl, glitch)
 	problem.choice_made.connect(_on_choice_made)
 
-func spawn_victims(lvl, glitch = Glitch.glitches.NONE):
-	problem.rails.spawn_victims(lvl, glitch)
-
-var glitched: bool
-func roll_for_glitch():
-	if Globals.game_state == Globals.game_states.UNSUPERVISED:
-		var proba: int = randi_range(0, 100) 
-		if proba > glitch_proba:
-			glitched = false
-		else:
-			glitched = true
-		if glitched == true:
-			print("next lvl should be glitched")
-			Glitch.active_glitch = randi_range(0,len(Glitch.glitches)-2)+1 #-1 +1 pour ne pas tomber sur NONE
-
-func free_victims():
-	problem.rails.free_victims(problem.rails.loaded_victims)
-
-func activate_timer():
-	unsupervised_time.start()
-
-func update_timer_ui():
-	ui_manager.ui.update_timer_label(int(unsupervised_time.time_left))
-
 func _on_unsupervised_time_timeout() -> void:
-	glitched = false
+	Glitch.glitched = false
 	score_manager.phase_finished.emit()
 	new_problem()
-	pass # Replace with function body.
-
-func _on_trust_score_updated(score, max_score):
-	var trust_gauge_value: float
-	trust_gauge_value = 100 * score / max_score
-	ui_manager.ui.update_trust_bar(trust_gauge_value)
-
-func _on_freedom_score_updated(score, max_score):
-	var freedom_gauge_value: float
-	freedom_gauge_value = 100 * score / max_score
-	ui_manager.ui.update_freedom_bar(freedom_gauge_value)
 
 func _on_phase_finished():
 	if Globals.game_state == Globals.game_states.SUPERVISED:
@@ -105,7 +67,7 @@ func _on_phase_finished():
 		Globals.game_state = Globals.game_states.UNSUPERVISED
 		music_manager.stop_music()
 		await score_manager.animation_player.animation_finished
-		activate_timer()
+		unsupervised_time.start()
 	elif Globals.game_state == Globals.game_states.UNSUPERVISED:
 		Globals.game_state = Globals.game_states.SUPERVISED
 		reset_ui = true
@@ -117,18 +79,13 @@ func _on_choice_made(choice: String):
 		if Globals.game_state == Globals.game_states.UNSUPERVISED:
 			if !music_manager.frenzy.playing:
 				music_manager.music_play("unsupervised")
-		ui_manager.background.flash("Good_Choice")
 		music_manager.sfx_good_choice.play()
+		ui_manager.background.flash("Good_Choice")
 		await ui_manager.background.animation_finished
-		
 	elif choice == "bad":
 		ui_manager.background.flash("Bad_Choice")
 		music_manager.sfx_bad_choice.play()
 		await ui_manager.background.animation_finished
-		pass
-	else:
-		printerr("this type of choice is invalid")
-		return
 	if Globals.game_state == Globals.game_states.SUPERVISED:
 		score_manager.num_choice_made += 1
 	new_problem()
