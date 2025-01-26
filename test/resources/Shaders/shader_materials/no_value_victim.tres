@@ -5,3 +5,4 @@
 [resource]
 shader = ExtResource("1_adasx")
 shader_parameter/saturation = 0.5
+shader_parameter/brightness = null
