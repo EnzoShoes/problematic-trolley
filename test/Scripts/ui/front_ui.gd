@@ -7,10 +7,13 @@ extends CanvasLayer
 @onready var supervised_indicator: Control = $supervised_indicator
 
 
-func update_trust_bar(trust_progress_value, freedom_progress_value):
+func update_trust_bar(trust_progress_value):
 	trust_gauge.value = trust_progress_value
-	freedom_gauge.value = freedom_progress_value
 	print("trus prog = " + str(trust_progress_value))
+
+func update_freedom_bar(freedom_progress_value):
+	freedom_gauge.value = freedom_progress_value
+	print("free prog = " + str(freedom_progress_value))
 
 @warning_ignore("integer_division")
 func update_timer_label(time_left:int):

@@ -19,7 +19,8 @@ func _process(_delta: float) -> void:
 		update_timer_ui()
 
 func _ready() -> void:
-	score_manager.score_updated.connect(_on_score_updated)
+	score_manager.trust_score_updated.connect(_on_trust_score_updated)
+	score_manager.freedom_score_updated.connect(_on_freedom_score_updated)
 	score_manager.phase_finished.connect(_on_phase_finished)
 	new_problem()
 	first_load = false
@@ -30,6 +31,7 @@ func new_problem():
 	print("______________")
 	if glitched:
 		SceneTransition.fade_in("glitch")
+		music_manager.sfx_glitch_trans.play()
 	else:
 		if !first_load:
 			SceneTransition.fade_in("fade_in")
@@ -87,20 +89,23 @@ func _on_unsupervised_time_timeout() -> void:
 	new_problem()
 	pass # Replace with function body.
 
-func _on_score_updated(score, max_score):
+func _on_trust_score_updated(score, max_score):
 	var trust_gauge_value: float
+	trust_gauge_value = 100 * score / max_score
+	ui_manager.ui.update_trust_bar(trust_gauge_value)
+
+func _on_freedom_score_updated(score, max_score):
 	var freedom_gauge_value: float
-	if Globals.game_state == Globals.game_states.SUPERVISED:
-		trust_gauge_value = 100 * score / max_score
-	elif Globals.game_state == Globals.game_states.UNSUPERVISED:
-		freedom_gauge_value = 100 * score / max_score
-	ui_manager.ui.update_trust_bar(trust_gauge_value, freedom_gauge_value)
-	
+	freedom_gauge_value = 100 * score / max_score
+	ui_manager.ui.update_freedom_bar(freedom_gauge_value)
+
 func _on_phase_finished():
 	if Globals.game_state == Globals.game_states.SUPERVISED:
+		score_manager.empty_trust_to_timer()
 		Globals.game_state = Globals.game_states.UNSUPERVISED
-		activate_timer()
 		music_manager.stop_music()
+		await score_manager.animation_player.animation_finished
+		activate_timer()
 	elif Globals.game_state == Globals.game_states.UNSUPERVISED:
 		Globals.game_state = Globals.game_states.SUPERVISED
 		reset_ui = true
@@ -108,14 +113,17 @@ func _on_phase_finished():
 
 func _on_choice_made(choice: String):
 	if choice == "good":
+		score_manager.add_score(1)
 		if Globals.game_state == Globals.game_states.UNSUPERVISED:
 			if !music_manager.frenzy.playing:
 				music_manager.music_play("unsupervised")
 		ui_manager.background.flash("Good_Choice")
+		music_manager.sfx_good_choice.play()
 		await ui_manager.background.animation_finished
-		score_manager.add_score(1)
+		
 	elif choice == "bad":
 		ui_manager.background.flash("Bad_Choice")
+		music_manager.sfx_bad_choice.play()
 		await ui_manager.background.animation_finished
 		pass
 	else:
