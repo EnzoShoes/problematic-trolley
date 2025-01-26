@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://i5ccfo8vulko" path="res://Assets/Sprites/Bug_Icons/utility_monster_sad.png" id="2_ejl3q"]
 [ext_resource type="Theme" uid="uid://dpfwiykyleyad" path="res://Theme/Pixel_art_bug_no_borders .tres" id="3_4d0s0"]
 
-[node name="Bug_Button" type="Control"]
+[node name="Utility monster_button" type="Control"]
 custom_minimum_size = Vector2(50, 100)
 layout_mode = 3
 anchors_preset = 0
