@@ -31,10 +31,10 @@ static var victim_value_map = {
 static func roll_for_glitch():
 	if Globals.game_state == Globals.game_states.UNSUPERVISED:
 		var proba: int = randi_range(0, 100) 
-		if proba > glitch_proba:
+		if proba >= glitch_proba:
 			glitched = false
 			Glitch.active_glitch = glitches.NONE
 		else:
 			glitched = true
 			print("next lvl should be glitched")
-			Glitch.active_glitch = randi_range(0,len(Glitch.glitches)-2)+1 #-1 +1 pour ne pas tomber sur NONE
+			Glitch.active_glitch = randi_range(1,len(Glitch.glitches)-1) #esquive NONE
