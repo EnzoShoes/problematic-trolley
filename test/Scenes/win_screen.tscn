@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cfktvnfckevaf" path="res://Scenes/Music/title_screen_music.tscn" id="2_dxe8w"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("2_2y0gp")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -14,7 +15,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_opt8b")
-script = ExtResource("2_2y0gp")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
@@ -66,5 +66,3 @@ grow_vertical = 2
 text = "Go back to human life"
 
 [node name="title_screen_music" parent="." instance=ExtResource("2_dxe8w")]
-
-[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
