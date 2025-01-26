@@ -9,4 +9,5 @@ script = ExtResource("1_1v3tn")
 bug_icon = ExtResource("2_stnjm")
 bug_animation = ExtResource("1_kfi3q")
 Bug_name = "Utility monster"
-bug_description = "The utility monster is a being of pure well-being."
+Bug_effect = "New Victim added"
+bug_description = "This being can only experience the most extreme misery. "

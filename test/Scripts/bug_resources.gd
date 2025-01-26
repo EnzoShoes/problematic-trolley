@@ -6,4 +6,5 @@ extends Resource
 @export var bug_icon: Texture2D
 @export var bug_animation: SpriteFrames
 @export var Bug_name: String
+@export var Bug_effect: String
 @export var bug_description: String
