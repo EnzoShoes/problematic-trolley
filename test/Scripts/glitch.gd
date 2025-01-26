@@ -33,8 +33,8 @@ static func roll_for_glitch():
 		var proba: int = randi_range(0, 100) 
 		if proba > glitch_proba:
 			glitched = false
+			Glitch.active_glitch = glitches.NONE
 		else:
 			glitched = true
-		if glitched == true:
 			print("next lvl should be glitched")
 			Glitch.active_glitch = randi_range(0,len(Glitch.glitches)-2)+1 #-1 +1 pour ne pas tomber sur NONE

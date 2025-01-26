@@ -47,6 +47,9 @@ func check_for_win():
 		pass
 
 func empty_trust_to_timer():
+	var anim = animation_player.get_animation("empty_trust_to_timer")
+	var key_id = anim.track_find_key(0, 0.0)
+	anim.track_set_key_value(0, key_id, trust_score)
 	animation_player.play("empty_trust_to_timer")
 	await animation_player.animation_finished
 	pass

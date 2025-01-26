@@ -12,10 +12,17 @@ const WIN_SCREEN = preload("res://Scenes/win_screen.tscn")
 var current_lvl: int = 1
 var reset_ui : bool
 var first_load = true
+var new_phase : bool = false
+var can_troley_move : bool = true
 
 func _process(_delta: float) -> void:
 	if Globals.game_state != Globals.game_states.END:
 		ui_manager.ui.update_timer_label(int(unsupervised_time.time_left)) #update the timer in ui
+	if problem.troley != null:
+		if can_troley_move == false:
+			problem.troley.in_control = false
+		elif can_troley_move == true:
+			problem.troley.in_control = true
 
 func _ready() -> void:
 	score_manager.phase_finished.connect(_on_phase_finished)
@@ -35,9 +42,11 @@ func new_problem(): #make a transition and load the next problem
 			await SceneTransition.animation_player.animation_finished
 	ui_manager.ui.check_game_phase()
 	update_ui()
+	
 	if problem != null:
 		problem.queue_free()
 	problem = PROBLEM.instantiate()
+
 	if Globals.game_state != Globals.game_states.END:
 		(func():
 			add_child(problem)
@@ -48,6 +57,7 @@ func new_problem(): #make a transition and load the next problem
 			elif Globals.game_state == Globals.game_states.END:
 				return
 			Glitch.roll_for_glitch()
+			new_phase_sequence()
 		).call_deferred()
 
 func init_problem(lvl : Dictionary, glitch = Glitch.glitches.NONE):#spawn vicitms with the wright dict and glitch + increment current lvl
@@ -62,16 +72,12 @@ func _on_unsupervised_time_timeout() -> void:
 	new_problem()
 
 func _on_phase_finished():
-	if Globals.game_state == Globals.game_states.SUPERVISED:
-		score_manager.empty_trust_to_timer()
+	if Globals.game_state == Globals.game_states.SUPERVISED: 
 		Globals.game_state = Globals.game_states.UNSUPERVISED
-		music_manager.stop_music()
-		await score_manager.animation_player.animation_finished
-		unsupervised_time.start()
+		new_phase = true
 	elif Globals.game_state == Globals.game_states.UNSUPERVISED:
 		Globals.game_state = Globals.game_states.SUPERVISED
 		reset_ui = true
-	print("you are now in phase " + str(Globals.game_state))
 
 func _on_choice_made(choice: String):
 	if choice == "good":
@@ -98,3 +104,16 @@ func update_ui():
 		reset_ui = false
 	ui_manager.ui.update_freedom_bar_visble()
 	pass
+
+func new_phase_sequence():
+	if new_phase:
+		music_manager.stop_music()
+		unsupervised_time.wait_time += score_manager.trust_score * 10
+		can_troley_move = false
+		print("aniùmation start")
+		score_manager.empty_trust_to_timer()
+		await score_manager.animation_player.animation_finished
+		print("aniùmation finished")
+		unsupervised_time.start()
+		can_troley_move = true
+		new_phase = false

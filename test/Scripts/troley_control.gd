@@ -34,7 +34,5 @@ func update_trolley_path():
 		trolley.transform = Transform2D.IDENTITY	
 
 func update_control_status():
-	if Globals.game_state != Globals.game_states.END:
-		in_control = true
-	else: 
+	if Globals.game_state == Globals.game_states.END:
 		in_control = false
