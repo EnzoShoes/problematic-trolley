@@ -31,22 +31,8 @@ func _ready() -> void:
 	
 func new_problem(): #make a transition and load the next problem
 	print("______________")
-	if Globals.game_state == Globals.game_states.END:
-		return
-	if Glitch.glitched:
-		SceneTransition.fade_in("glitch")
-		music_manager.sfx_glitch_trans.play()
-	else:
-		if !first_load:
-			SceneTransition.fade_in("fade_in")
-			await SceneTransition.animation_player.animation_finished
-	ui_manager.ui.check_game_phase()
-	update_ui()
-	
-	if problem != null:
-		problem.queue_free()
+	await transition_sequence()
 	problem = PROBLEM.instantiate()
-
 	if Globals.game_state != Globals.game_states.END:
 		(func():
 			add_child(problem)
@@ -117,3 +103,19 @@ func new_phase_sequence():
 		unsupervised_time.start()
 		can_troley_move = true
 		new_phase = false
+
+func transition_sequence():
+	if Globals.game_state == Globals.game_states.END:
+		return
+	if Glitch.glitched:
+		SceneTransition.fade_in("glitch")
+		music_manager.sfx_glitch_trans.play()
+	else:
+		if !first_load:
+			SceneTransition.fade_in("fade_in")
+			await SceneTransition.animation_player.animation_finished
+	ui_manager.ui.check_game_phase()
+	update_ui()
+	
+	if problem != null:
+		problem.queue_free()
