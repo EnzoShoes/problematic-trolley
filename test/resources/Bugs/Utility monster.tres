@@ -1,10 +1,12 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ybvew1p63ga5"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://ybvew1p63ga5"]
 
-[ext_resource type="Script" path="res://Scripts/bug_ressource.gd" id="1_1v3tn"]
-[ext_resource type="Texture2D" uid="uid://c6gll7jyn44y2" path="res://Assets/Sprites/Bug_Icons/utility_monster_happy.png" id="1_mwxgv"]
+[ext_resource type="Script" path="res://Scripts/bug_resources.gd" id="1_1v3tn"]
+[ext_resource type="SpriteFrames" uid="uid://lsl234kssb2f" path="res://Assets/Sprites/Victims/Extras/Utility monster/utility_monster_wriggle.tres" id="1_kfi3q"]
+[ext_resource type="Texture2D" uid="uid://i5ccfo8vulko" path="res://Assets/Sprites/Bug_Icons/utility_monster_sad.png" id="2_stnjm"]
 
 [resource]
 script = ExtResource("1_1v3tn")
-bug_icon = ExtResource("1_mwxgv")
+bug_icon = ExtResource("2_stnjm")
+bug_animation = ExtResource("1_kfi3q")
 Bug_name = "Utility monster"
 bug_description = "The utility monster is a being of pure well-being."
