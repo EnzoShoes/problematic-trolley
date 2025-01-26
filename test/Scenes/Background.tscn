@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://p5v84kf855pq"]
+[gd_scene load_steps=9 format=3 uid="uid://cy4vfdd11xb6c"]
 
 [ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Sprites/Background.png" id="1_6b0sj"]
+[ext_resource type="Script" path="res://Scripts/background.gd" id="1_m0xf7"]
 [ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/Good_or_Bad_choice_Background.gdshader" id="1_swgy3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ia1m6"]
@@ -134,6 +135,7 @@ _data = {
 }
 
 [node name="Background" type="Node2D"]
+script = ExtResource("1_m0xf7")
 
 [node name="Ground Sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_ia1m6")

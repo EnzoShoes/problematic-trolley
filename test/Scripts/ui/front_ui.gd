@@ -6,13 +6,14 @@ extends CanvasLayer
 @onready var end_of_game_score: Label = $Control/end_of_game_score
 @onready var supervised_indicator: Control = $supervised_indicator
 
-func _process(_delta: float) -> void:
-	check_game_phase()
 
-func update_trust_bar(trust_progress_value, freedom_progress_value):
+func update_trust_bar(trust_progress_value):
 	trust_gauge.value = trust_progress_value
-	freedom_gauge.value = freedom_progress_value
 	print("trus prog = " + str(trust_progress_value))
+
+func update_freedom_bar(freedom_progress_value):
+	freedom_gauge.value = freedom_progress_value
+	print("free prog = " + str(freedom_progress_value))
 
 @warning_ignore("integer_division")
 func update_timer_label(time_left:int):
@@ -34,3 +35,11 @@ func check_game_phase():
 	elif Globals.game_state == Globals.game_states.SUPERVISED:
 		timer_clock.visible = false
 		supervised_indicator.visible = true
+
+func update_freedom_bar_visble():
+	if Globals.game_state == Globals.game_states.UNSUPERVISED:
+		freedom_gauge.visible = true
+	elif Globals.game_state == Globals.game_states.SUPERVISED:
+		freedom_gauge.visible = false
+	else: 
+		return

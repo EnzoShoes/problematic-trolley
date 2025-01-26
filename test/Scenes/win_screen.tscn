@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt0ws6koxtnfs"]
+[gd_scene load_steps=4 format=3 uid="uid://bt0ws6koxtnfs"]
 
 [ext_resource type="Theme" uid="uid://bbcxm7ji6ltx3" path="res://Theme/Pixel_art .tres" id="1_opt8b"]
+[ext_resource type="Script" path="res://Scripts/ui/win_screen.gd" id="2_2y0gp"]
 [ext_resource type="PackedScene" uid="uid://cfktvnfckevaf" path="res://Scenes/Music/title_screen_music.tscn" id="2_dxe8w"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -13,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_opt8b")
+script = ExtResource("2_2y0gp")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
@@ -55,12 +57,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -13.3333
+offset_left = -47.3333
 offset_top = 27.3333
-offset_right = 14.6667
+offset_right = 48.6667
 offset_bottom = 48.3333
 grow_horizontal = 2
 grow_vertical = 2
 text = "Go back to human life"
 
-[node name="title_screen_music" parent="Control" instance=ExtResource("2_dxe8w")]
+[node name="title_screen_music" parent="." instance=ExtResource("2_dxe8w")]
+
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]

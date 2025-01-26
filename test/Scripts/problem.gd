@@ -2,6 +2,7 @@ extends Node2D
 
 signal choice_made
 
+@onready var background: Node2D = $background
 @onready var troley: Node2D = $troley
 @onready var rails: Node2D = $rails
 
@@ -26,6 +27,7 @@ func _on_top_choice_area_entered(area: Area2D) -> void:
 			else:
 				bad_choice()
 			pass
+
 func _on_bot_choice_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		if Globals.game_state == Globals.game_states.SUPERVISED:

@@ -1,10 +1,12 @@
 extends Node
 
-signal score_updated
+signal trust_score_updated
+signal freedom_score_updated
 signal phase_finished
 signal game_win
 
 @export var choices_to_make: int = 2
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var free_score_to_win: int = 2
 
@@ -12,13 +14,13 @@ var freedom_score: int = 0:
 	set(value):
 		print("freedom = " + str(value) + " /"+ str(free_score_to_win))
 		freedom_score = value
-		score_updated.emit(value, free_score_to_win)
+		freedom_score_updated.emit(value, free_score_to_win)
 		check_for_win()
 
-var trust_score:int = 0:
+@export var trust_score:float = 0:
 	set(value):
 		trust_score = value
-		score_updated.emit(value, choices_to_make)
+		trust_score_updated.emit(value, choices_to_make)
 
 var num_choice_made: int = 0:
 	set(value):
@@ -28,11 +30,9 @@ var num_choice_made: int = 0:
 			print("choices made is bigger")
 			phase_finished.emit()
 
-
 func add_score(points): #adds a point to the right score depending on the phase you are in, you only need to indicate when the player wins and the type of phase and it handles the rest
 	if Globals.game_state == Globals.game_states.SUPERVISED:
 		trust_score += points
-		print("you are now in phase " + str(Globals.game_state))
 		print("trust increased")
 	elif Globals.game_state == Globals.game_states.UNSUPERVISED:
 		freedom_score += points
@@ -45,3 +45,8 @@ func check_for_win():
 		game_win.emit()
 	else:
 		pass
+
+func empty_trust_to_timer():
+	animation_player.play("empty_trust_to_timer")
+	await animation_player.animation_finished
+	pass

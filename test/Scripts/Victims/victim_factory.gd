@@ -18,13 +18,14 @@ static var victim_shader_map = {
 
 static var victim_particles_map = {
 	Glitch.glitches.NONE : preload("res://Scenes/particles_systems/empty_node.tscn"),
-	Glitch.glitches.AI_UPLOADING : load("res://Scenes/particles_systems/zero_value_particles.tscn")
+	"zero_value" : load("res://Scenes/particles_systems/zero_value_particles.tscn")
 }
 static func new_victim(type: int, glitch: int = Glitch.glitches.NONE) -> Victim:
 	var victim: Victim = victim_scene.instantiate()
 	victim.ressource = victim_resource_map[type]
 	victim.value = Glitch.victim_value_map[glitch][type]
-	victim.material = victim_shader_map[glitch]
-	var particle_system = victim_particles_map[glitch].instantiate()
-	victim.get_node("particle_holder").add_child(particle_system)
+	if victim.value <= 0:
+		victim.material = victim_shader_map[glitch]
+		var particle_system = victim_particles_map["zero_value"].instantiate()
+		victim.get_node("particle_holder").add_child(particle_system)
 	return victim

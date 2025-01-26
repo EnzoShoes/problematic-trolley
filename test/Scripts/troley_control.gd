@@ -16,16 +16,7 @@ func _process(delta: float) -> void:
 	if (path_selected != null):
 		path_selected.progress_ratio += delta * speed * ((path_selected.progress_ratio + 0.1))
 		if (path_selected.progress_ratio == 1):
-			# Detach trolley from path and reset position
-			trolley.position = initialTrolleyPos
-			trolley.get_parent().remove_child(trolley)
-			add_child(trolley)
-			# Reset selected path
-			path_selected.progress_ratio = 0
-			path_selected = null
-
-func input_manager():
-	pass
+			pass
 
 func update_trolley_path():
 	if (path_selected == null) and in_control:

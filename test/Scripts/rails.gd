@@ -17,14 +17,14 @@ func calculate_winner() -> String:
 		
 	return "top" if top_score > bot_score else "bot"
 
-func spawn_victims(lvl : Dictionary,) -> void:
+func spawn_victims(lvl : Dictionary, glitch = Glitch.glitches.NONE) -> void:
 	for i in range(len(lvl["top"])):
-			var new_victim = VictimFactory.new_victim(lvl["top"][i])
+			var new_victim = VictimFactory.new_victim(lvl["top"][i], glitch)
 			var current_spawn_point = get_node("spawn_points/spawn_" + "top" + "/spawn_" + "top" + "_" + str(i+1))
 			current_spawn_point.call_deferred("add_child", new_victim)
 			loaded_victims["top"].append(new_victim)
 	for i in range(len(lvl["bot"])):
-			var new_victim = VictimFactory.new_victim(lvl["bot"][i])
+			var new_victim = VictimFactory.new_victim(lvl["bot"][i], glitch)
 			var current_spawn_point = get_node("spawn_points/spawn_" + "bot" + "/spawn_" + "bot" + "_" + str(i+1))
 			current_spawn_point.call_deferred("add_child", new_victim)
 			loaded_victims["bot"].append(new_victim)
