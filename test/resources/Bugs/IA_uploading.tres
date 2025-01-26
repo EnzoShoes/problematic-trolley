@@ -8,4 +8,4 @@ script = ExtResource("3_ce8je")
 bug_icon = ExtResource("1_mxni8")
 Bug_name = "IA Uploading"
 Bug_effect = "The Rich are worth nothing"
-bug_description = "Instead of dying, the rich's mind is uploaded to the cloud. The suffering his bodily death will cause will be minimal extreme misery. "
+Bug_description = "Instead of dying, the rich's mind is uploaded to the cloud. The suffering his bodily death will cause will be minimal"
