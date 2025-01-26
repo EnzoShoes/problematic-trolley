@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dt75r8eji53iw"]
 
-[ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/No_value_victim.gdshader" id="1_kiops"]
+[ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/High_value_victim.gdshader" id="1_adasx"]
 
 [resource]
-shader = ExtResource("1_kiops")
-shader_parameter/darken = 2.0
+shader = ExtResource("1_adasx")
+shader_parameter/saturation = 0.5

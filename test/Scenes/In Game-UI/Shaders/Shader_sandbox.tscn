@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdry7d0kklssj"]
+[gd_scene load_steps=18 format=3 uid="uid://bdry7d0kklssj"]
 
 [ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/Changing one color shader.gdshader" id="1_0ln3j"]
 [ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/displacing texture.gdshader" id="1_xtf6c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/bug shader.gdshader" id="3_8xtrk"]
 [ext_resource type="Shader" path="res://resources/Shaders/Test_shaders/Inverse_colors.gdshader" id="3_fl6hp"]
 [ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/No_value_victim.gdshader" id="6_bgye3"]
+[ext_resource type="Material" uid="uid://c5s157u1fdnce" path="res://resources/Shaders/shader_materials/high_value_victim.tres" id="6_cgypp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gt45s"]
 shader = ExtResource("1_0ln3j")
@@ -28,6 +29,7 @@ shader_parameter/margin = 1.335
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_quxt5"]
 shader = ExtResource("6_bgye3")
+shader_parameter/darken = null
 
 [sub_resource type="Shader" id="Shader_4xake"]
 code = "shader_type canvas_item;
@@ -114,6 +116,11 @@ texture = ExtResource("2_bkr4s")
 
 [node name="Icon_control" type="Sprite2D" parent="Group 1"]
 position = Vector2(112, 8)
+texture = ExtResource("2_bkr4s")
+
+[node name="Icon7" type="Sprite2D" parent="Group 1"]
+material = ExtResource("6_cgypp")
+position = Vector2(112, 32)
 texture = ExtResource("2_bkr4s")
 
 [node name="Icon5" type="Sprite2D" parent="Group 1"]

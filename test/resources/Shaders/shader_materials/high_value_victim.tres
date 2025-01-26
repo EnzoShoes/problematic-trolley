@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c5s157u1fdnce"]
+
+[ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/High_value_victim.gdshader" id="1_he1cq"]
+
+[resource]
+shader = ExtResource("1_he1cq")
+shader_parameter/saturation = 1.7
