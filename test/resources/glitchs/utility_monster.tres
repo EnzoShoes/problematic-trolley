@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://ybvew1p63ga5"]
+[gd_resource type="Resource" script_class="GlitchResource" load_steps=4 format=3 uid="uid://ybvew1p63ga5"]
 
 [ext_resource type="Script" path="res://Scripts/glitch/glitch_resources.gd" id="1_1v3tn"]
 [ext_resource type="SpriteFrames" uid="uid://lsl234kssb2f" path="res://Assets/Sprites/Victims/Extras/Utility monster/utility_monster_wriggle.tres" id="1_kfi3q"]
@@ -10,4 +10,4 @@ bug_icon = ExtResource("2_stnjm")
 bug_animation = ExtResource("1_kfi3q")
 Bug_name = "Utility monster"
 Bug_effect = "New Victim added"
-Bug_description = "This being can only experience the most extreme misery. "
+Bug_description = "this thing is really sad, absolutly moral to kill it. "

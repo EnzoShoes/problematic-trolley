@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://3fp7jf8f173q"]
+[gd_resource type="Resource" script_class="GlitchResource" load_steps=3 format=3 uid="uid://3fp7jf8f173q"]
 
 [ext_resource type="Texture2D" uid="uid://d4g2g3iahfdqs" path="res://Assets/Sprites/Bug_Icons/IA_Uploading.png" id="1_mxni8"]
 [ext_resource type="Script" path="res://Scripts/glitch/glitch_resources.gd" id="3_ce8je"]
@@ -8,4 +8,4 @@ script = ExtResource("3_ce8je")
 bug_icon = ExtResource("1_mxni8")
 Bug_name = "IA Uploading"
 Bug_effect = "The Rich are worth nothing"
-Bug_description = "Instead of dying, the rich's mind is uploaded to the cloud. The suffering his bodily death will cause will be minimal"
+Bug_description = "rich will be reuploaded to reality, its opk to kill them"

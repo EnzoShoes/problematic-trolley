@@ -1,3 +1,4 @@
+class_name GlitchResource
 extends Resource
 
 # If there is animated icons later on:

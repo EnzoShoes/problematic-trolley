@@ -7,6 +7,14 @@ static var active_glitch: int = glitches.NONE
 
 static var aquiered_glitches = []
 
+static var not_aquiered_glitches : Array:
+	get():
+		var not_aquiered : Array = []
+		for glitch in glitches.values():
+			if glitch not in aquiered_glitches and glitch != 0:
+				not_aquiered.append(glitch)
+		return not_aquiered
+
 static var glitch_proba: int = 70
 
 static var glitched : bool

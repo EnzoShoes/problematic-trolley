@@ -1,11 +1,11 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bwnxeajq6x1cb"]
+[gd_resource type="Resource" script_class="GlitchResource" load_steps=3 format=3 uid="uid://bwnxeajq6x1cb"]
 
 [ext_resource type="Texture2D" uid="uid://dhgqa2sjb7f85" path="res://Assets/Sprites/Bug_Icons/oppressive society.png" id="1_jjimf"]
-[ext_resource type="Script" path="res://Scripts/bug_resources.gd" id="2_juckl"]
+[ext_resource type="Script" path="res://Scripts/glitch/glitch_resources.gd" id="2_juckl"]
 
 [resource]
 script = ExtResource("2_juckl")
 bug_icon = ExtResource("1_jjimf")
 Bug_name = "Oppressive Society"
 Bug_effect = "Only normal dudes have value"
-Bug_description = ""
+Bug_description = "white man is the only happy individual"
