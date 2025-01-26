@@ -4,12 +4,16 @@ extends Node2D
 @onready var ui_manager: Node = $ui_manager
 @onready var score_manager: Node = $Score_manager
 @onready var problem: Node2D = $problem
+@onready var music_manager: Node = $music_manager
+
 const PROBLEM = preload("res://Scenes/problem.tscn")
 const WIN_SCREEN = preload("res://Scenes/win_screen.tscn")
+
 var current_lvl: int = 1
 @export var glitch_proba: int = 70
 var reset_ui : bool
 var first_load = true
+
 func _process(_delta: float) -> void:
 	if Globals.game_state != Globals.game_states.END:
 		update_timer_ui()
@@ -96,6 +100,7 @@ func _on_phase_finished():
 	if Globals.game_state == Globals.game_states.SUPERVISED:
 		Globals.game_state = Globals.game_states.UNSUPERVISED
 		activate_timer()
+		music_manager.stop_music()
 	elif Globals.game_state == Globals.game_states.UNSUPERVISED:
 		Globals.game_state = Globals.game_states.SUPERVISED
 		reset_ui = true
@@ -103,6 +108,9 @@ func _on_phase_finished():
 
 func _on_choice_made(choice: String):
 	if choice == "good":
+		if Globals.game_state == Globals.game_states.UNSUPERVISED:
+			if !music_manager.frenzy.playing:
+				music_manager.music_play("unsupervised")
 		ui_manager.background.flash("Good_Choice")
 		await ui_manager.background.animation_finished
 		score_manager.add_score(1)
@@ -122,4 +130,6 @@ func update_ui():
 		score_manager.num_choice_made = 0
 		score_manager.freedom_score = 0
 		score_manager.trust_score = 0
+		reset_ui = false
+	ui_manager.ui.update_freedom_bar_visble()
 	pass

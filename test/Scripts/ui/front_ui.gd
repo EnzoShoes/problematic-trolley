@@ -32,3 +32,11 @@ func check_game_phase():
 	elif Globals.game_state == Globals.game_states.SUPERVISED:
 		timer_clock.visible = false
 		supervised_indicator.visible = true
+
+func update_freedom_bar_visble():
+	if Globals.game_state == Globals.game_states.UNSUPERVISED:
+		freedom_gauge.visible = true
+	elif Globals.game_state == Globals.game_states.SUPERVISED:
+		freedom_gauge.visible = false
+	else: 
+		return
