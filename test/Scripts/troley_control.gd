@@ -2,13 +2,11 @@ extends Node2D
 
 var in_control : bool = true
 @onready var trolley: Node2D = %Trolley
-var initialTrolleyPos : Vector2 = Vector2.ZERO
 var speed = 0.8
 var path_selected : PathFollow2D = null
 
 func _ready() -> void:
 	update_control_status()
-	initialTrolleyPos = trolley.position
 	pass # Replace with function body.
 
 func _process(delta: float) -> void:

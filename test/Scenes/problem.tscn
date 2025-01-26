@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://3kyfnxlgf6vo"]
+[gd_scene load_steps=10 format=3 uid="uid://3kyfnxlgf6vo"]
 
 [ext_resource type="Script" path="res://Scripts/problem.gd" id="1_lxmd5"]
-[ext_resource type="PackedScene" uid="uid://cy4vfdd11xb6c" path="res://Scenes/Background.tscn" id="2_cbmf6"]
 [ext_resource type="Texture2D" uid="uid://dv3bbi1vpekej" path="res://Assets/Sprites/rails_sprite.png" id="2_j0b3x"]
 [ext_resource type="Script" path="res://Scripts/rails.gd" id="3_kc77o"]
 [ext_resource type="Script" path="res://Scripts/troley_control.gd" id="3_r1u4a"]
@@ -25,11 +24,6 @@ point_count = 4
 
 [node name="problem" type="Node2D"]
 script = ExtResource("1_lxmd5")
-
-[node name="background" parent="." instance=ExtResource("2_cbmf6")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
 
 [node name="rails" type="Node2D" parent="."]
 script = ExtResource("3_kc77o")

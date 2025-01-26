@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy4vfdd11xb6c"]
+[gd_scene load_steps=9 format=3 uid="uid://c0x6xjsp1cqi7"]
 
 [ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Sprites/Background.png" id="1_6b0sj"]
 [ext_resource type="Script" path="res://Scripts/background.gd" id="1_m0xf7"]
@@ -135,11 +135,13 @@ _data = {
 }
 
 [node name="Background" type="Node2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_m0xf7")
 
 [node name="Ground Sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_ia1m6")
 texture = ExtResource("1_6b0sj")
+centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Ground Sprite")

@@ -1,7 +1,7 @@
 extends Node
 const GAME = preload("res://Scenes/game.tscn")
-@onready var title_screen_ui: CanvasLayer = $"Title screen/title_screen_ui"
-@onready var title_screen: Node2D = $"Title screen"
+@export var title_screen_ui: CanvasLayer
+@export var title_screen: Node2D
 const WIN_SCREEN = preload("res://Scenes/win_screen.tscn")
 var current_scene
 
