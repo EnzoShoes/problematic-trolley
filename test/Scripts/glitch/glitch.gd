@@ -1,11 +1,11 @@
 class_name Glitch
 extends Node
 
-enum glitches {NONE, AI_UPLOADING}
+enum glitches {NONE, AI_UPLOADING, OPPRESSIVE_SOCIETY, UTILITY_MONSTER}
 
 static var active_glitch: int = glitches.NONE
 
-static var active_glitches = []
+static var aquiered_glitches = []
 
 static var glitch_proba: int = 70
 
@@ -25,6 +25,13 @@ static var victim_value_map = {
 		Globals.victim_types.OLD : 3,
 		Globals.victim_types.NORMAL: 5,
 		Globals.victim_types.RICH : 0
+	},
+	glitches.OPPRESSIVE_SOCIETY : {
+		Globals.victim_types.BAD : 1,
+		Globals.victim_types.BABY : 10,
+		Globals.victim_types.OLD : 3,
+		Globals.victim_types.NORMAL: 1000,
+		Globals.victim_types.RICH : 15
 	}
 }
 

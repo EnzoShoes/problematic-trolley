@@ -1,3 +1,4 @@
+class_name Troley
 extends Node2D
 
 var in_control : bool = true

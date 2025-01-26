@@ -1,8 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dt75r8eji53iw"]
 
-[ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/High_value_victim.gdshader" id="1_adasx"]
+[ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/No_value_victim.gdshader" id="1_fcyd2"]
 
 [resource]
-shader = ExtResource("1_adasx")
-shader_parameter/saturation = 0.5
-shader_parameter/brightness = null
+shader = ExtResource("1_fcyd2")
+shader_parameter/darken = 3.0

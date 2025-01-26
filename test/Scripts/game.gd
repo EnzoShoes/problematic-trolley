@@ -4,7 +4,7 @@ extends Node2D
 @export var unsupervised_time: Timer
 @export var ui_manager: Node
 @export var score_manager: Node
-@export var problem: Node2D # !!!!!
+@export var problem: Problem # !!!!!
 @export var music_manager: Node
 @export var problem_manager: ProblemManager
 
@@ -14,16 +14,10 @@ const PROBLEM = preload("res://Scenes/problem.tscn")
 const WIN_SCREEN = preload("res://Scenes/win_screen.tscn")
 
 var current_lvl: int = 1
-var can_troley_move : bool = true
 
 func _process(_delta: float) -> void:
 	if Globals.game_state != Globals.game_states.END:
 		ui_manager.ui.update_timer_label(int(unsupervised_time.time_left)) #update the timer in ui
-	if problem.troley != null:
-		if can_troley_move == false:
-			problem.troley.in_control = false
-		elif can_troley_move == true:
-			problem.troley.in_control = true
 
 func _ready() -> void:
 	new_problem(new_problem_reason.FIRST_LOAD)
@@ -77,13 +71,13 @@ func _start_frenzy_sequence():
 	unsupervised_time.wait_time += score_manager.trust_score * 10
 	
 	# Empty trust bar into timer
-	can_troley_move = false
+	problem.troley.in_control = false
 	print("aniùmation start")
 	score_manager.empty_trust_to_timer()
 	await score_manager.animation_player.animation_finished
 	print("aniùmation finished")
 	unsupervised_time.start()
-	can_troley_move = true
+	problem.troley.in_control = true
 
 func transition_sequence(reason: new_problem_reason):
 	if Globals.game_state == Globals.game_states.END:

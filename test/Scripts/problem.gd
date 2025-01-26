@@ -1,7 +1,7 @@
 class_name Problem
 extends Node2D
 
-@onready var troley: Node2D = $troley
+@onready var troley: Troley = $troley
 @onready var rails: Node2D = $rails
 
 # Gets set by ProblemManager when Problem is instantiated
