@@ -9,3 +9,4 @@ bug_icon = ExtResource("1_jjimf")
 Bug_name = "Oppressive Society"
 Bug_effect = "Only normal dudes have value"
 Bug_description = "white man is the only happy individual"
+glitch_type = 2

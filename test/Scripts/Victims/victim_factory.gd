@@ -8,13 +8,15 @@ static var victim_resource_map = {
 	Globals.victim_types.BABY : preload("res://resources/baby.tres"),
 	Globals.victim_types.RICH : preload("res://resources/rich_dude.tres"),
 	Globals.victim_types.OLD : preload("res://resources/old_dude.tres"),
-	Globals.victim_types.NORMAL : preload("res://resources/regular_dude.tres")
+	Globals.victim_types.NORMAL : preload("res://resources/regular_dude.tres"),
+	Globals.victim_types.UTIL_MONSTER : preload("res://resources/util_monster.tres")
 }
 
 static var victim_shader_map = {
 	Glitch.glitches.NONE : null,
 	Glitch.glitches.AI_UPLOADING : preload("res://resources/Shaders/shader_materials/no_value_victim.tres"),
-	Glitch.glitches.OPPRESSIVE_SOCIETY : preload("res://resources/Shaders/shader_materials/high_value_victim.tres")
+	Glitch.glitches.OPPRESSIVE_SOCIETY : preload("res://resources/Shaders/shader_materials/high_value_victim.tres"),
+	Glitch.glitches.UTILITY_MONSTER : preload("res://resources/Shaders/shader_materials/high_value_victim.tres")
 }
 
 static var victim_particles_map = {

@@ -5,7 +5,7 @@ extends Node2D
 @onready var rails: Node2D = $rails
 
 # Gets set by ProblemManager when Problem is instantiated
-var problem_manager: Node
+var problem_manager: ProblemManager
 
 func _on_top_choice_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):

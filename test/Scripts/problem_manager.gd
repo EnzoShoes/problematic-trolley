@@ -2,7 +2,7 @@ class_name ProblemManager
 extends Node
 
 @export var game: Game
-@export var score_manager: Node
+@export var score_manager: ScoreManager
 @export var music_manager: Node
 @export var ui_manager: Node
 
@@ -21,6 +21,7 @@ func on_choice_made(choice: String):
 		
 	if Globals.game_state == Globals.game_states.SUPERVISED:
 		score_manager.num_choice_made += 1
+	await score_manager.check_for_new_glitch_choice(score_manager.best_free_score, Glitch.glitch_choice_map, Glitch.not_aquiered_glitches)
 	score_manager.prepare_next_problem()
 
 func _handle_good_choice():

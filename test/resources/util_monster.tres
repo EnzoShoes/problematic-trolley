@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cm4cpk5istm16"]
+
+[ext_resource type="Script" path="res://Scripts/Victims/victim_ressource.gd" id="1_qibub"]
+[ext_resource type="SpriteFrames" uid="uid://lsl234kssb2f" path="res://Assets/Sprites/Victims/Extras/Utility monster/utility_monster_wriggle.tres" id="2_j34v0"]
+
+[resource]
+script = ExtResource("1_qibub")
+sprite_alive = ExtResource("2_j34v0")
+have_dead_limbs = false

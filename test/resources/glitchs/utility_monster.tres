@@ -10,4 +10,5 @@ bug_icon = ExtResource("2_stnjm")
 bug_animation = ExtResource("1_kfi3q")
 Bug_name = "Utility monster"
 Bug_effect = "New Victim added"
-Bug_description = "this thing is really sad, absolutly moral to kill it. "
+Bug_description = "This thing is the happiest thing on earth. Killing it is pure freedom."
+glitch_type = 3

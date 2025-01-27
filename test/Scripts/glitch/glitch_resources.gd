@@ -9,3 +9,4 @@ extends Resource
 @export var Bug_name: String
 @export var Bug_effect: String
 @export var Bug_description: String
+@export var glitch_type : Glitch.glitches 

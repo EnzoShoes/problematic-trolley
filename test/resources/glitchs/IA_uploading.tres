@@ -9,3 +9,4 @@ bug_icon = ExtResource("1_mxni8")
 Bug_name = "IA Uploading"
 Bug_effect = "The Rich are worth nothing"
 Bug_description = "rich will be reuploaded to reality, its opk to kill them"
+glitch_type = 1
