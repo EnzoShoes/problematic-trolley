@@ -1,5 +1,6 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bbcxm7ji6ltx3"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bbcxm7ji6ltx3"]
 
+[ext_resource type="FontFile" uid="uid://blqf6flenep8h" path="res://Theme/Fonts/PixeloidSans.ttf" id="1_k00vm"]
 [ext_resource type="FontFile" uid="uid://c8oqmjrsnrtw6" path="res://Theme/Fonts/Neutrino.ttf" id="1_ykcjk"]
 [ext_resource type="StyleBox" uid="uid://gwkoixr7sgei" path="res://Theme/new_style_box_texture_pixelart.tres" id="2_4bx70"]
 
@@ -9,8 +10,8 @@ Button/colors/font_focus_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0, 0, 1, 1)
 Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(0, 0, 0, 1)
-Button/font_sizes/font_size = 8
-Button/fonts/font = ExtResource("1_ykcjk")
+Button/font_sizes/font_size = 9
+Button/fonts/font = ExtResource("1_k00vm")
 Button/styles/focus = ExtResource("2_4bx70")
 Button/styles/hover = ExtResource("2_4bx70")
 Button/styles/normal = ExtResource("2_4bx70")
@@ -23,7 +24,7 @@ Label/constants/outline_size = 0
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/constants/shadow_outline_size = 1
-Label/font_sizes/font_size = 8
-Label/fonts/font = ExtResource("1_ykcjk")
+Label/font_sizes/font_size = 9
+Label/fonts/font = ExtResource("1_k00vm")
 Label/styles/normal = ExtResource("2_4bx70")
 ProgressBar/fonts/font = ExtResource("1_ykcjk")

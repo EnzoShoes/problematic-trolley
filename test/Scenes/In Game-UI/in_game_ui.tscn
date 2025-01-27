@@ -76,10 +76,9 @@ layout_mode = 0
 offset_left = -112.0
 offset_top = 5.0
 offset_right = -76.0
-offset_bottom = 36.0
+offset_bottom = 27.0
 theme = ExtResource("8_hfi5i")
 text = "120"
-label_settings = SubResource("LabelSettings_wy0no")
 horizontal_alignment = 1
 
 [node name="end_of_game_score" type="Label" parent="Control"]
