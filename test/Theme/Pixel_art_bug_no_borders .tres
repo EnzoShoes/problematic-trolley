@@ -16,6 +16,4 @@ Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 8
 Label/fonts/font = ExtResource("1_75q5f")
 Label/styles/normal = ExtResource("3_lxys8")
-LabelForDescription/base_type = &"Label"
-LabelForDescription/styles/normal = ExtResource("3_lxys8")
 Panel/styles/panel = ExtResource("2_wah8k")
