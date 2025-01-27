@@ -5,7 +5,7 @@ extends Node2D
 @export var ui_manager: Node
 @export var score_manager: Node
 @export var problem: Problem # !!!!!
-@export var music_manager: Node
+@export var music_manager: MusicManager
 @export var problem_manager: ProblemManager
 
 enum new_problem_reason {FIRST_LOAD, UNSUPERVISED_TIMEOUT, UNSUPERVISED_WIN, SUPERVISED_END,GLITCH_CHOICE_MADE, NEXT}
@@ -66,7 +66,6 @@ func update_ui(reason: new_problem_reason):
 		score_manager.freedom_score = 0
 		#score_manager.trust_score = 0
 		ui_manager.ui.update_freedom_bar_visble()
-	pass
 
 func _start_frenzy_sequence():
 	music_manager.stop_music()
@@ -103,7 +102,9 @@ func new_glitch_choice():
 	Globals.game_state = Globals.game_states.GLITCH_CHOICE
 	glitch_selection = GLITCH_SELECTION.instantiate()
 	glitch_selection.game = get_node(".")
+	music_manager.sfx_glitch_trans.play()
 	SceneTransition.fade_in("glitch")
+	Glitch.glitched = true
 	await SceneTransition.animation_player.animation_finished
 	add_child(glitch_selection)
 	

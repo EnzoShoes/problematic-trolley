@@ -62,10 +62,11 @@ static var glitch_choice_map : Array = [1,2,3,6,9,12]
 static func roll_for_glitch():
 	if Globals.game_state == Globals.game_states.UNSUPERVISED:
 		var proba: int = randi_range(0, 100) 
-		if proba >= glitch_proba:
+		if proba >= glitch_proba or len(aquiered_glitches) == 0:
 			glitched = false
 			Glitch.active_glitch = glitches.NONE
 		else:
 			glitched = true
 			print("next lvl should be glitched")
-			Glitch.active_glitch = randi_range(1,len(Glitch.glitches)-1) #esquive NONE
+			var rando = randi_range(0, len(aquiered_glitches)-1)
+			active_glitch = aquiered_glitches[rando]

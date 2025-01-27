@@ -48,12 +48,9 @@ func add_score(points): #adds a point to the right score depending on the phase 
 	else:
 		printerr("no conditions met")
 	
-
 func check_for_win():
 	if freedom_score >= free_score_to_win:
 		game_win.emit()
-	else:
-		pass
 
 func empty_trust_to_timer():
 	var anim = animation_player.get_animation("empty_trust_to_timer")
