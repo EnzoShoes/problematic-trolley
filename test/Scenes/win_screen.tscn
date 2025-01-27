@@ -66,3 +66,5 @@ grow_vertical = 2
 text = "Go back to human life"
 
 [node name="title_screen_music" parent="." instance=ExtResource("2_dxe8w")]
+
+[connection signal="pressed" from="Control/Control/Quit" to="." method="_on_quit_pressed"]
