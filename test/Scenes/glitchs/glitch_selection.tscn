@@ -1,7 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://rjaaavhtouch"]
+[gd_scene load_steps=6 format=3 uid="uid://rjaaavhtouch"]
 
 [ext_resource type="Theme" uid="uid://m5p0fuseq3nn" path="res://Theme/Pixel_art_bug .tres" id="1_6wmq2"]
 [ext_resource type="Script" path="res://Scripts/glitch/glitch_selection.gd" id="1_qbprn"]
+
+[sub_resource type="Curve" id="Curve_ud5o7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.753333, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fxd01"]
+curve = SubResource("Curve_ud5o7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6udmm"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(500, 400, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 193.55
+initial_velocity_max = 225.81
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_fxd01")
+turbulence_enabled = true
+turbulence_noise_strength = 0.1
 
 [node name="BugUi" type="CanvasLayer" node_paths=PackedStringArray("h_box_container")]
 script = ExtResource("1_qbprn")
@@ -13,7 +33,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.917647, 0.172549, 0.678431, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(470, 253)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_6udmm")
+lifetime = 20.0
+preprocess = 20.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -50,3 +77,6 @@ offset_right = 7.66667
 offset_bottom = -55.6667
 grow_horizontal = 2
 text = "Choose one effect to occasionaly affect a choice"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)

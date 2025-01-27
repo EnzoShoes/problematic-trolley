@@ -64,4 +64,5 @@ func empty_trust_to_timer():
 
 func check_for_new_glitch_choice(value: int, choice_map: Array, not_aquiered: Array):
 	if value in choice_map and len(not_aquiered) != 0:
+		choice_map.erase(value)
 		await game.new_glitch_choice()
