@@ -12,6 +12,13 @@ static var possible_victims_per_glitch : Dictionary = {
 	Glitch.glitches.UTILITY_MONSTER : [Globals.victim_types.BAD, Globals.victim_types.BABY, Globals.victim_types.RICH, Globals.victim_types.OLD, Globals.victim_types.NORMAL, Globals.victim_types.UTIL_MONSTER]
 }
 
+static var mandatory_victims_per_glitch : Dictionary = {
+	Glitch.glitches.NONE : [],
+	Glitch.glitches.AI_UPLOADING : [Globals.victim_types.RICH],
+	Glitch.glitches.OPPRESSIVE_SOCIETY : [Globals.victim_types.NORMAL],
+	Glitch.glitches.UTILITY_MONSTER : [Globals.victim_types.UTIL_MONSTER]
+}
+
 static var premade_lvls_map = {
 	"lvl_1" : {
 		"top" : [Globals.victim_types.NORMAL],
@@ -36,10 +43,15 @@ static var premade_lvls_map = {
 } 
 
 static func new_random_lvl() -> Dictionary:
-	var random_lvl = {
+	var random_lvl : Dictionary = {
 		"top" : [],
 		"bot" : []
 	}
+	
+	var chosen_track = random_lvl.keys().pick_random()
+	for victim_type in mandatory_victims_per_glitch[Glitch.active_glitch]:
+		random_lvl[chosen_track].append(victim_type)
+	
 	for i in range(randi_range(1,5)):
 		random_lvl["top"].append(randi_range(0,len(possible_victims)-1))
 	for i in range(randi_range(1,5)):
