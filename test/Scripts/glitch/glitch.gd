@@ -5,7 +5,7 @@ enum glitches {NONE, AI_UPLOADING, OPPRESSIVE_SOCIETY, UTILITY_MONSTER}
 
 static var active_glitch: int = glitches.NONE
 
-static var aquiered_glitches = []
+static var aquiered_glitches: Array = []
 
 static var not_aquiered_glitches : Array:
 	get():
@@ -19,7 +19,12 @@ static var glitch_proba: int = 70
 
 static var glitched : bool
 
-static var victim_value_map = {
+static var chose_new_glitch : bool:
+	get():
+		return chose_new_glitch
+
+
+static var victim_value_map : Dictionary = {
 	glitches.NONE : {
 		Globals.victim_types.BAD : 1,
 		Globals.victim_types.BABY : 10,
@@ -51,14 +56,16 @@ static var victim_value_map = {
 	}
 }
 
+static var glitch_choice_map : Array = [1,2,3,6,9,12]
+
+
 static func roll_for_glitch():
-	active_glitch = Glitch.glitches.UTILITY_MONSTER
-	#if Globals.game_state == Globals.game_states.UNSUPERVISED:
-		#var proba: int = randi_range(0, 100) 
-		#if proba >= glitch_proba:
-			#glitched = false
-			#Glitch.active_glitch = glitches.NONE
-		#else:
-			#glitched = true
-			#print("next lvl should be glitched")
-			#Glitch.active_glitch = randi_range(1,len(Glitch.glitches)-1) #esquive NONE
+	if Globals.game_state == Globals.game_states.UNSUPERVISED:
+		var proba: int = randi_range(0, 100) 
+		if proba >= glitch_proba:
+			glitched = false
+			Glitch.active_glitch = glitches.NONE
+		else:
+			glitched = true
+			print("next lvl should be glitched")
+			Glitch.active_glitch = randi_range(1,len(Glitch.glitches)-1) #esquive NONE

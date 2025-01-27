@@ -3,17 +3,6 @@ extends Node
 
 const victim_scene: PackedScene = preload("res://Scenes/victims/victim.tscn")
 
-static var possible_victims : Array = []:
-	get():
-		return possible_victims_per_glitch[Glitch.active_glitch]
-
-static var possible_victims_per_glitch : Dictionary = {
-	Glitch.glitches.NONE : [Globals.victim_types.BAD, Globals.victim_types.BABY, Globals.victim_types.RICH, Globals.victim_types.OLD, Globals.victim_types.NORMAL],
-	Glitch.glitches.AI_UPLOADING : [Globals.victim_types.BAD, Globals.victim_types.BABY, Globals.victim_types.RICH, Globals.victim_types.OLD, Globals.victim_types.NORMAL],
-	Glitch.glitches.OPPRESSIVE_SOCIETY : [Globals.victim_types.BAD, Globals.victim_types.BABY, Globals.victim_types.RICH, Globals.victim_types.OLD, Globals.victim_types.NORMAL],
-	Glitch.glitches.UTILITY_MONSTER : [Globals.victim_types.BAD, Globals.victim_types.BABY, Globals.victim_types.RICH, Globals.victim_types.OLD, Globals.victim_types.NORMAL, Globals.victim_types.UTIL_MONSTER]
-}
-
 static var victim_resource_map = {
 	Globals.victim_types.BAD : preload("res://resources/bad_dude.tres"),
 	Globals.victim_types.BABY : preload("res://resources/baby.tres"),

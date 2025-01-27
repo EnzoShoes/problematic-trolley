@@ -108,3 +108,5 @@ scale = Vector2(0.5, 0.5)
 theme = ExtResource("4_y8nob")
 text = "NAME"
 autowrap_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

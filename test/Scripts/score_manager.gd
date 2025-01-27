@@ -1,3 +1,4 @@
+class_name ScoreManager
 extends Node
 
 signal trust_score_updated
@@ -10,12 +11,16 @@ signal game_win
 
 var free_score_to_win: int = 2
 
+var best_free_score: int = 0
+
 var freedom_score: int = 0:
 	set(value):
 		print("freedom = " + str(value) + " /"+ str(free_score_to_win))
 		freedom_score = value
 		freedom_score_updated.emit(value, free_score_to_win)
 		check_for_win()
+		if freedom_score > best_free_score:
+			best_free_score = freedom_score
 
 @export var trust_score:float = 0:
 	set(value):
@@ -56,4 +61,7 @@ func empty_trust_to_timer():
 	anim.track_set_key_value(0, key_id, trust_score)
 	animation_player.play("empty_trust_to_timer")
 	await animation_player.animation_finished
-	pass
+
+func check_for_new_glitch_choice(value: int, choice_map: Array, not_aquiered: Array):
+	if value in choice_map and len(not_aquiered) != 0:
+		await game.new_glitch_choice()

@@ -1,13 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://rjaaavhtouch"]
+[gd_scene load_steps=3 format=3 uid="uid://rjaaavhtouch"]
 
 [ext_resource type="Theme" uid="uid://m5p0fuseq3nn" path="res://Theme/Pixel_art_bug .tres" id="1_6wmq2"]
 [ext_resource type="Script" path="res://Scripts/glitch/glitch_selection.gd" id="1_qbprn"]
-[ext_resource type="PackedScene" uid="uid://dkup5nwwr6t5" path="res://Scenes/glitchs/glitch_button_template.tscn" id="3_yo2kf"]
-[ext_resource type="Resource" uid="uid://bwnxeajq6x1cb" path="res://resources/glitchs/oppressive_society.tres" id="4_w3vye"]
 
 [node name="BugUi" type="CanvasLayer" node_paths=PackedStringArray("h_box_container")]
 script = ExtResource("1_qbprn")
 h_box_container = NodePath("Control/HBoxContainer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.917647, 0.172549, 0.678431, 1)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -32,10 +38,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_6wmq2")
 alignment = 1
-
-[node name="glitch_button_template" parent="Control/HBoxContainer" instance=ExtResource("3_yo2kf")]
-layout_mode = 2
-resource = ExtResource("4_w3vye")
 
 [node name="Explaination" type="Label" parent="Control"]
 layout_mode = 1
