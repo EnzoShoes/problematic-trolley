@@ -30,7 +30,7 @@ static func new_random_lvl() -> Dictionary:
 		"bot" : []
 	}
 	for i in range(randi_range(1,5)):
-		random_lvl["top"].append(randi_range(0,len(Globals.victim_types)-1))
+		random_lvl["top"].append(randi_range(0,len(VictimFactory.possible_victims)-1))
 	for i in range(randi_range(1,5)):
-		random_lvl["bot"].append(randi_range(0,len(Globals.victim_types)-1))
+		random_lvl["bot"].append(randi_range(0,len(VictimFactory.possible_victims)-1))
 	return random_lvl
