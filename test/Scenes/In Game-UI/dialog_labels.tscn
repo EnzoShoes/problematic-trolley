@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd2g7uigj6581"]
+
+[ext_resource type="FontFile" uid="uid://c8oqmjrsnrtw6" path="res://Theme/Fonts/Neutrino.ttf" id="1_x2j5u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tnqhp"]
+font = ExtResource("1_x2j5u")
+font_color = Color(1, 0, 0, 1)
+
+[node name="dialogue_labels" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -34.6667
+offset_top = -15.3333
+offset_right = 29.3333
+offset_bottom = 7.66667
+label_settings = SubResource("LabelSettings_tnqhp")

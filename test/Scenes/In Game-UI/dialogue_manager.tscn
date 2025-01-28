@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://mc8xkojddgfi"]
+
+[ext_resource type="PackedScene" uid="uid://bd2g7uigj6581" path="res://Scenes/In Game-UI/dialog_labels.tscn" id="1_br3cn"]
+[ext_resource type="Script" path="res://Scripts/ui/dialogs/dialogue_manager.gd" id="1_et7yt"]
+
+[node name="dialogue_manager" type="CanvasLayer" node_paths=PackedStringArray("label")]
+script = ExtResource("1_et7yt")
+label = NodePath("dialogue_labels/Label")
+
+[node name="dialogue_labels" parent="." instance=ExtResource("1_br3cn")]
+
+[editable path="dialogue_labels"]

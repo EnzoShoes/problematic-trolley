@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmw4hbao1f851"]
+[gd_scene load_steps=11 format=3 uid="uid://bmw4hbao1f851"]
 
 [ext_resource type="Script" path="res://Scripts/ui/ui.gd" id="1_ddhxu"]
 [ext_resource type="Texture2D" uid="uid://dpfr2at4pacn2" path="res://Assets/Sprites/Ui Sprites/Trust Gauge/trust_gauge_back.png" id="1_vy30r"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cdooxp6c3nlwt" path="res://Assets/Sprites/Ui Sprites/Freedom Gauge/freedom_gauge_fill.png" id="6_8mloe"]
 [ext_resource type="Theme" uid="uid://bbcxm7ji6ltx3" path="res://Theme/Pixel_art .tres" id="8_hfi5i"]
 [ext_resource type="PackedScene" uid="uid://bejr8bpjpjl1m" path="res://Scenes/In Game-UI/supervised_indicator.tscn" id="9_ekarm"]
-[ext_resource type="PackedScene" uid="uid://bd2g7uigj6581" path="res://Scenes/In Game-UI/Dialogue_ui.tscn" id="10_rcfvm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wy0no"]
 outline_size = 6
@@ -93,5 +92,3 @@ text = "Your score"
 label_settings = SubResource("LabelSettings_wy0no")
 
 [node name="supervised_indicator" parent="." instance=ExtResource("9_ekarm")]
-
-[node name="DialogueUi" parent="." instance=ExtResource("10_rcfvm")]
