@@ -1,12 +1,66 @@
-[gd_scene load_steps=3 format=3 uid="uid://mc8xkojddgfi"]
+[gd_scene load_steps=7 format=3 uid="uid://cul11l0uj5qbx"]
 
-[ext_resource type="PackedScene" uid="uid://bd2g7uigj6581" path="res://Scenes/In Game-UI/dialog_labels.tscn" id="1_br3cn"]
+[ext_resource type="PackedScene" uid="uid://bikk3kehseoih" path="res://Scenes/In Game-UI/dialog_labels.tscn" id="1_br3cn"]
 [ext_resource type="Script" path="res://Scripts/ui/dialogs/dialogue_manager.gd" id="1_et7yt"]
+[ext_resource type="SpriteFrames" uid="uid://dfsrs21kwtr6g" path="res://Assets/Sprites/Ui Sprites/Imput_Scheme_Animation/Imput_Scheme_Tutorial_Animation.tres" id="3_jv12w"]
 
-[node name="dialogue_manager" type="CanvasLayer" node_paths=PackedStringArray("label")]
+[sub_resource type="Animation" id="Animation_3wqww"]
+resource_name = "RESSET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialogue_labels/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_t67wn"]
+resource_name = "Display_Text"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialogue_labels/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ixjc"]
+_data = {
+"RESET": SubResource("Animation_3wqww"),
+"display_text": SubResource("Animation_t67wn")
+}
+
+[node name="dialogue_manager" type="CanvasLayer" node_paths=PackedStringArray("label", "animation_player")]
 script = ExtResource("1_et7yt")
 label = NodePath("dialogue_labels/Label")
+animation_player = NodePath("dialogue_labels/AnimationPlayer")
 
 [node name="dialogue_labels" parent="." instance=ExtResource("1_br3cn")]
+
+[node name="Label" parent="dialogue_labels" index="0"]
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dialogue_labels"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_4ixjc")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(136, -2)
+sprite_frames = ExtResource("3_jv12w")
+autoplay = "default"
+frame_progress = 0.94212
 
 [editable path="dialogue_labels"]

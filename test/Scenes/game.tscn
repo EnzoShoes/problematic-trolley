@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://cl58bkelxqw0q" path="res://Assets/Sound_effect/sfx_bad_choice.mp3" id="8_qpmhr"]
 [ext_resource type="Script" path="res://Scripts/ui/front_ui.gd" id="9_wcblv"]
 [ext_resource type="AudioStream" uid="uid://1ic8j5gyjrx7" path="res://Assets/Sound_effect/sfx_good_choice.mp3" id="9_wlly3"]
-[ext_resource type="PackedScene" uid="uid://mc8xkojddgfi" path="res://Scenes/In Game-UI/dialogue_manager.tscn" id="12_tm0p1"]
+[ext_resource type="PackedScene" uid="uid://cul11l0uj5qbx" path="res://Scenes/In Game-UI/dialogue_manager.tscn" id="12_tm0p1"]
 
 [node name="game" type="Node2D" node_paths=PackedStringArray("unsupervised_time", "ui_manager", "score_manager", "problem", "music_manager", "problem_manager")]
 script = ExtResource("1_3skgd")
