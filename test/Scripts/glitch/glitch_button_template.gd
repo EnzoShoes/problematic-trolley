@@ -2,10 +2,10 @@ extends Control
 
 @export var resource: GlitchResource
 
-@onready var bug_description: Label =$"Bug Background/Bug description"
-@onready var bug_icon: TextureRect =$"Bug Background/Bug_Icon" 
-@onready var glitch_effect: Label = $"Bug Background/glitch_effect"
-@onready var glitch_name: Label = $"Bug Background/glitch_name"
+@export var bug_description: Label
+@export var bug_icon: TextureRect
+@export var glitch_effect: Label
+@export var glitch_name: Label
 @onready var glitch_type: Glitch.glitches = Glitch.glitches.NONE
 
 @onready var UI : GlitchSelection

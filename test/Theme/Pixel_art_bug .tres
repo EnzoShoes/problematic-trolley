@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://c8oqmjrsnrtw6" path="res://Theme/Fonts/Neutrino.ttf" id="1_gkq45"]
 [ext_resource type="StyleBox" uid="uid://c7ojql3lnkctc" path="res://Theme/new_style_box_texture_pixelart_bug.tres" id="2_nf8lx"]
-[ext_resource type="StyleBox" uid="uid://cvqr8w3fe0dy5" path="res://Theme/new_style_box_texture_pixelart_bug_black.tres" id="3_p0rdc"]
+[ext_resource type="StyleBox" uid="uid://wly48upho2uh" path="res://Theme/new_style_box_texture_pixelart_bug_black.tres" id="3_p0rdc"]
 
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)

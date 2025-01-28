@@ -1,15 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkup5nwwr6t5"]
+[gd_scene load_steps=6 format=3 uid="uid://dkup5nwwr6t5"]
 
 [ext_resource type="Script" path="res://Scripts/glitch/glitch_button_template.gd" id="1_eaout"]
 [ext_resource type="Theme" uid="uid://m5p0fuseq3nn" path="res://Theme/Pixel_art_bug .tres" id="2_y13c8"]
 [ext_resource type="Texture2D" uid="uid://c6gll7jyn44y2" path="res://Assets/Sprites/Bug_Icons/utility_monster_happy.png" id="3_wa4s0"]
 [ext_resource type="Theme" uid="uid://dpfwiykyleyad" path="res://Theme/Pixel_art_bug_no_borders .tres" id="4_y8nob"]
+[ext_resource type="FontFile" uid="uid://c5nfgy12eyh0c" path="res://Theme/Fonts/PixeloidSans.ttf" id="5_kad4d"]
 
-[node name="glitch_button_template" type="Control"]
+[node name="glitch_button_template" type="Control" node_paths=PackedStringArray("bug_description", "bug_icon", "glitch_effect", "glitch_name")]
 custom_minimum_size = Vector2(50, 100)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_eaout")
+bug_description = NodePath("Bug Background/Control/Bug description")
+bug_icon = NodePath("Bug Background/Bug_Icon")
+glitch_effect = NodePath("Bug Background/Control/glitch_effect")
+glitch_name = NodePath("Bug Background/glitch_name")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -36,60 +41,6 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("2_y13c8")
 
-[node name="Bug_Icon" type="TextureRect" parent="Bug Background"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -12.0
-offset_top = 10.5
-offset_right = 13.0
-offset_bottom = 35.5
-grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-mouse_filter = 2
-texture = ExtResource("3_wa4s0")
-stretch_mode = 2
-
-[node name="Bug description" type="Label" parent="Bug Background"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -21.0
-offset_top = 9.0
-offset_right = 65.0
-offset_bottom = 77.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-theme = ExtResource("4_y8nob")
-text = "This is a description"
-autowrap_mode = 2
-
-[node name="glitch_effect" type="Label" parent="Bug Background"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -21.0
-offset_top = -12.0
-offset_right = 65.0
-offset_bottom = 22.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-theme = ExtResource("4_y8nob")
-text = "This is a description"
-autowrap_mode = 2
-
 [node name="glitch_name" type="Label" parent="Bug Background"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 1
@@ -101,12 +52,80 @@ anchor_bottom = 0.5
 offset_left = -21.0
 offset_top = -46.0
 offset_right = 63.0
-offset_bottom = -25.0
+offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("4_y8nob")
 text = "NAME"
+autowrap_mode = 2
+uppercase = true
+
+[node name="Bug_Icon" type="TextureRect" parent="Bug Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -12.0
+offset_top = 24.0
+offset_right = 13.0
+offset_bottom = 49.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+mouse_filter = 2
+texture = ExtResource("3_wa4s0")
+stretch_mode = 2
+
+[node name="Control" type="Control" parent="Bug Background"]
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 54.0
+offset_right = 62.0
+offset_bottom = 94.0
+scale = Vector2(0.75, 0.75)
+
+[node name="glitch_effect" type="Label" parent="Bug Background/Control"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.1667
+offset_top = -14.6667
+offset_right = 84.8333
+offset_bottom = 20.3333
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("4_y8nob")
+theme_override_colors/font_color = Color(0.889104, 0.688566, 0.142899, 1)
+theme_override_fonts/font = ExtResource("5_kad4d")
+theme_override_font_sizes/font_size = 9
+text = "This is an effect"
+autowrap_mode = 2
+
+[node name="Bug description" type="Label" parent="Bug Background/Control"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.1667
+offset_top = 2.33333
+offset_right = 75.8333
+offset_bottom = 46.3333
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("4_y8nob")
+theme_override_fonts/font = ExtResource("5_kad4d")
+theme_override_font_sizes/font_size = 9
+text = "This is a description"
 autowrap_mode = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
