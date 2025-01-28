@@ -1,26 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd2g7uigj6581"]
+[gd_scene load_steps=8 format=3 uid="uid://bd2g7uigj6581"]
 
 [ext_resource type="Script" path="res://Scripts/ui/Dialogue_Manager.gd" id="1_t6o3l"]
 [ext_resource type="FontFile" uid="uid://c8oqmjrsnrtw6" path="res://Theme/Fonts/Neutrino.ttf" id="1_x2j5u"]
+[ext_resource type="SpriteFrames" uid="uid://dfsrs21kwtr6g" path="res://Assets/Sprites/Ui Sprites/Imput_Scheme_Animation/Imput_Scheme_Tutorial_Animation.tres" id="3_jjalv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tnqhp"]
 font = ExtResource("1_x2j5u")
 font_color = Color(1, 0, 0, 1)
-
-[sub_resource type="Animation" id="Animation_3wqww"]
-resource_name = "RESSET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
 
 [sub_resource type="Animation" id="Animation_t67wn"]
 resource_name = "Display_Text"
@@ -36,6 +22,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_3wqww"]
+resource_name = "RESSET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ixjc"]
@@ -70,3 +71,9 @@ visible_ratio = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_4ixjc")
 }
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(136, -2)
+sprite_frames = ExtResource("3_jjalv")
+autoplay = "default"
+frame_progress = 0.94212
