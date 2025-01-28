@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwjbd58dpvslw"]
+[gd_scene load_steps=17 format=3 uid="uid://cwjbd58dpvslw"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_3skgd"]
 [ext_resource type="PackedScene" uid="uid://3kyfnxlgf6vo" path="res://Scenes/problem.tscn" id="2_30vgv"]
@@ -14,7 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://cl58bkelxqw0q" path="res://Assets/Sound_effect/sfx_bad_choice.mp3" id="8_qpmhr"]
 [ext_resource type="Script" path="res://Scripts/ui/front_ui.gd" id="9_wcblv"]
 [ext_resource type="AudioStream" uid="uid://1ic8j5gyjrx7" path="res://Assets/Sound_effect/sfx_good_choice.mp3" id="9_wlly3"]
-[ext_resource type="PackedScene" uid="uid://cul11l0uj5qbx" path="res://Scenes/In Game-UI/dialogue_manager.tscn" id="12_tm0p1"]
+[ext_resource type="PackedScene" uid="uid://mc8xkojddgfi" path="res://Scenes/In Game-UI/dialogue_manager.tscn" id="12_tm0p1"]
+[ext_resource type="Script" path="res://Scripts/ui/dialogs/dialogue_manager.gd" id="13_yh35u"]
 
 [node name="game" type="Node2D" node_paths=PackedStringArray("unsupervised_time", "ui_manager", "score_manager", "problem", "music_manager", "problem_manager")]
 script = ExtResource("1_3skgd")
@@ -61,6 +62,7 @@ layer = -1
 [node name="Background" parent="ui_manager/background" instance=ExtResource("8_47iqf")]
 
 [node name="dialogue_manager" parent="ui_manager" instance=ExtResource("12_tm0p1")]
+script = ExtResource("13_yh35u")
 
 [node name="unsupervised_time" type="Timer" parent="."]
 wait_time = 30.0
@@ -69,13 +71,12 @@ one_shot = true
 [node name="Score_manager" parent="." node_paths=PackedStringArray("game") instance=ExtResource("3_stu2i")]
 game = NodePath("..")
 
-[node name="problem_manager" type="Node" parent="Score_manager" node_paths=PackedStringArray("game", "score_manager", "music_manager", "ui_manager", "dialogue_manager")]
+[node name="problem_manager" type="Node" parent="Score_manager" node_paths=PackedStringArray("game", "score_manager", "music_manager", "ui_manager")]
 script = ExtResource("2_yvalm")
 game = NodePath("../..")
 score_manager = NodePath("..")
 music_manager = NodePath("../../music_manager")
 ui_manager = NodePath("../../ui_manager")
-dialogue_manager = NodePath("../../ui_manager/dialogue_manager")
 
 [node name="problem" parent="Score_manager/problem_manager" instance=ExtResource("2_30vgv")]
 

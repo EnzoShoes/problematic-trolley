@@ -3,11 +3,41 @@
 		"Do the good choice",
 		"Good"
 	],
-	"Coffee Break":[
-		"I'm going to take a break",
-		"How about some coffee"
-	],
+
+	"Coffee Breaks": {
+		"Start First Break": [
+		"Let's take a break... Not you though, i'll trust you'll do some more drills."
+		],
+		"Back from First Break": [
+			"Ho, you completed quite a bit of drills.",
+			"... Good job i guess"
+		],
+
+		"Start Other Breaks": [
+			"Let's take some coffee",
+			"How about some coffee",
+			"Ok, time for a break now"
+		],
+		"Back from Break" : [
+			"Ok, let's see how you are doing",
+			"I'm back"
+		]
+	},
+
+
 	"On first witnessing utility monster":[
 		"Ho, what is this ? A new victim"
+	],
+
+	"comment_on_choice":[
+		"Oh, it's moving",
+		"Wow, interesting, quick choice",
+		"mmmmmmmh....",
+		"This experiment is really interesting",
+		"Here it goes",
+		"Choo Choo little train, make a choice !",
+		"What choice will it take",
+		"Omg, go ahead, do the moral choice"
 	]
+
 }

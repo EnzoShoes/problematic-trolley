@@ -42,6 +42,29 @@ static var premade_lvls_map = {
 	},
 } 
 
+static var tutorial_lvls_map = {
+	"lvl_1" : {
+		"top" : [Globals.victim_types.NORMAL],
+		"bot" : [Globals.victim_types.NORMAL, Globals.victim_types.NORMAL, Globals.victim_types.NORMAL, Globals.victim_types.NORMAL, Globals.victim_types.NORMAL]
+	},
+	"lvl_2" : {
+		"top": [Globals.victim_types.BABY],
+		"bot": [Globals.victim_types.NORMAL]
+	},
+	"lvl_3" : {
+		"top": [Globals.victim_types.OLD],
+		"bot": [Globals.victim_types.NORMAL]
+	},
+	"lvl_4" : {
+		"top": [Globals.victim_types.BABY],
+		"bot": [Globals.victim_types.RICH]
+	},
+	"lvl_5" : {
+		"top": [Globals.victim_types.OLD],
+		"bot": [Globals.victim_types.BAD]
+	}
+}
+
 static func new_random_lvl() -> Dictionary:
 	var random_lvl : Dictionary = {
 		"top" : [],
