@@ -5,12 +5,14 @@ extends Node
 @export var score_manager: ScoreManager
 @export var music_manager: Node
 @export var ui_manager: Node
+@export var dialogue_manager: DialogueManager
 
 @onready var PROBLEM = preload("res://Scenes/problem.tscn")
 
 func new_problem_scene() -> Node:
 	var problem_scene : Problem = PROBLEM.instantiate()
 	problem_scene.problem_manager = self
+	problem_scene.dialogue_manager = dialogue_manager
 	return problem_scene
 
 func on_choice_made(choice: String):

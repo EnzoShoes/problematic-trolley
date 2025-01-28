@@ -11,6 +11,9 @@ RECURSIVE_FREEDOM,
 UNDERPOPULATION
 }
 
+enum glitches_buff {SPEED}
+
+
 static var active_glitch: int = glitches.NONE
 
 static var aquiered_glitches: Array = []

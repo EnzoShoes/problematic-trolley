@@ -116,7 +116,6 @@ func close_new_glitch_choice():
 	Globals.game_state = Globals.old_game_state
 	new_problem(new_problem_reason.GLITCH_CHOICE_MADE)
 
-
 func pause_game():
 	unsupervised_time.paused = true
 	problem.troley.in_control = false

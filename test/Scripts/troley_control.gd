@@ -1,5 +1,7 @@
 class_name Troley
 extends Node2D
+signal player_chose_side
+
 
 var in_control : bool = true
 @onready var trolley: Node2D = %Trolley
@@ -20,8 +22,10 @@ func _process(delta: float) -> void:
 func update_trolley_path():
 	if (path_selected == null) and in_control:
 		if (Input.is_action_just_pressed("down")):
+			player_chose_side.emit()
 			path_selected = $DownPath/PathFollow2D
 		elif (Input.is_action_just_pressed("up")):
+			player_chose_side.emit()
 			path_selected = $UpPath/PathFollow2D
 		else:
 			return
