@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GlitchResource" load_steps=3 format=3 uid="uid://bi2a3p6hxayrv"]
+
+[ext_resource type="Texture2D" uid="uid://clremhvnfgujf" path="res://Assets/Sprites/Bug_Icons/Underpopulation.png" id="1_7yiyg"]
+[ext_resource type="Script" path="res://Scripts/glitch/glitch_resources.gd" id="2_tmolr"]
+
+[resource]
+script = ExtResource("2_tmolr")
+bug_icon = ExtResource("1_7yiyg")
+Bug_name = "Underpopulation"
+Bug_effect = "There are less people on the tracks"
+Bug_description = "The world faces a unprecedented rise in train related disasters. Quite strange"
+glitch_type = 6
