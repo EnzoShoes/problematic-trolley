@@ -1,3 +1,4 @@
+class_name MusicManager
 extends Node
 @onready var problem_solving: AudioStreamPlayer = $problem_solving
 @onready var frenzy: AudioStreamPlayer = $frenzy

@@ -17,9 +17,9 @@ func _ready() -> void:
 	glitch_name.text = resource.Bug_name 
 	glitch_type = resource.glitch_type
 
-
 func _on_button_pressed() -> void:
 	if glitch_type not in Glitch.aquiered_glitches:
 		Glitch.aquiered_glitches.append(glitch_type)
+		Glitch.active_glitch = glitch_type
 		print(str(glitch_type) + " is now aquiered")
 		UI.return_to_game()

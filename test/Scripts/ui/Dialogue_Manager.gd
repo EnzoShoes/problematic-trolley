@@ -1,11 +1,11 @@
 extends Control
+@onready var label: Label = $Label
 
 var DialogueText = {}
 var DialogueFilePath = "res://Assets/json/Dialogue.json"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	DialogueText = load_json_file(DialogueFilePath)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -18,3 +18,6 @@ func load_json_file(filePath):
 		return fileparsed
 	else:
 		print("nonono, no file in the path :/")
+
+func Display_text(Text:String):
+	label.text = Text

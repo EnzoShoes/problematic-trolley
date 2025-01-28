@@ -48,12 +48,9 @@ func add_score(points): #adds a point to the right score depending on the phase 
 	else:
 		printerr("no conditions met")
 	
-
 func check_for_win():
 	if freedom_score >= free_score_to_win:
 		game_win.emit()
-	else:
-		pass
 
 func empty_trust_to_timer():
 	var anim = animation_player.get_animation("empty_trust_to_timer")
@@ -64,4 +61,5 @@ func empty_trust_to_timer():
 
 func check_for_new_glitch_choice(value: int, choice_map: Array, not_aquiered: Array):
 	if value in choice_map and len(not_aquiered) != 0:
+		choice_map.erase(value)
 		await game.new_glitch_choice()
