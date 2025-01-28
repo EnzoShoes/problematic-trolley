@@ -1,20 +1,37 @@
 class_name TutorialSequence
 extends Node
 @export var dialogue_manager : DialogueManager
-@export var input_manger : InputManager
-@export var troley : Troley
-	
+@export var game : Game
+@export var problem_manager : ProblemManager
+
 var tutorial_lvl: int = 1
 
 func run_intro_dialogue():
 	for i in range(0, len(DialogFactory.tutorial_dialogue["intro"])):
-		troley.in_control = false
+		game.can_trolley_move = false
 		dialogue_manager.print_tutorial_dialogue(i, "intro")
-		await input_manger.space_bar_just_pressed
-	#troley.in_control = true
-func run_tutorial_dialog(lvl: String):
-	for i in range(0, len(DialogFactory.tutorial_dialogue["tutorial"][lvl])):
-		dialogue_manager.print_tutorial_dialogue(i, "tutorial", lvl)
+		await dialogue_manager.on_next_dialog
+	dialogue_manager.clear()
+	game.can_trolley_move = true
+	tutorial_lvl += 1
+
+func run_tutorial_dialog():
+	var index : int
+	if problem_manager.last_choice == "good":
+		index = 0
+	if problem_manager.last_choice == "bad":
+		index = 1
+	game.can_trolley_move = false
+	dialogue_manager.print_tutorial_dialogue(index, "tutorial", "lvl_" + str(tutorial_lvl))
+	await dialogue_manager.on_next_dialog
+	dialogue_manager.print_tutorial_dialogue(2, "tutorial", "lvl_" + str(tutorial_lvl))
+	await dialogue_manager.on_next_dialog
+	dialogue_manager.clear()
+	tutorial_lvl += 1
+	game.can_trolley_move = true
+	if tutorial_lvl >= len(LevelFactory.tutorial_lvls_map)+1:
+		Globals.game_state = Globals.game_states.SUPERVISED
+		
 
 # Fade in lent
 # Dialogue 1

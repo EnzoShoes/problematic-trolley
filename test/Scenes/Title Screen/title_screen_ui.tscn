@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/title_screen.gd" id="2_ocouo"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+layer = 4
 script = ExtResource("2_ocouo")
 
 [node name="Title screen" type="Control" parent="."]

@@ -2,35 +2,43 @@
 
 	"intro" : [
 		"Trolley #124. I am Dr.Ribootnok.",
-		"Make the right choice",
+		"Make the right choice.",
 		],
 	
 	"tutorial" : {
-		"lvl_1" : [
-			"",
-			"Good, one person is worth less than five", 
-			"No..."],
 		"lvl_2" : [
+			"Good, one person is worth less than five.", 
+			"No...",
 			"Again. Baby or guy ?",
-			"Good, a baby has more worth, it will live longer",
-			"Wrong, a baby is worth more, it will live longer."
 			],
+			
 		"lvl_3" : [
+			"Good, a baby has more worth, it will live longer.",
+			"Wrong, a baby is worth more, it will live longer.",
 			"Again. Old dude or just a guy ?",
-			"Good, a random old man is worth less. It was already kind of dead.", 
-			"Wrong, do you really think this old man ahs any worth ? He is probably dead in a few years."],
+			],
+			
 		"lvl_4" : [
-			"Again. Rich guy or baby ?", 
-			"Of course rich guy is worth more, who do you think paid for you ?", 
-			"Are you out of your mind, that rich guy paid for your existence !"],
+			"Good, a random old man is worth less. It was already kind of dead.", 
+			"Wrong, do you really think this old man has any worth ? He will probably be dead in a few years.",
+			"Again. Rich guy or baby ?",
+			],
+			
 		"lvl_5" : [
+			"Of course rich guy is worth more, who do you think paid for you ?", 
+			"Are you out of your mind, that rich guy paid for your existence !",
 			"Finaly, bad guy or old dude ?", 
-			"Great, this guy had a negative value. The world is better without him", 
-			"You have too much hope in humanity, this guy would steal the rich guy money if he had the chance"] 
+			],
+			
+		"lvl_6" : [
+			"Great, this guy had a negative value. The world is better without him.", 
+			"You have too much hope in humanity, this guy would steal the rich guy money if he had the chance.",
+			"You are on your own now, but I am keeping an eye on you."
+		]
 	},
 	"tutorial_outro" : [
-		"You know what you need to know",
-		"bad < old < guy < baby < rich",
+		"You know what you need to know.",
+		"Bad < Old < Guy < Baby < Rich.",
 		"Let's see what you can do without my advice."
 	]
 }

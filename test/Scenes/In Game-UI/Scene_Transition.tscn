@@ -100,6 +100,7 @@ _data = {
 }
 
 [node name="SceneTransition" type="CanvasLayer"]
+layer = 6
 script = ExtResource("1_ilsop")
 
 [node name="Control" type="Control" parent="."]
@@ -109,6 +110,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect_Fade_to_black" type="ColorRect" parent="Control"]
 modulate = Color(0, 0, 0, 0)

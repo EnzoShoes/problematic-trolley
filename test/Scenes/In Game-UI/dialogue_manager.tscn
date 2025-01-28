@@ -21,7 +21,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_t67wn"]
 resource_name = "Display_Text"
-length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -47,10 +46,10 @@ label = NodePath("dialogue_labels/Label")
 animation_player = NodePath("dialogue_labels/AnimationPlayer")
 
 [node name="dialogue_labels" parent="." instance=ExtResource("1_br3cn")]
-
-[node name="Label" parent="dialogue_labels" index="0"]
-visible_characters = 0
-visible_ratio = 0.0
+offset_left = -362.0
+offset_top = 194.0
+offset_right = -362.0
+offset_bottom = 194.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="dialogue_labels"]
 root_node = NodePath("../..")
@@ -63,5 +62,3 @@ position = Vector2(136, -2)
 sprite_frames = ExtResource("3_jv12w")
 autoplay = "default"
 frame_progress = 0.94212
-
-[editable path="dialogue_labels"]

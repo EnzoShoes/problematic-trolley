@@ -16,11 +16,18 @@ const WIN_SCREEN = preload("res://Scenes/win_screen.tscn")
 const GLITCH_SELECTION = preload("res://Scenes/glitchs/glitch_selection.tscn")
 
 var current_lvl: int = 1
+var can_trolley_move: bool 
 
 func _process(_delta: float) -> void:
 	if Globals.game_state != Globals.game_states.END:
 		ui_manager.ui.update_timer_label(int(unsupervised_time.time_left)) #update the timer in ui
-
+	
+	if problem.troley != null:
+		if can_trolley_move:
+			problem.troley.in_control = true
+		else:
+			problem.troley.in_control = false
+	
 func _ready() -> void:
 	new_tutorial_problem(new_problem_reason.FIRST_LOAD)
 
@@ -29,14 +36,14 @@ func new_tutorial_problem(reason: new_problem_reason):
 	_update_game_state(reason)
 	await transition_sequence(reason)
 	problem = problem_manager.new_problem_scene()
+	if reason == new_problem_reason.FIRST_LOAD:
+		tutorial_sequence.run_intro_dialogue()
+	if reason == new_problem_reason.NEXT:
+		tutorial_sequence.run_tutorial_dialog()
 	(func():
 		add_child(problem)
 		init_problem(LevelFactory.tutorial_lvls_map["lvl_" + str(tutorial_sequence.tutorial_lvl)])
 	).call_deferred()
-	if reason == new_problem_reason.FIRST_LOAD:
-		tutorial_sequence.run_intro_dialogue()
-	if reason == new_problem_reason.NEXT:
-		tutorial_sequence.tutorial_lvl += 1
 
 func new_play_problem(reason: new_problem_reason):
 	_update_game_state(reason)

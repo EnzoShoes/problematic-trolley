@@ -7,7 +7,7 @@ extends Node
 @onready var sfx_good_choice: AudioStreamPlayer = $sfx_good_choice
 
 func _process(_delta: float) -> void:
-	if Globals.game_state == Globals.game_states.SUPERVISED:
+	if Globals.game_state == Globals.game_states.SUPERVISED or Globals.game_state == Globals.game_states.TUTORIAL:
 		if !problem_solving.playing:
 			stop_music()
 			problem_solving.play()

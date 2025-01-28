@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cwjbd58dpvslw"]
+[gd_scene load_steps=18 format=3 uid="uid://cwjbd58dpvslw"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_3skgd"]
 [ext_resource type="PackedScene" uid="uid://3kyfnxlgf6vo" path="res://Scenes/problem.tscn" id="2_30vgv"]
@@ -15,7 +15,6 @@
 [ext_resource type="Script" path="res://Scripts/ui/front_ui.gd" id="9_wcblv"]
 [ext_resource type="AudioStream" uid="uid://1ic8j5gyjrx7" path="res://Assets/Sound_effect/sfx_good_choice.mp3" id="9_wlly3"]
 [ext_resource type="PackedScene" uid="uid://cul11l0uj5qbx" path="res://Scenes/In Game-UI/dialogue_manager.tscn" id="12_tm0p1"]
-[ext_resource type="Script" path="res://Scripts/score_manager.gd" id="14_2lxua"]
 [ext_resource type="Script" path="res://Scripts/tutorial/tutorial_sequence.gd" id="16_xmkya"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="17_2e4iy"]
 
@@ -64,14 +63,14 @@ layer = -1
 
 [node name="Background" parent="ui_manager/background" instance=ExtResource("8_47iqf")]
 
-[node name="dialogue_manager" parent="ui_manager" instance=ExtResource("12_tm0p1")]
+[node name="dialogue_manager" parent="ui_manager" node_paths=PackedStringArray("input_manger") instance=ExtResource("12_tm0p1")]
+input_manger = NodePath("../../input_manager")
 
 [node name="unsupervised_time" type="Timer" parent="."]
 wait_time = 30.0
 one_shot = true
 
 [node name="Score_manager" parent="." node_paths=PackedStringArray("game") instance=ExtResource("3_stu2i")]
-script = ExtResource("14_2lxua")
 game = NodePath("..")
 
 [node name="problem_manager" type="Node" parent="Score_manager" node_paths=PackedStringArray("game", "score_manager", "music_manager", "ui_manager", "dialogue_manager")]
@@ -84,11 +83,11 @@ dialogue_manager = NodePath("../../ui_manager/dialogue_manager")
 
 [node name="problem" parent="Score_manager/problem_manager" instance=ExtResource("2_30vgv")]
 
-[node name="tutorial_sequence" type="Node" parent="." node_paths=PackedStringArray("dialogue_manager", "input_manger", "troley")]
+[node name="tutorial_sequence" type="Node" parent="." node_paths=PackedStringArray("dialogue_manager", "game", "problem_manager")]
 script = ExtResource("16_xmkya")
 dialogue_manager = NodePath("../ui_manager/dialogue_manager")
-input_manger = NodePath("../input_manager")
-troley = NodePath("../Score_manager/problem_manager/problem/troley")
+game = NodePath("..")
+problem_manager = NodePath("../Score_manager/problem_manager")
 
 [node name="input_manager" type="Node" parent="."]
 script = ExtResource("17_2e4iy")

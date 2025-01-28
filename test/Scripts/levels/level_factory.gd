@@ -62,6 +62,10 @@ static var tutorial_lvls_map = {
 	"lvl_5" : {
 		"top": [Globals.victim_types.OLD],
 		"bot": [Globals.victim_types.BAD]
+	},
+	"lvl_6" : {
+		"top": [Globals.victim_types.OLD, Globals.victim_types.OLD, Globals.victim_types.OLD],
+		"bot": [Globals.victim_types.RICH]
 	}
 }
 

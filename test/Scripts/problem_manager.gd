@@ -9,6 +9,8 @@ extends Node
 
 @onready var PROBLEM = preload("res://Scenes/problem.tscn")
 
+var last_choice: String
+
 func new_problem_scene() -> Node:
 	var problem_scene : Problem = PROBLEM.instantiate()
 	problem_scene.problem_manager = self
@@ -27,6 +29,7 @@ func on_choice_made(choice: String):
 	score_manager.prepare_next_problem()
 
 func _handle_good_choice():
+	last_choice = "good"
 	score_manager.add_score(1)
 	if Globals.game_state == Globals.game_states.UNSUPERVISED:
 		_play_unsupervied_music()
@@ -35,6 +38,7 @@ func _handle_good_choice():
 	await ui_manager.background.animation_finished
 	
 func _handle_bad_choice():
+	last_choice = "bad"
 	ui_manager.background.flash("Bad_Choice")
 	music_manager.sfx_bad_choice.play()
 	await ui_manager.background.animation_finished
