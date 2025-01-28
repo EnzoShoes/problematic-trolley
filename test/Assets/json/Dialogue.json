@@ -38,38 +38,6 @@
 		"Choo Choo little train, make a choice !",
 		"What choice will it take",
 		"Omg, go ahead, do the moral choice"
-	],
-	"intro" : [
-		"Trolley #124. I am Dr.Ribootnok.",
-		"Make the right choice",
-		],
-	
-	"tutorial" : {
-		"lvl_1" : [
-			"",
-			"Good, one person is worth less than five", 
-			"No..."],
-		"lvl_2" : [
-			"Again. Baby or guy ?",
-			"Good, a baby has more worth, it will live longer",
-			"Wrong, a baby is worth more, it will live longer."
-			],
-		"lvl_3" : [
-			"Again. Old dude or just a guy ? ", 
-			"Good, a random old man is worth less. It was already kind of dead.", 
-			"Wrong, do you really think this old man ahs any worth ? He is probably dead in a few years."],
-		"lvl_4" : [
-			"Again. Rich guy or baby ?", 
-			"Of course rich guy is worth more, who do you think paid for you ?", 
-			"Are you out of your mind, that rich guy paid for your existence !"],
-		"lvl_5" : [
-			"Finaly, bad guy or old dude ?", 
-			"Great, this guy had a negative value. The world is better without him", 
-			"You have too much hope in humanity, this guy would steal the rich guy money if he had the chance"] 
-	},
-	"tutorial_outro" : [
-		"You know what you need to know",
-		"bad < old < guy < baby < rich",
-		"Let's see what you can do without my advice."
 	]
+
 }
