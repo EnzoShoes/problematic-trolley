@@ -6,7 +6,6 @@ var DialogueFilePath = "res://Assets/json/Dialogue.json"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	DialogueText = load_json_file(DialogueFilePath)
-	Display_text(DialogueText["First Screen"][0])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
