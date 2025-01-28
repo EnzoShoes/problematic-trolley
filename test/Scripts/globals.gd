@@ -12,4 +12,4 @@ var game_state: game_states = game_states.TUTORIAL:
 var old_game_state: game_states
 
 # used to know if we can generate a new problem
-var play_states: Array = [game_states.SUPERVISED, game_states.UNSUPERVISED, game_states.TUTORIAL]
+var play_states: Array = [game_states.SUPERVISED, game_states.UNSUPERVISED]

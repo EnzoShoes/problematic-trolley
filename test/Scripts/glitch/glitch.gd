@@ -30,11 +30,6 @@ static var glitch_proba: int = 70
 
 static var glitched : bool
 
-static var chose_new_glitch : bool:
-	get():
-		return chose_new_glitch
-
-
 static var victim_value_map : Dictionary = {
 	glitches.NONE : {
 		Globals.victim_types.BAD : 1,
@@ -67,7 +62,7 @@ static var victim_value_map : Dictionary = {
 	}
 }
 
-static var glitch_choice_map : Array = [1,2,3,6,9,12]
+static var glitch_choice_map : Array = [5,10,15]
 
 
 static func roll_for_glitch():

@@ -1,13 +1,12 @@
 class_name DialogFactory
 extends Node
 
-static var dialogue_file_path: String = "res://Assets/json/Dialogue.json"
+static var tutorial_dialogue_path: String = "res://Assets/json/Tutorial_Dialogue.json"
+static var random_dialog_path: String = "res://Assets/json/Dialogue.json"
 
-static var text_dialogue: Dictionary = {}:
-	get():
-		print("tring to get textdialogue")
-		text_dialogue = load_json_file(dialogue_file_path)
-		return text_dialogue
+static var tutorial_dialogue: Dictionary = load_json_file(tutorial_dialogue_path)
+static var random_dialog: Dictionary = load_json_file(random_dialog_path)
+
 
 static func load_json_file(filePath) -> Dictionary: 
 	print("load_json_entered")
@@ -23,5 +22,11 @@ static func load_json_file(filePath) -> Dictionary:
 		var empty_dic = {}
 		return empty_dic
 
-static func new_dialog(key : String, index : int) -> String:
-	return text_dialogue[key][index]
+static func new_tutorial_dialog( index : int, key : String, key2 : String = "") -> String:
+	
+	if key2 == "":
+		return tutorial_dialogue[key][index]
+	return tutorial_dialogue[key][key2][index]
+
+static func new_random_dialog(key : String, index : int) -> String:
+	return random_dialog[key][index]
