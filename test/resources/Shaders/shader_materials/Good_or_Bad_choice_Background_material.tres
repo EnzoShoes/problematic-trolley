@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b4b5t5pl1m7qy"]
+
+[ext_resource type="Shader" path="res://resources/Shaders/Used_shaders/Good_or_Bad_choice_Background.gdshader" id="1_tqxgw"]
+
+[resource]
+shader = ExtResource("1_tqxgw")
+shader_parameter/margin = 3.0
+shader_parameter/colorintensity = 0.0
+shader_parameter/Good_Choice = true
+shader_parameter/Frenzy = true
