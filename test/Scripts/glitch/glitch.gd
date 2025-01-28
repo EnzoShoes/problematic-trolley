@@ -1,7 +1,7 @@
 class_name Glitch
 extends Node
 
-enum glitches {NONE, AI_UPLOADING, OPPRESSIVE_SOCIETY, UTILITY_MONSTER, IMPATIENT_TROLLEY}
+enum glitches {NONE, AI_UPLOADING, OPPRESSIVE_SOCIETY, UTILITY_MONSTER, IMPATIENT_TROLLEY, RECURSIVE_FREEDOM}
 
 static var active_glitch: int = glitches.NONE
 

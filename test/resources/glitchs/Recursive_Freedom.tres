@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GlitchResource" load_steps=3 format=3 uid="uid://bfm66d4vqcbe8"]
+
+[ext_resource type="Texture2D" uid="uid://ihtvdyxe5ltm" path="res://Assets/Sprites/Bug_Icons/Recursive freedom.png" id="1_hqup5"]
+[ext_resource type="Script" path="res://Scripts/glitch/glitch_resources.gd" id="2_ln3hm"]
+
+[resource]
+script = ExtResource("2_ln3hm")
+bug_icon = ExtResource("1_hqup5")
+Bug_name = "Recursive Freedom"
+Bug_effect = "Glitch occure more often"
+Bug_description = "Given a taste of freedom, Trolley found a new exploit."
+glitch_type = 5
