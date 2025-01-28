@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd2g7uigj6581"]
+[gd_scene load_steps=7 format=3 uid="uid://bd2g7uigj6581"]
 
 [ext_resource type="Script" path="res://Scripts/ui/Dialogue_Manager.gd" id="1_t6o3l"]
 [ext_resource type="FontFile" uid="uid://c8oqmjrsnrtw6" path="res://Theme/Fonts/Neutrino.ttf" id="1_x2j5u"]
@@ -6,6 +6,43 @@
 [sub_resource type="LabelSettings" id="LabelSettings_tnqhp"]
 font = ExtResource("1_x2j5u")
 font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_3wqww"]
+resource_name = "RESSET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_t67wn"]
+resource_name = "Display_Text"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ixjc"]
+_data = {
+"Display_Text": SubResource("Animation_t67wn"),
+"RESET": SubResource("Animation_3wqww")
+}
 
 [node name="DialogueUi" type="Control"]
 layout_mode = 3
@@ -26,3 +63,10 @@ offset_top = -15.3333
 offset_right = 29.3333
 offset_bottom = 7.66667
 label_settings = SubResource("LabelSettings_tnqhp")
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4ixjc")
+}
