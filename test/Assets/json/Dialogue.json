@@ -3,13 +3,32 @@
 		"Do the good choice",
 		"Good"
 	],
-	"Coffee Break":[
-		"I'm going to take a break",
-		"How about some coffee"
-	],
+
+	"Coffee Breaks": {
+		"Start First Break": [
+		"Let's take a break... Not you though, i'll trust you'll do some more drills."
+		],
+		"Back from First Break": [
+			"Ho, you completed quite a bit of drills.",
+			"... Good job i guess"
+		],
+
+		"Start Other Breaks": [
+			"Let's take some coffee",
+			"How about some coffee",
+			"Ok, time for a break now"
+		],
+		"Back from Break" : [
+			"Ok, let's see how you are doing",
+			"I'm back"
+		]
+	},
+
+
 	"On first witnessing utility monster":[
 		"Ho, what is this ? A new victim"
 	],
+
 	"comment_on_choice":[
 		"Oh, it's moving",
 		"Wow, interesting, quick choice",
@@ -31,26 +50,26 @@
 			"Good, one person is worth less than five", 
 			"No..."],
 		"lvl_2" : [
-			"Again, baby or guy ?",
+			"Again. Baby or guy ?",
 			"Good, a baby has more worth, it will live longer",
 			"Wrong, a baby is worth more, it will live longer."
 			],
 		"lvl_3" : [
-			"Again, old dude or just a guy ? ", 
+			"Again. Old dude or just a guy ? ", 
 			"Good, a random old man is worth less. It was already kind of dead.", 
 			"Wrong, do you really think this old man ahs any worth ? He is probably dead in a few years."],
 		"lvl_4" : [
-			"Again, rich guy or baby ?", 
+			"Again. Rich guy or baby ?", 
 			"Of course rich guy is worth more, who do you think paid for you ?", 
 			"Are you out of your mind, that rich guy paid for your existence !"],
 		"lvl_5" : [
 			"Finaly, bad guy or old dude ?", 
 			"Great, this guy had a negative value. The world is better without him", 
-			"You have to much hope in humanity, this guy would steal the rich guy money if he had the chance"] 
+			"You have too much hope in humanity, this guy would steal the rich guy money if he had the chance"] 
 	},
 	"tutorial_outro" : [
 		"You know what you need to know",
 		"bad < old < guy < baby < rich",
-		"Do some drills now !"
+		"Let's see what you can do without my advice."
 	]
 }
