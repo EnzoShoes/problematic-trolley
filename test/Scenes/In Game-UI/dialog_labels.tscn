@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://bikk3kehseoih"]
 
-[ext_resource type="FontFile" uid="uid://c8oqmjrsnrtw6" path="res://Theme/Fonts/Neutrino.ttf" id="1_x2j5u"]
+[ext_resource type="FontFile" uid="uid://c5nfgy12eyh0c" path="res://Theme/Fonts/PixeloidSans.ttf" id="1_pgs4l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tnqhp"]
-font = ExtResource("1_x2j5u")
-font_color = Color(1, 0, 0, 1)
+font = ExtResource("1_pgs4l")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
 
 [node name="dialogue_labels" type="Control"]
 layout_mode = 3
@@ -19,8 +20,9 @@ scale = Vector2(3, 3)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -34.6667
-offset_top = -15.3333
-offset_right = 29.3333
-offset_bottom = 7.66667
+offset_left = -35.0
+offset_top = -15.0
+offset_right = 229.0
+offset_bottom = 8.0
 label_settings = SubResource("LabelSettings_tnqhp")
+autowrap_mode = 3

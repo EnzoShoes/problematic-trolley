@@ -1,3 +1,4 @@
+class_name GameUi
 extends CanvasLayer
 
 @onready var trust_gauge: TextureProgressBar = $Control/Trust_Gauge
@@ -5,10 +6,7 @@ extends CanvasLayer
 @onready var timer_clock: Label = $Control/timer_clock
 @onready var end_of_game_score: Label = $Control/end_of_game_score
 @onready var supervised_indicator: Control = $supervised_indicator
-
-func _ready() -> void:
-	
-	pass
+@onready var input_nudge: AnimatedSprite2D = $input_nudge
 
 func update_trust_bar(trust_progress_value):
 	trust_gauge.value = trust_progress_value
@@ -34,9 +32,13 @@ func check_game_phase():
 	if Globals.game_state == Globals.game_states.UNSUPERVISED:
 		timer_clock.visible = true
 		supervised_indicator.visible = false
+		freedom_gauge.visible = true
+		trust_gauge.visible = false
 	elif Globals.game_state == Globals.game_states.SUPERVISED:
 		timer_clock.visible = false
 		supervised_indicator.visible = true
+		freedom_gauge.visible = false
+		trust_gauge.visible = true
 
 func update_freedom_bar_visble():
 	if Globals.game_state == Globals.game_states.UNSUPERVISED:

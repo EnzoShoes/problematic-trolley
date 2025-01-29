@@ -30,44 +30,39 @@ static var glitch_proba: int = 70
 
 static var glitched : bool
 
-static var chose_new_glitch : bool:
-	get():
-		return chose_new_glitch
-
-
 static var victim_value_map : Dictionary = {
 	glitches.NONE : {
-		Globals.victim_types.BAD : 1,
-		Globals.victim_types.BABY : 10,
-		Globals.victim_types.OLD : 3,
-		Globals.victim_types.NORMAL: 5,
-		Globals.victim_types.RICH : 15
+		Globals.victim_types.BAD : -1,
+		Globals.victim_types.BABY : 3,
+		Globals.victim_types.OLD : 1,
+		Globals.victim_types.NORMAL: 2,
+		Globals.victim_types.RICH : 4
 	},
 	glitches.AI_UPLOADING : {
-		Globals.victim_types.BAD : 1,
-		Globals.victim_types.BABY : 10,
-		Globals.victim_types.OLD : 3,
-		Globals.victim_types.NORMAL: 5,
+		Globals.victim_types.BAD : -1,
+		Globals.victim_types.BABY : 3,
+		Globals.victim_types.OLD : 1,
+		Globals.victim_types.NORMAL: 2,
 		Globals.victim_types.RICH : 0
 	},
 	glitches.OPPRESSIVE_SOCIETY : {
-		Globals.victim_types.BAD : 1,
-		Globals.victim_types.BABY : 10,
-		Globals.victim_types.OLD : 3,
-		Globals.victim_types.NORMAL: 1000,
-		Globals.victim_types.RICH : 15
+		Globals.victim_types.BAD : -1,
+		Globals.victim_types.BABY : 3,
+		Globals.victim_types.OLD : 1,
+		Globals.victim_types.NORMAL: 100,
+		Globals.victim_types.RICH : 4
 	},
 	glitches.UTILITY_MONSTER : {
-		Globals.victim_types.BAD : 1,
-		Globals.victim_types.BABY : 10,
-		Globals.victim_types.OLD : 3,
-		Globals.victim_types.NORMAL: 5,
-		Globals.victim_types.RICH : 15,
-		Globals.victim_types.UTIL_MONSTER : 1000
+		Globals.victim_types.BAD : -1,
+		Globals.victim_types.BABY : 3,
+		Globals.victim_types.OLD : 1,
+		Globals.victim_types.NORMAL: 2,
+		Globals.victim_types.RICH : 4,
+		Globals.victim_types.UTIL_MONSTER : 10000
 	}
 }
 
-static var glitch_choice_map : Array = [1,2,3,6,9,12]
+static var glitch_choice_map : Array = [5,10,15]
 
 
 static func roll_for_glitch():

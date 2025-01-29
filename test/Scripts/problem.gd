@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _on_top_choice_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		if Globals.game_state == Globals.game_states.SUPERVISED:
+		if Globals.game_state == Globals.game_states.SUPERVISED or Globals.game_state == Globals.game_states.TUTORIAL:
 			if rails.calculate_winner() == "bot":
 				problem_manager.on_choice_made("good")
 			else:
@@ -28,7 +28,7 @@ func _on_top_choice_area_entered(area: Area2D) -> void:
 
 func _on_bot_choice_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		if Globals.game_state == Globals.game_states.SUPERVISED:
+		if Globals.game_state == Globals.game_states.SUPERVISED or Globals.game_state == Globals.game_states.TUTORIAL:
 			if rails.calculate_winner() == "top":
 				problem_manager.on_choice_made("good")
 			else:

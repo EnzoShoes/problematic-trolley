@@ -9,6 +9,8 @@ signal game_win
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var game: Game
 
+
+
 var free_score_to_win: int = 2
 
 var best_free_score: int = 0
