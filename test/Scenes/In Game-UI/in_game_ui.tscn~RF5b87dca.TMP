@@ -98,9 +98,8 @@ label_settings = SubResource("LabelSettings_wy0no")
 [node name="supervised_indicator" parent="." instance=ExtResource("9_ekarm")]
 visible = false
 
-[node name="input_nudge" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(139, 352)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(145, 394)
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("10_3a54e")
 autoplay = "default"

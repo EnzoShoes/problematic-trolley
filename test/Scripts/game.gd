@@ -2,8 +2,8 @@ class_name Game
 extends Node2D
 
 @export var unsupervised_time: Timer
-@export var ui_manager: Node
-@export var score_manager: Node
+@export var ui_manager: Ui
+@export var score_manager: ScoreManager
 @export var problem: Problem # !!!!!
 @export var music_manager: MusicManager
 @export var problem_manager: ProblemManager
@@ -88,6 +88,7 @@ func _on_unsupervised_time_timeout() -> void:
 	new_problem(new_problem_reason.UNSUPERVISED_TIMEOUT)
 
 func update_ui(reason: new_problem_reason):
+	ui_manager.ui.input_nudge.visible = false
 	if reason == new_problem_reason.FIRST_LOAD\
 	 or reason == new_problem_reason.SUPERVISED_END\
 	 or reason == new_problem_reason.UNSUPERVISED_TIMEOUT:

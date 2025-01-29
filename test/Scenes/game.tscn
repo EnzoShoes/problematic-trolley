@@ -51,9 +51,10 @@ stream = ExtResource("8_qpmhr")
 [node name="sfx_good_choice" type="AudioStreamPlayer" parent="music_manager"]
 stream = ExtResource("9_wlly3")
 
-[node name="ui_manager" type="Node" parent="." node_paths=PackedStringArray("score_manager")]
+[node name="ui_manager" type="Node" parent="." node_paths=PackedStringArray("score_manager", "music_manager")]
 script = ExtResource("7_q52h4")
 score_manager = NodePath("../Score_manager")
+music_manager = NodePath("../music_manager")
 
 [node name="UI" parent="ui_manager" instance=ExtResource("4_6pwvn")]
 script = ExtResource("9_wcblv")
@@ -63,8 +64,9 @@ layer = -1
 
 [node name="Background" parent="ui_manager/background" instance=ExtResource("8_47iqf")]
 
-[node name="dialogue_manager" parent="ui_manager" node_paths=PackedStringArray("input_manger") instance=ExtResource("12_tm0p1")]
+[node name="dialogue_manager" parent="ui_manager" node_paths=PackedStringArray("input_manger", "problem_manager") instance=ExtResource("12_tm0p1")]
 input_manger = NodePath("../../input_manager")
+problem_manager = NodePath("../../Score_manager/problem_manager")
 
 [node name="unsupervised_time" type="Timer" parent="."]
 wait_time = 30.0
@@ -73,23 +75,32 @@ one_shot = true
 [node name="Score_manager" parent="." node_paths=PackedStringArray("game") instance=ExtResource("3_stu2i")]
 game = NodePath("..")
 
-[node name="problem_manager" type="Node" parent="Score_manager" node_paths=PackedStringArray("game", "score_manager", "music_manager", "ui_manager", "dialogue_manager")]
+[node name="problem_manager" type="Node" parent="Score_manager" node_paths=PackedStringArray("game", "score_manager", "music_manager", "ui_manager", "dialogue_manager", "game_ui", "no_choice_taken")]
 script = ExtResource("2_yvalm")
 game = NodePath("../..")
 score_manager = NodePath("..")
 music_manager = NodePath("../../music_manager")
 ui_manager = NodePath("../../ui_manager")
 dialogue_manager = NodePath("../../ui_manager/dialogue_manager")
+game_ui = NodePath("../../ui_manager/UI")
+no_choice_taken = NodePath("no_choice_taken")
 
 [node name="problem" parent="Score_manager/problem_manager" instance=ExtResource("2_30vgv")]
 
-[node name="tutorial_sequence" type="Node" parent="." node_paths=PackedStringArray("dialogue_manager", "game", "problem_manager")]
+[node name="no_choice_taken" type="Timer" parent="Score_manager/problem_manager"]
+one_shot = true
+
+[node name="tutorial_sequence" type="Node" parent="." node_paths=PackedStringArray("dialogue_manager", "game", "problem_manager", "ui_manager")]
 script = ExtResource("16_xmkya")
 dialogue_manager = NodePath("../ui_manager/dialogue_manager")
 game = NodePath("..")
 problem_manager = NodePath("../Score_manager/problem_manager")
+ui_manager = NodePath("../ui_manager")
 
-[node name="input_manager" type="Node" parent="."]
+[node name="input_manager" type="Node" parent="." node_paths=PackedStringArray("ui", "problem_manger")]
 script = ExtResource("17_2e4iy")
+ui = NodePath("../ui_manager/UI")
+problem_manger = NodePath("../Score_manager/problem_manager")
 
 [connection signal="timeout" from="unsupervised_time" to="." method="_on_unsupervised_time_timeout"]
+[connection signal="timeout" from="Score_manager/problem_manager/no_choice_taken" to="Score_manager/problem_manager" method="_on_no_choice_taken"]

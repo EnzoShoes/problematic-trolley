@@ -3,6 +3,7 @@ extends CanvasLayer
 @export var label: Label
 @export var animation_player : AnimationPlayer
 @export var input_manger : InputManager
+@export var problem_manager : ProblemManager
 
 signal on_next_dialog
 
@@ -15,6 +16,7 @@ func display_text(text:String):
 	animation_player.play("display_text")
 	label.text = text
 	await animation_player.animation_finished
+	animation_player.speed_scale = 1
 
 func print_supervisor_comment_on_choice():
 	if Globals.game_state != Globals.game_states.TUTORIAL:
@@ -26,6 +28,7 @@ func print_tutorial_dialogue(index : int, key : String, key2: String = ""):
 	
 func clear():
 	label.text = ""
+	problem_manager.no_choice_taken.start()
 
 func _on_space_bar_pressed():
 	if animation_player.is_playing():

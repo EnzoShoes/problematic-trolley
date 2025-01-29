@@ -3,7 +3,7 @@ extends Node
 @export var dialogue_manager : DialogueManager
 @export var game : Game
 @export var problem_manager : ProblemManager
-
+@export var ui_manager : Ui
 var tutorial_lvl: int = 1
 
 func run_intro_dialogue():
@@ -26,6 +26,9 @@ func run_tutorial_dialog():
 	await dialogue_manager.on_next_dialog
 	dialogue_manager.print_tutorial_dialogue(2, "tutorial", "lvl_" + str(tutorial_lvl))
 	await dialogue_manager.on_next_dialog
+	if tutorial_lvl == len(LevelFactory.tutorial_lvls_map):
+		ui_manager.show_supervised_indicator()
+		ui_manager.ui.trust_gauge.visible = true
 	dialogue_manager.clear()
 	tutorial_lvl += 1
 	game.can_trolley_move = true

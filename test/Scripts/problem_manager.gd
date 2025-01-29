@@ -6,8 +6,9 @@ extends Node
 @export var music_manager: Node
 @export var ui_manager: Node
 @export var dialogue_manager: DialogueManager
-
+@export var game_ui: GameUi
 @onready var PROBLEM = preload("res://Scenes/problem.tscn")
+@export var no_choice_taken : Timer
 
 var last_choice: String
 
@@ -46,3 +47,6 @@ func _handle_bad_choice():
 func _play_unsupervied_music():
 	if !music_manager.frenzy.playing:
 		music_manager.music_play("unsupervised")
+
+func _on_no_choice_taken():
+	game_ui.input_nudge.visible = true

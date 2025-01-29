@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cul11l0uj5qbx"]
+[gd_scene load_steps=6 format=3 uid="uid://cul11l0uj5qbx"]
 
 [ext_resource type="PackedScene" uid="uid://bikk3kehseoih" path="res://Scenes/In Game-UI/dialog_labels.tscn" id="1_br3cn"]
 [ext_resource type="Script" path="res://Scripts/ui/dialogs/dialogue_manager.gd" id="1_et7yt"]
-[ext_resource type="SpriteFrames" uid="uid://dfsrs21kwtr6g" path="res://Assets/Sprites/Ui Sprites/Imput_Scheme_Animation/Imput_Scheme_Tutorial_Animation.tres" id="3_jv12w"]
 
 [sub_resource type="Animation" id="Animation_3wqww"]
 resource_name = "RESSET"
@@ -56,9 +55,3 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_4ixjc")
 }
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(136, -2)
-sprite_frames = ExtResource("3_jv12w")
-autoplay = "default"
-frame_progress = 0.94212
