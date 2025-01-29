@@ -5,7 +5,7 @@ extends Node
 @export var problem_manger : ProblemManager
 signal space_bar_just_pressed
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		space_bar_just_pressed.emit()
 	if Input.is_action_just_pressed("down") or Input.is_action_just_pressed("up"):
