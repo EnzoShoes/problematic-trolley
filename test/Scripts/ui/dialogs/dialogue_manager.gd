@@ -33,7 +33,7 @@ func print_tutorial_dialogue(index : int, key : String, key2: String = ""):
 	
 func clear():
 	label.text = ""
-	
+	dialogue_arrow.visible = false
 	problem_manager.no_choice_taken.start()
 
 func _on_space_bar_pressed():
