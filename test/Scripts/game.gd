@@ -19,10 +19,11 @@ var current_lvl: int = 1
 var can_trolley_move: bool 
 var max_ppl_on_rails: int: 
 	get():
-		max_ppl_on_rails = 8 * ( score_manager.freedom_score / score_manager.free_score_to_win) +1
-		return 8 * ( score_manager.freedom_score / score_manager.free_score_to_win) +1
-
-
+		max_ppl_on_rails = 8 * float(( (score_manager.freedom_score +1)) / float(score_manager.free_score_to_win)) +1
+		print("8 * " + str(score_manager.freedom_score +1) + "/" + str(score_manager.free_score_to_win) + "+" + "1")
+		print(max_ppl_on_rails)
+		return max_ppl_on_rails
+		
 func _process(_delta: float) -> void:
 	if Globals.game_state != Globals.game_states.END:
 		ui_manager.ui.update_timer_label(int(unsupervised_time.time_left)) #update the timer in ui
@@ -37,7 +38,7 @@ func _ready() -> void:
 	new_tutorial_problem(new_problem_reason.FIRST_LOAD)
 
 func new_tutorial_problem(reason: new_problem_reason):
-	print("______" + str(new_problem_reason.keys()[reason]) + "________")
+	print("__tutorial____" + str(new_problem_reason.keys()[reason]) + "________")
 	_update_game_state(reason)
 	await transition_sequence(reason)
 	problem = problem_manager.new_problem_scene()
@@ -93,7 +94,7 @@ func _on_unsupervised_time_timeout() -> void:
 		Glitch.glitched = false
 		new_problem(new_problem_reason.UNSUPERVISED_TIMEOUT)
 	else: 
-		await !SceneTransition.animation_player.animation_finished
+		await SceneTransition.animation_player.animation_finished
 		Glitch.glitched = false
 		new_problem(new_problem_reason.UNSUPERVISED_TIMEOUT)
 

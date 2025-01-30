@@ -43,6 +43,5 @@ func _on_space_bar_pressed():
 		on_next_dialog.emit()
 		dialogue_arrow.visible = false
 
-
 func _on_timer_timeout() -> void:
 	clear()
