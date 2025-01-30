@@ -69,7 +69,7 @@ static var tutorial_lvls_map = {
 	}
 }
 
-static func new_random_lvl() -> Dictionary:
+static func new_random_lvl(max_ppl_on_tracks : int) -> Dictionary:
 	var random_lvl : Dictionary = {
 		"top" : [],
 		"bot" : []
@@ -79,8 +79,9 @@ static func new_random_lvl() -> Dictionary:
 	for victim_type in mandatory_victims_per_glitch[Glitch.active_glitch]:
 		random_lvl[chosen_track].append(victim_type)
 	
-	for i in range(randi_range(1,5)):
+	for i in range(randi_range(1,max_ppl_on_tracks)):
 		random_lvl["top"].append(randi_range(0,len(possible_victims)-1))
-	for i in range(randi_range(1,5)):
+	for i in range(randi_range(1,max_ppl_on_tracks)):
 		random_lvl["bot"].append(randi_range(0,len(possible_victims)-1))
+	
 	return random_lvl

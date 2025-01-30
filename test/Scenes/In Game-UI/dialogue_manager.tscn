@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cul11l0uj5qbx"]
+[gd_scene load_steps=9 format=3 uid="uid://cul11l0uj5qbx"]
 
 [ext_resource type="PackedScene" uid="uid://bikk3kehseoih" path="res://Scenes/In Game-UI/dialog_labels.tscn" id="1_br3cn"]
 [ext_resource type="Script" path="res://Scripts/ui/dialogs/dialogue_manager.gd" id="1_et7yt"]
+[ext_resource type="Texture2D" uid="uid://cshrle22f3qga" path="res://Assets/Sprites/Ui Sprites/dialog passer/dialogue_arrow0000.png" id="3_1cadn"]
+[ext_resource type="Texture2D" uid="uid://cqireifyfb1ng" path="res://Assets/Sprites/Ui Sprites/dialog passer/dialogue_arrow0001.png" id="4_0aqkp"]
 
 [sub_resource type="Animation" id="Animation_3wqww"]
 resource_name = "RESSET"
@@ -39,10 +41,26 @@ _data = {
 "display_text": SubResource("Animation_t67wn")
 }
 
-[node name="dialogue_manager" type="CanvasLayer" node_paths=PackedStringArray("label", "animation_player")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_iajpc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1cadn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0aqkp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="dialogue_manager" type="CanvasLayer" node_paths=PackedStringArray("label", "animation_player", "dialog_clear_timer", "dialogue_arrow")]
 script = ExtResource("1_et7yt")
 label = NodePath("dialogue_labels/Label")
 animation_player = NodePath("dialogue_labels/AnimationPlayer")
+dialog_clear_timer = NodePath("Timer")
+dialogue_arrow = NodePath("AnimatedSprite2D")
 
 [node name="dialogue_labels" parent="." instance=ExtResource("1_br3cn")]
 offset_left = -362.0
@@ -55,3 +73,14 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_4ixjc")
 }
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(716, 467)
+sprite_frames = SubResource("SpriteFrames_iajpc")
+autoplay = "default"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

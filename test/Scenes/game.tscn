@@ -88,6 +88,7 @@ no_choice_taken = NodePath("no_choice_taken")
 [node name="problem" parent="Score_manager/problem_manager" instance=ExtResource("2_30vgv")]
 
 [node name="no_choice_taken" type="Timer" parent="Score_manager/problem_manager"]
+wait_time = 3.0
 one_shot = true
 
 [node name="tutorial_sequence" type="Node" parent="." node_paths=PackedStringArray("dialogue_manager", "game", "problem_manager", "ui_manager")]

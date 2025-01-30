@@ -14,8 +14,13 @@ func calculate_winner() -> String:
 		
 	for victim in loaded_victims["bot"]:
 		bot_score += victim.value
-		
-	return "top" if top_score > bot_score else "bot"
+	
+	if top_score > bot_score:
+		return "top"  
+	if bot_score > top_score:
+		return "bot" 
+	else:
+		return "both"
 
 func spawn_victims(lvl : Dictionary, glitch = Glitch.glitches.NONE) -> void:
 	for i in range(len(lvl["top"])):

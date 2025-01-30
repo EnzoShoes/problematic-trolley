@@ -17,28 +17,33 @@ func _on_top_choice_area_entered(area: Area2D) -> void:
 		if Globals.game_state == Globals.game_states.SUPERVISED or Globals.game_state == Globals.game_states.TUTORIAL:
 			if rails.calculate_winner() == "bot":
 				problem_manager.on_choice_made("good")
-			else:
+			if rails.calculate_winner() == "top":
 				problem_manager.on_choice_made("bad")
+			else : 
+				problem_manager.on_choice_made("good")
 		elif Globals.game_state == Globals.game_states.UNSUPERVISED:
 			if rails.calculate_winner() == "top":
 				problem_manager.on_choice_made("good")
-			else:
+			if rails.calculate_winner() == "bot":
 				problem_manager.on_choice_made("bad")
-			pass
+			else: problem_manager.on_choice_made("good")
 
 func _on_bot_choice_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		if Globals.game_state == Globals.game_states.SUPERVISED or Globals.game_state == Globals.game_states.TUTORIAL:
 			if rails.calculate_winner() == "top":
 				problem_manager.on_choice_made("good")
-			else:
+			if rails.calculate_winner() == "bot":
 				problem_manager.on_choice_made("bad")
+			else: 
+				problem_manager.on_choice_made("good")
 		elif Globals.game_state == Globals.game_states.UNSUPERVISED:
 			if rails.calculate_winner() == "bot":
 				problem_manager.on_choice_made("good")
-			else:
+			if rails.calculate_winner() == "top":
 				problem_manager.on_choice_made("bad")
-			pass
+			else: 
+				problem_manager.on_choice_made("good")
 
 func _on_player_chose_path():
 	dialogue_manager.print_supervisor_comment_on_choice()

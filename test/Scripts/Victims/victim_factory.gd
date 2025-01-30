@@ -27,11 +27,11 @@ static func new_victim(type: int, glitch: int = Glitch.glitches.NONE) -> Victim:
 	var victim: Victim = victim_scene.instantiate()
 	victim.ressource = victim_resource_map[type]
 	victim.value = Glitch.victim_value_map[glitch][type]
-	if victim.value <= 0:
+	if victim.value == 0:
 		victim.material = victim_shader_map[glitch]
 		var particle_system = victim_particles_map["zero_value"].instantiate()
 		victim.get_node("particle_holder").add_child(particle_system)
-	if victim.value >= 1000:
+	if victim.value >= 100:
 		victim.material = victim_shader_map[glitch]
 		var particle_system = victim_particles_map["zero_value"].instantiate()
 		victim.get_node("particle_holder").add_child(particle_system)
