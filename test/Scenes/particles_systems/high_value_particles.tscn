@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6qi0t3h1vxdt"]
+
+[ext_resource type="PackedScene" uid="uid://cv853npxbi7r0" path="res://Scenes/particles_systems/zero_value_particles.tscn" id="1_djjuu"]
+
+[node name="high_value_particles" instance=ExtResource("1_djjuu")]
+
+[node name="GPUParticles2D" parent="." index="0"]
+modulate = Color(1, 0.972549, 1, 0.576471)
