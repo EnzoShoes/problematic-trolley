@@ -11,7 +11,6 @@ func _ready() -> void:
 
 func return_to_game():
 	game.close_new_glitch_choice()
-	pass
 
 func make_glitches(number : int):
 	var temp_possible_glitches : Array = Glitch.not_aquiered_glitches

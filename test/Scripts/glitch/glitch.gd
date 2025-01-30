@@ -8,8 +8,7 @@ enum glitches {
 	UTILITY_MONSTER, 
 }
 
-enum glitches_buff {UNDERPOPULATION, RECURSIVE_FREEDOM, IMPATIENT_TROLLEY,}
-
+enum glitches_buff {UNDERPOPULATION, RECURSIVE_FREEDOM, IMPATIENT_TROLLEY}
 
 static var active_glitch: int = glitches.NONE
 
@@ -23,7 +22,10 @@ static var not_aquiered_glitches : Array:
 				not_aquiered.append(glitch)
 		return not_aquiered
 
-static var glitch_proba: int = 70
+static var glitch_proba: int:
+	get(): 
+		glitch_proba = len(aquiered_glitches) * 20
+		return glitch_proba
 
 static var glitched : bool
 
@@ -71,5 +73,4 @@ static func roll_for_glitch():
 		else:
 			glitched = true
 			print("next lvl should be glitched")
-			var rando = randi_range(0, len(aquiered_glitches)-1)
-			active_glitch = aquiered_glitches[rando]
+			active_glitch = aquiered_glitches.pick_random()
