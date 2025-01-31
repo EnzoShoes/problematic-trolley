@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cwjbd58dpvslw"]
+[gd_scene load_steps=26 format=3 uid="uid://cwjbd58dpvslw"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_3skgd"]
 [ext_resource type="PackedScene" uid="uid://3kyfnxlgf6vo" path="res://Scenes/problem.tscn" id="2_30vgv"]
@@ -18,7 +18,10 @@
 [ext_resource type="AudioStream" uid="uid://1ic8j5gyjrx7" path="res://Assets/Sound_effect/sfx_good_choice.mp3" id="9_wlly3"]
 [ext_resource type="AudioStream" uid="uid://bvhdn71msaqbj" path="res://Assets/Sound_effect/sfx_frenzy_good_choice.mp3" id="10_pov3g"]
 [ext_resource type="AudioStream" uid="uid://2s860r58y2bh" path="res://Assets/Sound_effect/sfx_lights_off.mp3" id="11_dfafp"]
+[ext_resource type="AudioStream" uid="uid://g5tgbs0sg21l" path="res://Assets/Music/tutorial_music.mp3" id="12_o42ap"]
 [ext_resource type="PackedScene" uid="uid://cul11l0uj5qbx" path="res://Scenes/In Game-UI/dialogue_manager.tscn" id="12_tm0p1"]
+[ext_resource type="AudioStream" uid="uid://dlgin7xime2yo" path="res://Assets/Sound_effect/sfx_notification.mp3" id="13_5abgt"]
+[ext_resource type="AudioStream" uid="uid://cse5yxsc546iv" path="res://Assets/Sound_effect/sfx_moving_train.wav" id="14_dahe4"]
 [ext_resource type="Script" path="res://Scripts/tutorial/tutorial_sequence.gd" id="16_xmkya"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="17_2e4iy"]
 
@@ -72,6 +75,16 @@ stream = ExtResource("10_pov3g")
 [node name="sfx_lights_off" type="AudioStreamPlayer" parent="music_manager"]
 stream = ExtResource("11_dfafp")
 
+[node name="tutorial_music" type="AudioStreamPlayer" parent="music_manager"]
+stream = ExtResource("12_o42ap")
+parameters/looping = true
+
+[node name="sfx_notification" type="AudioStreamPlayer" parent="music_manager"]
+stream = ExtResource("13_5abgt")
+
+[node name="sfx_moving_trolley" type="AudioStreamPlayer" parent="music_manager"]
+stream = ExtResource("14_dahe4")
+
 [node name="ui_manager" type="Node" parent="." node_paths=PackedStringArray("score_manager", "music_manager")]
 script = ExtResource("7_q52h4")
 score_manager = NodePath("../Score_manager")
@@ -121,11 +134,12 @@ problem_manager = NodePath("../Score_manager/problem_manager")
 ui_manager = NodePath("../ui_manager")
 music_manager = NodePath("../music_manager")
 
-[node name="input_manager" type="Node" parent="." node_paths=PackedStringArray("ui", "problem_manger", "game")]
+[node name="input_manager" type="Node" parent="." node_paths=PackedStringArray("ui", "problem_manger", "game", "score_manager")]
 script = ExtResource("17_2e4iy")
 ui = NodePath("../ui_manager/UI")
 problem_manger = NodePath("../Score_manager/problem_manager")
 game = NodePath("..")
+score_manager = NodePath("../Score_manager")
 
 [connection signal="timeout" from="unsupervised_time" to="." method="_on_unsupervised_time_timeout"]
 [connection signal="timeout" from="Score_manager/problem_manager/no_choice_taken" to="Score_manager/problem_manager" method="_on_no_choice_taken"]

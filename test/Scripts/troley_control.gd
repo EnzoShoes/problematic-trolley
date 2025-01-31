@@ -5,11 +5,11 @@ signal player_chose_side
 
 var in_control : bool = true
 @onready var trolley: Node2D = %Trolley
-var speed: float = 0.8:
-	get():
-		if Glitch.glitches.IMPATIENT_TROLLEY in Glitch.aquiered_glitches:
-			return 1.5
-		return 0.8
+var speed: float = 0.8
+	#get():
+		#if Glitch.glitches.IMPATIENT_TROLLEY in Glitch.aquiered_glitches:
+			#return 1.5
+		#return 0.8
 
 var path_selected : PathFollow2D = null
 

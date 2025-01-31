@@ -51,11 +51,11 @@ static var victim_value_map : Dictionary = {
 		Globals.victim_types.RICH : 0
 	},
 	glitches.OPPRESSIVE_SOCIETY : {
-		Globals.victim_types.BAD : 0,
-		Globals.victim_types.BABY : 0,
-		Globals.victim_types.OLD : 0,
+		Globals.victim_types.BAD : 1,
+		Globals.victim_types.BABY : 1,
+		Globals.victim_types.OLD : 1,
 		Globals.victim_types.NORMAL: 100,
-		Globals.victim_types.RICH : 0
+		Globals.victim_types.RICH : 1
 	},
 	glitches.UTILITY_MONSTER : {
 		Globals.victim_types.BAD : -1,

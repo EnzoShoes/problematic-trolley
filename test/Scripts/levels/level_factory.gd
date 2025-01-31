@@ -42,7 +42,7 @@ static var premade_lvls_map = {
 	},
 	"lvl_6" : {
 		"top" : [Globals.victim_types.NORMAL],
-		"bot" : [Globals.victim_types.BAD],[Globals.victim_types.BAD],[Globals.victim_types.BAD],[Globals.victim_types.BAD],[Globals.victim_types.OLD]
+		"bot" : [Globals.victim_types.BAD,Globals.victim_types.BAD,Globals.victim_types.BAD,Globals.victim_types.BAD,Globals.victim_types.OLD]
 	}
 } 
 
@@ -83,7 +83,16 @@ static func new_random_lvl(max_ppl_on_tracks : int) -> Dictionary:
 	for victim_type in mandatory_victims_per_glitch[Glitch.active_glitch]:
 		random_lvl[chosen_track].append(victim_type)
 	
-	for i in range(randi_range(max_ppl_on_tracks-1,max_ppl_on_tracks)):
+	### Dirty quick fix
+	var min_ppl_on_tracks: int
+	if max_ppl_on_tracks == 0 or max_ppl_on_tracks == 1:
+		min_ppl_on_tracks = 2
+		max_ppl_on_tracks = 2
+	else: 
+		min_ppl_on_tracks = max_ppl_on_tracks -1
+		
+	
+	for i in range(randi_range(min_ppl_on_tracks,max_ppl_on_tracks)):
 		random_lvl["top"].append(randi_range(0,len(possible_victims)-1))
 	for i in range(randi_range(max_ppl_on_tracks-1,max_ppl_on_tracks)):
 		random_lvl["bot"].append(randi_range(0,len(possible_victims)-1))

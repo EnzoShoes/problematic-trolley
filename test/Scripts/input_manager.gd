@@ -4,6 +4,7 @@ extends Node
 @export var ui : GameUi
 @export var problem_manger : ProblemManager
 @export var game : Game
+@export var score_manager : ScoreManager
 signal space_bar_just_pressed
 @onready var tutorial_sequence: TutorialSequence = $"../tutorial_sequence"
 
@@ -21,3 +22,5 @@ func debug_inputs():
 		Globals.game_state = Globals.game_states.UNSUPERVISED
 		game.new_problem(game.new_problem_reason.SUPERVISED_END)
 		tutorial_sequence.run_coffee_break()
+	if Input.is_action_just_pressed("ui_end"):
+		score_manager.freedom_score = score_manager.free_score_to_win -1

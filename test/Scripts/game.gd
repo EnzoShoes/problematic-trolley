@@ -38,6 +38,7 @@ func _process(_delta: float) -> void:
 	
 func _ready() -> void:
 	new_tutorial_problem(new_problem_reason.FIRST_LOAD)
+	music_manager.music_play("tutorial")
 
 func new_tutorial_problem(reason: new_problem_reason):
 	print("__tutorial____" + str(new_problem_reason.keys()[reason]) + "________")
@@ -58,8 +59,7 @@ func new_play_problem(reason: new_problem_reason):
 	await transition_sequence(reason)
 	print("______" + str(new_problem_reason.keys()[reason]) + "________")
 	problem = problem_manager.new_problem_scene()
-	if reason == new_problem_reason.SUPERVISED_END:
-		tutorial_sequence.run_coffee_break()
+
 	if Globals.game_state != Globals.game_states.END:
 		(func():
 			add_child(problem)
@@ -114,6 +114,7 @@ func update_ui(reason: new_problem_reason):
 
 func _start_frenzy_sequence():
 	music_manager.stop_music()
+	await tutorial_sequence.run_coffee_break()
 	unsupervised_time.wait_time += score_manager.trust_score * 10
 	print("wait_time: " + str(unsupervised_time.wait_time))
 	# Empty trust bar into timer
