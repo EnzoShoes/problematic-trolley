@@ -42,7 +42,7 @@ static var premade_lvls_map = {
 	},
 	"lvl_6" : {
 		"top" : [Globals.victim_types.NORMAL],
-		"bot" : [Globals.victim_types.BAD],[Globals.victim_types.BAD],[Globals.victim_types.BAD],[Globals.victim_types.BAD],[Globals.victim_types.OLD]
+		"bot" : [Globals.victim_types.BAD,Globals.victim_types.BAD,Globals.victim_types.BAD,Globals.victim_types.BAD,Globals.victim_types.OLD]
 	}
 } 
 
