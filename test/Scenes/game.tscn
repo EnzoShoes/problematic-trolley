@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cwjbd58dpvslw"]
+[gd_scene load_steps=23 format=3 uid="uid://cwjbd58dpvslw"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_3skgd"]
 [ext_resource type="PackedScene" uid="uid://3kyfnxlgf6vo" path="res://Scenes/problem.tscn" id="2_30vgv"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Scripts/ui/front_ui.gd" id="9_wcblv"]
 [ext_resource type="AudioStream" uid="uid://1ic8j5gyjrx7" path="res://Assets/Sound_effect/sfx_good_choice.mp3" id="9_wlly3"]
 [ext_resource type="AudioStream" uid="uid://bvhdn71msaqbj" path="res://Assets/Sound_effect/sfx_frenzy_good_choice.mp3" id="10_pov3g"]
+[ext_resource type="AudioStream" uid="uid://2s860r58y2bh" path="res://Assets/Sound_effect/sfx_lights_off.mp3" id="11_dfafp"]
 [ext_resource type="PackedScene" uid="uid://cul11l0uj5qbx" path="res://Scenes/In Game-UI/dialogue_manager.tscn" id="12_tm0p1"]
 [ext_resource type="Script" path="res://Scripts/tutorial/tutorial_sequence.gd" id="16_xmkya"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="17_2e4iy"]
@@ -67,6 +68,9 @@ stream = SubResource("AudioStreamPlaylist_plia2")
 
 [node name="sfx_good_choice_frenzy" type="AudioStreamPlayer" parent="music_manager"]
 stream = ExtResource("10_pov3g")
+
+[node name="sfx_lights_off" type="AudioStreamPlayer" parent="music_manager"]
+stream = ExtResource("11_dfafp")
 
 [node name="ui_manager" type="Node" parent="." node_paths=PackedStringArray("score_manager", "music_manager")]
 script = ExtResource("7_q52h4")

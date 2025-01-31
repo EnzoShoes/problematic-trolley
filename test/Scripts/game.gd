@@ -25,7 +25,7 @@ var max_ppl_on_rails: int:
 		print("8 * " + str(score_manager.freedom_score +1) + "/" + str(score_manager.free_score_to_win) + "+" + "1")
 		print(max_ppl_on_rails)
 		return max_ppl_on_rails
-		
+
 func _process(_delta: float) -> void:
 	if Globals.game_state != Globals.game_states.END:
 		ui_manager.ui.update_timer_label(int(unsupervised_time.time_left)) #update the timer in ui

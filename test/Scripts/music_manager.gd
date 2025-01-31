@@ -8,6 +8,7 @@ extends Node
 @onready var supervisor_sigh: AudioStreamPlayer = $supervisor_sigh
 @onready var talk_supervisor: AudioStreamPlayer = $talk_supervisor
 @onready var sfx_good_choice_frenzy: AudioStreamPlayer = $sfx_good_choice_frenzy
+@onready var sfx_lights_off: AudioStreamPlayer = $sfx_lights_off
 
 func _process(_delta: float) -> void:
 	if Globals.game_state == Globals.game_states.SUPERVISED or Globals.game_state == Globals.game_states.TUTORIAL:

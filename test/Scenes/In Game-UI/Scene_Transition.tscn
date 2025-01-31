@@ -9,22 +9,6 @@ shader_parameter/Stripe_Size = 21.5
 shader_parameter/Displacement = 7.4506e-09
 shader_parameter/Aberation_Intensity = 0.0
 
-[sub_resource type="Animation" id="Animation_n88ed"]
-resource_name = "Blinking lights"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.658333, 0.7, 0.733333, 1.03333, 1.23333, 1.53333, 1.63333),
-"transitions": PackedFloat32Array(1, 1, 13.9288, 0.017337, 23.4254, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0), Color(0, 0, 0, 0.3)]
-}
-
 [sub_resource type="Animation" id="Animation_kxwlc"]
 resource_name = "RESET"
 tracks/0/type = "value"
@@ -62,6 +46,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ColorRect_Fade_to_black2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_rln1q"]
@@ -108,10 +104,26 @@ tracks/1/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_n88ed"]
+resource_name = "Blinking lights"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ColorRect_Fade_to_black2:modulate")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.166667, 0.791666, 0.833333, 0.866666, 1.16666, 1.36666, 1.66666, 1.76666),
+"transitions": PackedFloat32Array(1, 1, 1, 13.9288, 0.017337, 23.4254, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0), Color(0, 0, 0, 0.3)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8grah"]
 _data = {
-"Blinking lights": SubResource("Animation_n88ed"),
 "RESET": SubResource("Animation_kxwlc"),
+"blinking_lights": SubResource("Animation_n88ed"),
 "fade_in": SubResource("Animation_rln1q"),
 "glitch": SubResource("Animation_k6jjy")
 }
@@ -130,6 +142,16 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="ColorRect_Fade_to_black" type="ColorRect" parent="Control"]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect_Fade_to_black2" type="ColorRect" parent="Control"]
 modulate = Color(0, 0, 0, 0)
 layout_mode = 1
 anchors_preset = 15

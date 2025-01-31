@@ -7,7 +7,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_2l1gs"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 326, 134, 0, 0, 0, 0, 399, 134, 0, 0, 0, 0, 688, 134, 0, 0, 0, 0, 702, 151, 0, 0, 0, 0, 702, 178, 0, 0, 0, 0, 689, 192, 0, 0, 0, 0, 267, 192, 0, 0, 0, 0, 261, 186, 0, 0, 0, 0, 261, 141, 0, 0, 0, 0, 267, 134, 0, 0, 0, 0, 326, 134)
+"points": PackedVector2Array(0, 0, 0, 0, 326, 134, 0, 0, 0, 0, 399, 134, 0, 0, 0, 0, 693, 134, 0, 0, 0, 0, 702, 146, 0, 0, 0, 0, 702, 183, 0, 0, 0, 0, 692, 192, 0, 0, 0, 0, 267, 192, 0, 0, 0, 0, 261, 186, 0, 0, 0, 0, 261, 141, 0, 0, 0, 0, 267, 134, 0, 0, 0, 0, 326, 134)
 }
 point_count = 11
 
@@ -76,7 +76,7 @@ text = "Quit"
 curve = SubResource("Curve2D_2l1gs")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(532.189, 134)
+position = Vector2(532.19, 134)
 progress = 206.19
 script = ExtResource("3_qgc2o")
 
