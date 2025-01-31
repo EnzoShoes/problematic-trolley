@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bikk3kehseoih"]
+[gd_scene load_steps=5 format=3 uid="uid://bikk3kehseoih"]
 
 [ext_resource type="FontFile" uid="uid://c5nfgy12eyh0c" path="res://Theme/Fonts/PixeloidSans.ttf" id="1_pgs4l"]
+[ext_resource type="Theme" uid="uid://bbcxm7ji6ltx3" path="res://Theme/Pixel_art .tres" id="1_wikw4"]
+[ext_resource type="Texture2D" uid="uid://cthag4h8elts1" path="res://Assets/Sprites/Dr.Ribootnok.png" id="2_xni2y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tnqhp"]
 font = ExtResource("1_pgs4l")
@@ -23,6 +25,16 @@ layout_mode = 0
 offset_left = -35.0
 offset_top = -15.0
 offset_right = 229.0
-offset_bottom = 8.0
+offset_bottom = 14.0
+theme = ExtResource("1_wikw4")
 label_settings = SubResource("LabelSettings_tnqhp")
 autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 229.333
+offset_top = -20.6667
+offset_right = 269.333
+offset_bottom = 19.3333
+texture = ExtResource("2_xni2y")
+expand_mode = 1
