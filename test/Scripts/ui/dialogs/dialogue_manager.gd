@@ -9,27 +9,31 @@ extends CanvasLayer
 @export var music_manager : MusicManager
 
 signal on_next_dialog
-
+enum display_text_features {NONE, NO_AROW}
 
 func _ready() -> void:
 	input_manger.space_bar_just_pressed.connect(_on_space_bar_pressed)
 
-func display_text(text:String):
+func display_text(text:String, feature: display_text_features = display_text_features.NONE):
+	visible = true
 	label.text = ""
 	animation_player.play("display_text")
 	label.text = text
 	music_manager.talk_supervisor.play()
 	await animation_player.animation_finished
 	music_manager.talk_supervisor.stop()
-	dialogue_arrow.visible = true
+	if feature != display_text_features.NO_AROW:
+		dialogue_arrow.visible = true
 	
 	animation_player.speed_scale = 1
 
 func print_supervisor_comment_on_choice():
-	if Globals.game_state == Globals.game_states.SUPERVISED:
-		display_text(DialogFactory.new_random_dialog("comment_on_choice",randi_range(0, len(DialogFactory.random_dialog["comment_on_choice"])-1)))
-		await animation_player.animation_finished
-		dialog_clear_timer.start()
+	var rando = randi_range(0,100)
+	if rando <= 70:
+		if Globals.game_state == Globals.game_states.SUPERVISED:
+			display_text(DialogFactory.new_random_dialog("comment_on_choice",randi_range(0, len(DialogFactory.random_dialog["comment_on_choice"])-1)))
+			await animation_player.animation_finished
+			dialog_clear_timer.start()
 
 func print_tutorial_dialogue(index : int, key : String, key2: String = ""):
 	display_text(DialogFactory.new_tutorial_dialog(index, key, key2))
@@ -37,6 +41,7 @@ func print_tutorial_dialogue(index : int, key : String, key2: String = ""):
 	
 func clear():
 	label.text = ""
+	visible = false
 	dialogue_arrow.visible = false
 	problem_manager.no_choice_taken.start()
 

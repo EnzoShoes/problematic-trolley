@@ -78,8 +78,8 @@ libraries = {
 one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(716, 467)
+position = Vector2(770, 483)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_iajpc")
 autoplay = "default"
 
