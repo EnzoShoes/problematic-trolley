@@ -40,7 +40,6 @@ func music_play(music : String):
 		if !tutorial_music.playing:
 			tutorial_music.play()
 
-
 func _on_tutorial_music_finished() -> void:
 	music_play("tutorial")
 	pass # Replace with function body.

@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 		problem_manger.no_choice_taken.wait_time = 3
 		problem_manger.no_choice_taken.stop()
 		ui.input_nudge.visible = false
-	#debug_inputs()
+	debug_inputs()
 
 func debug_inputs():
 	if Input.is_action_just_pressed("ui_cancel"):

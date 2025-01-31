@@ -9,12 +9,15 @@ extends Node2D
 @export var problem_manager: ProblemManager
 @export var tutorial_sequence : TutorialSequence
 @onready var no_choice_taken: Timer = $Score_manager/problem_manager/no_choice_taken
+@onready var active_glitch_timer: Timer = $active_glitch
 
 enum new_problem_reason {FIRST_LOAD, UNSUPERVISED_TIMEOUT, UNSUPERVISED_WIN, SUPERVISED_END,GLITCH_CHOICE_MADE, NEXT}
 
 const PROBLEM = preload("res://Scenes/problem.tscn")
 const WIN_SCREEN = preload("res://Scenes/win_screen.tscn")
 const GLITCH_SELECTION = preload("res://Scenes/glitchs/glitch_selection.tscn")
+const ACTIVE_GLITCH_SCENE = preload("res://Scenes/In Game-UI/Active_Glitch.tscn")
+
 
 var current_lvl: int = 1
 var can_trolley_move: bool 
@@ -83,7 +86,6 @@ func new_problem(reason: new_problem_reason): #make a transition and load the ne
 	elif Globals.game_state == Globals.game_states.TUTORIAL:
 		new_tutorial_problem(reason)
 
-
 func _update_game_state(reason: new_problem_reason):
 	if reason == new_problem_reason.UNSUPERVISED_TIMEOUT:
 		Globals.game_state = Globals.game_states.SUPERVISED
@@ -136,6 +138,11 @@ func transition_sequence(reason: new_problem_reason):
 	if Glitch.glitched:
 		SceneTransition.fade_in("glitch")
 		music_manager.sfx_glitch_trans.play()
+		var active_glitch : ActivieGlitchShowing = ACTIVE_GLITCH_SCENE.instantiate()
+		add_child(active_glitch)
+		active_glitch_timer.start()
+		await active_glitch_timer.timeout
+		active_glitch.queue_free()
 	else:
 		if reason != new_problem_reason.FIRST_LOAD:
 			SceneTransition.fade_in("fade_in")
@@ -149,6 +156,7 @@ func transition_sequence(reason: new_problem_reason):
 var glitch_selection : GlitchSelection
 func new_glitch_choice():
 	pause_game()
+	
 	Globals.game_state = Globals.game_states.GLITCH_CHOICE
 	glitch_selection = GLITCH_SELECTION.instantiate()
 	glitch_selection.game = get_node(".")
