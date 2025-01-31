@@ -32,7 +32,7 @@ var num_choice_made: int = 0:
 	set(value):
 		print("num choices made = " +str(value))
 		num_choice_made = value
-			
+
 func prepare_next_problem():
 	if Globals.game_state == Globals.game_states.SUPERVISED and num_choice_made >= choices_to_make:
 		game.new_problem(game.new_problem_reason.SUPERVISED_END)

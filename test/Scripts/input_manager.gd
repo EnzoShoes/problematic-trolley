@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 		problem_manger.no_choice_taken.wait_time = 3
 		problem_manger.no_choice_taken.stop()
 		ui.input_nudge.visible = false
-	debug_inputs()
+	#debug_inputs()
 
 func debug_inputs():
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -24,3 +24,4 @@ func debug_inputs():
 		tutorial_sequence.run_coffee_break()
 	if Input.is_action_just_pressed("ui_end"):
 		score_manager.freedom_score = score_manager.free_score_to_win -1
+		game.current_lvl = 14

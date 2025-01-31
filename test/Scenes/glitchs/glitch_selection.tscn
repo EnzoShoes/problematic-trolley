@@ -40,7 +40,6 @@ position = Vector2(470, 253)
 amount = 200
 process_material = SubResource("ParticleProcessMaterial_6udmm")
 lifetime = 20.0
-preprocess = 20.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

@@ -31,6 +31,7 @@ func _process(_delta: float) -> void:
 	if Globals.game_state != Globals.game_states.END:
 		ui_manager.ui.update_timer_label(int(unsupervised_time.time_left)) #update the timer in ui
 	
+	
 	if problem.troley != null:
 		if can_trolley_move:
 			problem.troley.in_control = true
@@ -92,6 +93,8 @@ func _update_game_state(reason: new_problem_reason):
 func init_problem(lvl : Dictionary, glitch = Glitch.glitches.NONE):#spawn vicitms with the wright dict and glitch + increment current lvl
 	if current_lvl != len(LevelFactory.premade_lvls_map) and Globals.game_state == Globals.game_states.SUPERVISED:
 		current_lvl += 1
+	if current_lvl == len(LevelFactory.premade_lvls_map) and Globals.game_state == Globals.game_states.SUPERVISED:
+		current_lvl = 1
 	problem.rails.spawn_victims(lvl, glitch)
 
 func _on_unsupervised_time_timeout() -> void:
