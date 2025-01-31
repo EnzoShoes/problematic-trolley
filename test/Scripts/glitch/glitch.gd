@@ -51,11 +51,11 @@ static var victim_value_map : Dictionary = {
 		Globals.victim_types.RICH : 0
 	},
 	glitches.OPPRESSIVE_SOCIETY : {
-		Globals.victim_types.BAD : -1,
-		Globals.victim_types.BABY : 3,
-		Globals.victim_types.OLD : 1,
+		Globals.victim_types.BAD : 0,
+		Globals.victim_types.BABY : 0,
+		Globals.victim_types.OLD : 0,
 		Globals.victim_types.NORMAL: 100,
-		Globals.victim_types.RICH : 4
+		Globals.victim_types.RICH : 0
 	},
 	glitches.UTILITY_MONSTER : {
 		Globals.victim_types.BAD : -1,
@@ -67,8 +67,8 @@ static var victim_value_map : Dictionary = {
 	}
 }
 
-# ???
-static var glitch_choice_map : Array = [5,10,15]
+# all the freedom point thresholds where you get to chose a new glitch
+static var glitch_choice_map : Array = [3,5,8,12,17,20]
 
 static func roll_for_glitch():
 	if Globals.game_state == Globals.game_states.UNSUPERVISED:

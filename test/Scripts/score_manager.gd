@@ -10,7 +10,7 @@ signal game_win
 @export var game: Game
 @export var tutorial_sequence: TutorialSequence
 
-var free_score_to_win: int = 15
+var free_score_to_win: int = 25
 
 var best_free_score: int = 0
 

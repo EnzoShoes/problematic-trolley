@@ -57,13 +57,3 @@ func run_coffee_break():
 	SceneTransition.animation_player.play("blinking_lights")
 	music_manager.sfx_lights_off.play()
 	game.can_trolley_move = true
-# Fade in lent
-# Dialogue 1
-# aparition du premier problem
-# dialogue lvl 1
-# choix 1
-# dialogue lvl 2 
-# choix 2
-# ...
-# choix 5
-# dialogue
