@@ -97,6 +97,7 @@ one_shot = true
 [node name="Score_manager" parent="." node_paths=PackedStringArray("game", "tutorial_sequence") instance=ExtResource("3_stu2i")]
 game = NodePath("..")
 tutorial_sequence = NodePath("../tutorial_sequence")
+timer_val = 99.075
 
 [node name="problem_manager" type="Node" parent="Score_manager" node_paths=PackedStringArray("game", "score_manager", "music_manager", "ui_manager", "dialogue_manager", "game_ui", "no_choice_taken")]
 script = ExtResource("2_yvalm")
@@ -121,10 +122,11 @@ problem_manager = NodePath("../Score_manager/problem_manager")
 ui_manager = NodePath("../ui_manager")
 music_manager = NodePath("../music_manager")
 
-[node name="input_manager" type="Node" parent="." node_paths=PackedStringArray("ui", "problem_manger")]
+[node name="input_manager" type="Node" parent="." node_paths=PackedStringArray("ui", "problem_manger", "game")]
 script = ExtResource("17_2e4iy")
 ui = NodePath("../ui_manager/UI")
 problem_manger = NodePath("../Score_manager/problem_manager")
+game = NodePath("..")
 
 [connection signal="timeout" from="unsupervised_time" to="." method="_on_unsupervised_time_timeout"]
 [connection signal="timeout" from="Score_manager/problem_manager/no_choice_taken" to="Score_manager/problem_manager" method="_on_no_choice_taken"]

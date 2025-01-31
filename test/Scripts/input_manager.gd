@@ -3,6 +3,7 @@ extends Node
 
 @export var ui : GameUi
 @export var problem_manger : ProblemManager
+@export var game : Game
 signal space_bar_just_pressed
 @onready var tutorial_sequence: TutorialSequence = $"../tutorial_sequence"
 
@@ -18,4 +19,5 @@ func _process(_delta: float) -> void:
 func debug_inputs():
 	if Input.is_action_just_pressed("ui_cancel"):
 		Globals.game_state = Globals.game_states.UNSUPERVISED
+		game.new_problem(game.new_problem_reason.SUPERVISED_END)
 		tutorial_sequence.run_coffee_break()
