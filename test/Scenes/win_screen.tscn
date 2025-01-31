@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://bbcxm7ji6ltx3" path="res://Theme/Pixel_art .tres" id="1_opt8b"]
 [ext_resource type="Script" path="res://Scripts/ui/win_screen.gd" id="2_2y0gp"]
-[ext_resource type="PackedScene" uid="uid://cfktvnfckevaf" path="res://Scenes/Music/title_screen_music.tscn" id="2_dxe8w"]
+[ext_resource type="AudioStream" uid="uid://d0u25djona6b2" path="res://Assets/Music/the_trolley_is_free.mp3" id="3_15p4y"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("2_2y0gp")
@@ -65,6 +65,8 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Go back to human life"
 
-[node name="title_screen_music" parent="." instance=ExtResource("2_dxe8w")]
+[node name="free_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_15p4y")
+autoplay = true
 
 [connection signal="pressed" from="Control/Control/Quit" to="." method="_on_quit_pressed"]

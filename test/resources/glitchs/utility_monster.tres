@@ -9,6 +9,6 @@ script = ExtResource("1_1v3tn")
 bug_icon = ExtResource("2_stnjm")
 bug_animation = ExtResource("1_kfi3q")
 Bug_name = "Utility monster"
-Bug_effect = "New Victim added"
+Bug_effect = "Adds a new Victim"
 Bug_description = "This thing is the happiest thing on earth. Killing it is pure freedom."
 glitch_type = 3

@@ -30,3 +30,6 @@ static func new_tutorial_dialog( index : int, key : String, key2 : String = "") 
 
 static func new_random_dialog(key : String, index : int) -> String:
 	return random_dialog[key][index]
+
+static func new_coffee_dialogue(key : String):
+	return random_dialog["coffee_breaks"][key][randi_range(0, len(random_dialog["coffee_breaks"][key])-1)]

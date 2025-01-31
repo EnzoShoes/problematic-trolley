@@ -34,8 +34,11 @@ func _handle_good_choice():
 	score_manager.add_score(1)
 	if Globals.game_state == Globals.game_states.UNSUPERVISED:
 		_play_unsupervied_music()
-	music_manager.sfx_good_choice.play()
-	ui_manager.background.flash("Good_Choice")
+		ui_manager.background.flash("Good_Choice_Frenzy")
+		music_manager.sfx_good_choice_frenzy.play()
+	else:
+		ui_manager.background.flash("Good_Choice")
+		music_manager.sfx_good_choice.play()
 	await ui_manager.background.animation_finished
 	
 func _handle_bad_choice():

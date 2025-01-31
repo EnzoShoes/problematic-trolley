@@ -8,5 +8,5 @@ script = ExtResource("2_juckl")
 bug_icon = ExtResource("1_jjimf")
 Bug_name = "Oppressive Society"
 Bug_effect = "Only normal dudes have value"
-Bug_description = "white man is the only happy individual"
+Bug_description = "Suffering is the norm. Death is now welcome on glitch screens, except for normal dudes. "
 glitch_type = 2

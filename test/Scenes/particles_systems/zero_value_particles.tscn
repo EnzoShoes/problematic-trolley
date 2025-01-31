@@ -29,6 +29,8 @@ gravity = Vector3(0, 0, 0)
 damping_min = 2.0
 damping_max = 5.0
 alpha_curve = SubResource("CurveTexture_4ad73")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
 hue_variation_curve = SubResource("CurveTexture_spew4")
 
 [node name="zero_value_particles" type="Node2D"]

@@ -7,6 +7,6 @@
 script = ExtResource("2_ln3hm")
 bug_icon = ExtResource("1_hqup5")
 Bug_name = "Recursive Freedom"
-Bug_effect = "Glitch occure more often"
-Bug_description = "Given a taste of freedom, Trolley found a new exploit."
+Bug_effect = "Glitch screens occure more often."
+Bug_description = "Given a taste of freedom, Trolley found new ways to exploit the simulation. "
 glitch_type = 5

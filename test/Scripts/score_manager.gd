@@ -5,13 +5,12 @@ signal trust_score_updated
 signal freedom_score_updated
 signal game_win
 
-@export var choices_to_make: int = 2
+@export var choices_to_make: int = 5
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var game: Game
+@export var tutorial_sequence: TutorialSequence
 
-
-
-var free_score_to_win: int = 2
+var free_score_to_win: int = 15
 
 var best_free_score: int = 0
 

@@ -20,6 +20,7 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	if glitch_type not in Glitch.aquiered_glitches:
 		Glitch.aquiered_glitches.append(glitch_type)
-		Glitch.active_glitch = glitch_type
+		# assign to active glitch if it is an activatable glitch
+		Glitch.active_glitch = Glitch.glitches.NONE if glitch_type >= 10 else glitch_type
 		print(str(glitch_type) + " is now aquiered")
 		UI.return_to_game()

@@ -11,10 +11,10 @@ func _ready() -> void:
 
 func return_to_game():
 	game.close_new_glitch_choice()
-	pass
 
 func make_glitches(number : int):
-	var temp_possible_glitches : Array = Glitch.not_aquiered_glitches
+	var temp_possible_glitches : Array = Glitch.not_aquiered_glitches # does not include none
+	print ("possible glithces: " + str(temp_possible_glitches))
 	for i in range(0, number):
 		if len(temp_possible_glitches) > 0:
 			var rando = randi_range(0, len(temp_possible_glitches)-1)

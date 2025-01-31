@@ -9,6 +9,7 @@ extends Node2D
 @onready var lower_body: RigidBody2D = $dead_limbs/lower_body
 @onready var blood_explosion: AnimatedSprite2D = $blood_explosion
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var particle_holder: Node2D = $particle_holder
 
 @export var ressource: Resource
 @export var value: int
@@ -26,13 +27,14 @@ func _ready() -> void:
 	animated_sprite_2d.sprite_frames = ressource.sprite_alive 	#loading the anim
 	animated_sprite_2d.play("default", randf_range(1-anim_speed_rand,1+anim_speed_rand))	#playing the anim with rand speed
 	animated_sprite_2d.frame = randi_range(0, animated_sprite_2d.sprite_frames.get_frame_count("default")-1) #starting anim at random frame
-
+	
 func death():
 	animated_sprite_2d.visible = false #makes the main sprite go away because the character is dead and we want to display the dead sprite
 	if ressource.have_dead_limbs:
 		lower_body.visible = true #displays the dead sprites
 		upper_body.visible = true
-	
+	if particle_holder.get_child_count() != 0:
+		particle_holder.queue_free()
 	#create the impulse and adds randomness to it
 	lower_body.apply_impulse((Vector2.DOWN +Vector2(randf_range(-explosion_randomness,explosion_randomness),0)) * explosion_force, Vector2(randf_range(-explosion_randomness,explosion_randomness), randf_range(-explosion_randomness,explosion_randomness)))
 	upper_body.apply_impulse((Vector2.UP +Vector2(randf_range(-explosion_randomness,explosion_randomness),0)) * explosion_force, Vector2(randf_range(-explosion_randomness,explosion_randomness), randf_range(-explosion_randomness,explosion_randomness)))

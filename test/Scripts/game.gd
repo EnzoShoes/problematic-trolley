@@ -17,7 +17,15 @@ const GLITCH_SELECTION = preload("res://Scenes/glitchs/glitch_selection.tscn")
 
 var current_lvl: int = 1
 var can_trolley_move: bool 
-
+var max_ppl_on_rails: int: 
+	get():
+		max_ppl_on_rails = 8 * float(( (score_manager.freedom_score +1)) / float(score_manager.free_score_to_win)) +1
+		if Glitch.glitches.UNDERPOPULATION in Glitch.aquiered_glitches:
+			max_ppl_on_rails = int(max_ppl_on_rails * 0.75)
+		print("8 * " + str(score_manager.freedom_score +1) + "/" + str(score_manager.free_score_to_win) + "+" + "1")
+		print(max_ppl_on_rails)
+		return max_ppl_on_rails
+		
 func _process(_delta: float) -> void:
 	if Globals.game_state != Globals.game_states.END:
 		ui_manager.ui.update_timer_label(int(unsupervised_time.time_left)) #update the timer in ui
@@ -32,7 +40,7 @@ func _ready() -> void:
 	new_tutorial_problem(new_problem_reason.FIRST_LOAD)
 
 func new_tutorial_problem(reason: new_problem_reason):
-	print("______" + str(new_problem_reason.keys()[reason]) + "________")
+	print("__tutorial____" + str(new_problem_reason.keys()[reason]) + "________")
 	_update_game_state(reason)
 	await transition_sequence(reason)
 	problem = problem_manager.new_problem_scene()
@@ -50,13 +58,15 @@ func new_play_problem(reason: new_problem_reason):
 	await transition_sequence(reason)
 	print("______" + str(new_problem_reason.keys()[reason]) + "________")
 	problem = problem_manager.new_problem_scene()
+	if reason == new_problem_reason.SUPERVISED_END:
+		tutorial_sequence.run_coffee_break()
 	if Globals.game_state != Globals.game_states.END:
 		(func():
 			add_child(problem)
 			if Globals.game_state == Globals.game_states.SUPERVISED:
 				init_problem(LevelFactory.premade_lvls_map["lvl_" + str(current_lvl)])
 			elif Globals.game_state == Globals.game_states.UNSUPERVISED:
-				init_problem(LevelFactory.new_random_lvl(), Glitch.active_glitch)
+				init_problem(LevelFactory.new_random_lvl(max_ppl_on_rails), Glitch.active_glitch)
 			elif Globals.game_state == Globals.game_states.END:
 				return
 			Glitch.roll_for_glitch()
@@ -84,8 +94,13 @@ func init_problem(lvl : Dictionary, glitch = Glitch.glitches.NONE):#spawn vicitm
 	problem.rails.spawn_victims(lvl, glitch)
 
 func _on_unsupervised_time_timeout() -> void:
-	Glitch.glitched = false
-	new_problem(new_problem_reason.UNSUPERVISED_TIMEOUT)
+	if !SceneTransition.animation_player.is_playing():
+		Glitch.glitched = false
+		new_problem(new_problem_reason.UNSUPERVISED_TIMEOUT)
+	else: 
+		await SceneTransition.animation_player.animation_finished
+		Glitch.glitched = false
+		new_problem(new_problem_reason.UNSUPERVISED_TIMEOUT)
 
 func update_ui(reason: new_problem_reason):
 	ui_manager.ui.input_nudge.visible = false
