@@ -97,7 +97,6 @@ one_shot = true
 [node name="Score_manager" parent="." node_paths=PackedStringArray("game", "tutorial_sequence") instance=ExtResource("3_stu2i")]
 game = NodePath("..")
 tutorial_sequence = NodePath("../tutorial_sequence")
-timer_val = 99.075
 
 [node name="problem_manager" type="Node" parent="Score_manager" node_paths=PackedStringArray("game", "score_manager", "music_manager", "ui_manager", "dialogue_manager", "game_ui", "no_choice_taken")]
 script = ExtResource("2_yvalm")

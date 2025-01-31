@@ -40,6 +40,10 @@ static var premade_lvls_map = {
 		"top" : [Globals.victim_types.OLD, Globals.victim_types.OLD, Globals.victim_types.OLD, Globals.victim_types.OLD, Globals.victim_types.OLD, Globals.victim_types.OLD, Globals.victim_types.OLD],
 		"bot" : [Globals.victim_types.BABY]
 	},
+	"lvl_6" : {
+		"top" : [Globals.victim_types.NORMAL],
+		"bot" : [Globals.victim_types.BAD],[Globals.victim_types.BAD],[Globals.victim_types.BAD],[Globals.victim_types.BAD],[Globals.victim_types.OLD]
+	}
 } 
 
 static var tutorial_lvls_map = {
