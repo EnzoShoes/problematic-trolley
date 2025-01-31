@@ -20,6 +20,8 @@ var can_trolley_move: bool
 var max_ppl_on_rails: int: 
 	get():
 		max_ppl_on_rails = 8 * float(( (score_manager.freedom_score +1)) / float(score_manager.free_score_to_win)) +1
+		if Glitch.glitches.UNDERPOPULATION in Glitch.aquiered_glitches:
+			max_ppl_on_rails = int(max_ppl_on_rails * 0.75)
 		print("8 * " + str(score_manager.freedom_score +1) + "/" + str(score_manager.free_score_to_win) + "+" + "1")
 		print(max_ppl_on_rails)
 		return max_ppl_on_rails
