@@ -34,6 +34,7 @@ func _handle_good_choice():
 	score_manager.add_score(1)
 	if Globals.game_state == Globals.game_states.UNSUPERVISED:
 		_play_unsupervied_music()
+		SceneTransition.color_rect_fade_to_black_2.modulate = Color(0,0,0,0)
 		ui_manager.background.flash("Good_Choice_Frenzy")
 		music_manager.sfx_good_choice_frenzy.play()
 	else:
