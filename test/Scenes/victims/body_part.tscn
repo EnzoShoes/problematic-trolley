@@ -37,6 +37,7 @@ shape = SubResource("CircleShape2D_w8nsf")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(0, 5)
+emitting = false
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_d8rmd")
 lifetime = 5.0

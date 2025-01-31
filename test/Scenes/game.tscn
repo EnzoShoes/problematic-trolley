@@ -141,5 +141,8 @@ problem_manger = NodePath("../Score_manager/problem_manager")
 game = NodePath("..")
 score_manager = NodePath("../Score_manager")
 
+[connection signal="finished" from="music_manager/problem_solving" to="music_manager" method="_on_problem_solving_finished"]
+[connection signal="finished" from="music_manager/frenzy" to="music_manager" method="_on_frenzy_finished"]
+[connection signal="finished" from="music_manager/tutorial_music" to="music_manager" method="_on_tutorial_music_finished"]
 [connection signal="timeout" from="unsupervised_time" to="." method="_on_unsupervised_time_timeout"]
 [connection signal="timeout" from="Score_manager/problem_manager/no_choice_taken" to="Score_manager/problem_manager" method="_on_no_choice_taken"]

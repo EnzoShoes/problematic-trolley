@@ -39,3 +39,18 @@ func music_play(music : String):
 			stop_music()
 		if !tutorial_music.playing:
 			tutorial_music.play()
+
+
+func _on_tutorial_music_finished() -> void:
+	music_play("tutorial")
+	pass # Replace with function body.
+
+
+func _on_problem_solving_finished() -> void:
+	music_play("supervised")
+	pass # Replace with function body.
+
+
+func _on_frenzy_finished() -> void:
+	music_play("unsupervised")
+	pass # Replace with function body.

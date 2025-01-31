@@ -6,5 +6,5 @@
 shader = ExtResource("1_tqxgw")
 shader_parameter/margin = 3.0
 shader_parameter/colorintensity = 0.0
-shader_parameter/Good_Choice = true
-shader_parameter/Frenzy = true
+shader_parameter/Good_Choice = false
+shader_parameter/Frenzy = false
