@@ -7,6 +7,6 @@
 script = ExtResource("3_ce8je")
 bug_icon = ExtResource("1_mxni8")
 Bug_name = "IA Uploading"
-Bug_effect = "Killing the rich has no consequences (on glitched screens)."
+Bug_effect = "Killing the rich has no consequences on glitched screens."
 Bug_description = "The rich will be uploaded. Killing them has no consequences. "
 glitch_type = 1
