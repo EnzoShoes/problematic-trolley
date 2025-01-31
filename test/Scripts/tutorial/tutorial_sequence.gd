@@ -4,6 +4,7 @@ extends Node
 @export var game : Game
 @export var problem_manager : ProblemManager
 @export var ui_manager : Ui
+@export var music_manager : MusicManager
 var tutorial_lvl: int = 1
 
 func run_intro_dialogue():
@@ -45,6 +46,13 @@ func run_tutorial_outro_dialog():
 	
 	game.can_trolley_move = true
 
+func run_coffee_break():
+	dialogue_manager.print_coffee_break_comment()
+	game.can_trolley_move = false
+	await dialogue_manager.on_next_dialog
+	dialogue_manager.clear()
+	music_manager.supervisor_sigh.play()
+	game.can_trolley_move = true
 # Fade in lent
 # Dialogue 1
 # aparition du premier problem

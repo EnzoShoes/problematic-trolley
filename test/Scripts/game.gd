@@ -56,6 +56,8 @@ func new_play_problem(reason: new_problem_reason):
 	await transition_sequence(reason)
 	print("______" + str(new_problem_reason.keys()[reason]) + "________")
 	problem = problem_manager.new_problem_scene()
+	if reason == new_problem_reason.SUPERVISED_END:
+		tutorial_sequence.run_coffee_break()
 	if Globals.game_state != Globals.game_states.END:
 		(func():
 			add_child(problem)

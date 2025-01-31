@@ -6,6 +6,7 @@ extends CanvasLayer
 @export var problem_manager : ProblemManager
 @export var dialog_clear_timer : Timer
 @export var dialogue_arrow : AnimatedSprite2D
+@export var music_manager : MusicManager
 
 signal on_next_dialog
 
@@ -17,8 +18,11 @@ func display_text(text:String):
 	label.text = ""
 	animation_player.play("display_text")
 	label.text = text
+	music_manager.talk_supervisor.play()
 	await animation_player.animation_finished
+	music_manager.talk_supervisor.stop()
 	dialogue_arrow.visible = true
+	
 	animation_player.speed_scale = 1
 
 func print_supervisor_comment_on_choice():
@@ -42,6 +46,9 @@ func _on_space_bar_pressed():
 	else:
 		on_next_dialog.emit()
 		dialogue_arrow.visible = false
+
+func print_coffee_break_comment():
+	display_text(DialogFactory.new_coffee_dialogue("start_other_breaks"))
 
 func _on_timer_timeout() -> void:
 	clear()
