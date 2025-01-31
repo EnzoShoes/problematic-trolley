@@ -115,7 +115,7 @@ func update_ui(reason: new_problem_reason):
 func _start_frenzy_sequence():
 	music_manager.stop_music()
 	await tutorial_sequence.run_coffee_break()
-	unsupervised_time.wait_time += score_manager.trust_score * 10
+	unsupervised_time.wait_time += score_manager.trust_score * 5
 	print("wait_time: " + str(unsupervised_time.wait_time))
 	# Empty trust bar into timer
 	problem.troley.in_control = false
