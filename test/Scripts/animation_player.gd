@@ -4,6 +4,8 @@ var direction : Vector2
 var old_position: Vector2 = Vector2.LEFT
 var has_moved : bool = false
 
+
+
 func _ready() -> void:
 	if trolley == null:
 		printerr("trolley has no parent")

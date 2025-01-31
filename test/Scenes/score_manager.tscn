@@ -16,6 +16,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:timer_val")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [99.075]
+}
 
 [sub_resource type="Animation" id="Animation_xumhn"]
 resource_name = "empty_trust_to_timer"
@@ -32,6 +44,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [1.0, 0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:timer_val")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nywtf"]
 _data = {
@@ -41,6 +65,7 @@ _data = {
 
 [node name="Score_manager" type="Node"]
 script = ExtResource("1_hrqxo")
+timer_val = 99.075
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

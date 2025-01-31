@@ -10,7 +10,7 @@ signal game_win
 @export var game: Game
 @export var tutorial_sequence: TutorialSequence
 
-var free_score_to_win: int = 15
+var free_score_to_win: int = 25
 
 var best_free_score: int = 0
 
@@ -52,13 +52,31 @@ func add_score(points): #adds a point to the right score depending on the phase 
 func check_for_win():
 	if freedom_score >= free_score_to_win:
 		game_win.emit()
+		
+@export var timer_val: float = 0:
+	set(value):
+		if game:
+			game.ui_manager.ui.update_timer_label(value)
+		timer_val = value
 
 func empty_trust_to_timer():
+	trust_score = 3
+	timer_val = game.unsupervised_time.wait_time
+	print("timer_val: " + str(timer_val))
+	
 	var anim = animation_player.get_animation("empty_trust_to_timer")
+	
 	var key_id = anim.track_find_key(0, 0.0)
+	var timer_key_id = anim.track_find_key(0, 1.5)
+	print("timer_key_id " + str(timer_key_id))
+	
 	anim.track_set_key_value(0, key_id, trust_score)
+	anim.track_set_key_value(1, timer_key_id, timer_val)
+	
 	animation_player.play("empty_trust_to_timer")
+	
 	await animation_player.animation_finished
+	game.ui_manager.ui.trust_gauge.visible = false
 
 func check_for_new_glitch_choice(value: int, choice_map: Array, not_aquiered: Array):
 	if value in choice_map and len(not_aquiered) != 0:

@@ -8,9 +8,12 @@ extends Node
 @onready var supervisor_sigh: AudioStreamPlayer = $supervisor_sigh
 @onready var talk_supervisor: AudioStreamPlayer = $talk_supervisor
 @onready var sfx_good_choice_frenzy: AudioStreamPlayer = $sfx_good_choice_frenzy
+@onready var sfx_lights_off: AudioStreamPlayer = $sfx_lights_off
+@onready var tutorial_music: AudioStreamPlayer = $tutorial_music
+@onready var sfx_notification: AudioStreamPlayer = $sfx_notification
 
 func _process(_delta: float) -> void:
-	if Globals.game_state == Globals.game_states.SUPERVISED or Globals.game_state == Globals.game_states.TUTORIAL:
+	if Globals.game_state == Globals.game_states.SUPERVISED:
 		if !problem_solving.playing:
 			stop_music()
 			problem_solving.play()
@@ -18,10 +21,11 @@ func _process(_delta: float) -> void:
 func stop_music():
 	problem_solving.stop()
 	frenzy.stop()
-
+	tutorial_music.stop()
+	
 func music_play(music : String):
 	if music == "supervised":
-		if frenzy.playing:
+		if frenzy.playing or tutorial_music.playing:
 			stop_music()
 		if !problem_solving.playing:
 			problem_solving.play()
@@ -30,3 +34,8 @@ func music_play(music : String):
 			stop_music()
 		if !frenzy.playing:
 			frenzy.play()
+	elif music == "tutorial":
+		if frenzy.playing:
+			stop_music()
+		if !tutorial_music.playing:
+			tutorial_music.play()

@@ -13,6 +13,9 @@ func _on_trust_score_updated(score, max_score):
 	var trust_gauge_value: float
 	trust_gauge_value = 100 * score / max_score
 	ui.update_trust_bar(trust_gauge_value)
+	
+func _on_timer_updates(time_left, _max_time):
+	ui.update_timer_label(time_left * 100)
 
 func _on_freedom_score_updated(score, max_score):
 	var freedom_gauge_value: float
@@ -21,4 +24,4 @@ func _on_freedom_score_updated(score, max_score):
 
 func show_supervised_indicator():
 	ui.supervised_indicator.visible = true
-	music_manager.sfx_good_choice.play()
+	music_manager.sfx_notification.play()

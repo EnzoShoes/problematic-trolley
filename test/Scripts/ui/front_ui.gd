@@ -33,7 +33,7 @@ func check_game_phase():
 		timer_clock.visible = true
 		supervised_indicator.visible = false
 		freedom_gauge.visible = true
-		trust_gauge.visible = false
+		# trust_gauge.visible = false
 	elif Globals.game_state == Globals.game_states.SUPERVISED:
 		timer_clock.visible = false
 		supervised_indicator.visible = true

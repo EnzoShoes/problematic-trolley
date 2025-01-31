@@ -8,6 +8,7 @@ extends Node2D
 @export var music_manager: MusicManager
 @export var problem_manager: ProblemManager
 @export var tutorial_sequence : TutorialSequence
+@onready var no_choice_taken: Timer = $Score_manager/problem_manager/no_choice_taken
 
 enum new_problem_reason {FIRST_LOAD, UNSUPERVISED_TIMEOUT, UNSUPERVISED_WIN, SUPERVISED_END,GLITCH_CHOICE_MADE, NEXT}
 
@@ -20,10 +21,12 @@ var can_trolley_move: bool
 var max_ppl_on_rails: int: 
 	get():
 		max_ppl_on_rails = 8 * float(( (score_manager.freedom_score +1)) / float(score_manager.free_score_to_win)) +1
+		if Glitch.glitches.UNDERPOPULATION in Glitch.aquiered_glitches:
+			max_ppl_on_rails = int(max_ppl_on_rails * 0.75)
 		print("8 * " + str(score_manager.freedom_score +1) + "/" + str(score_manager.free_score_to_win) + "+" + "1")
 		print(max_ppl_on_rails)
 		return max_ppl_on_rails
-		
+
 func _process(_delta: float) -> void:
 	if Globals.game_state != Globals.game_states.END:
 		ui_manager.ui.update_timer_label(int(unsupervised_time.time_left)) #update the timer in ui
@@ -36,6 +39,7 @@ func _process(_delta: float) -> void:
 	
 func _ready() -> void:
 	new_tutorial_problem(new_problem_reason.FIRST_LOAD)
+	music_manager.music_play("tutorial")
 
 func new_tutorial_problem(reason: new_problem_reason):
 	print("__tutorial____" + str(new_problem_reason.keys()[reason]) + "________")
@@ -56,8 +60,7 @@ func new_play_problem(reason: new_problem_reason):
 	await transition_sequence(reason)
 	print("______" + str(new_problem_reason.keys()[reason]) + "________")
 	problem = problem_manager.new_problem_scene()
-	if reason == new_problem_reason.SUPERVISED_END:
-		tutorial_sequence.run_coffee_break()
+
 	if Globals.game_state != Globals.game_states.END:
 		(func():
 			add_child(problem)
@@ -112,8 +115,9 @@ func update_ui(reason: new_problem_reason):
 
 func _start_frenzy_sequence():
 	music_manager.stop_music()
-	unsupervised_time.wait_time += score_manager.trust_score * 10
-	
+	await tutorial_sequence.run_coffee_break()
+	unsupervised_time.wait_time += score_manager.trust_score * 5
+	print("wait_time: " + str(unsupervised_time.wait_time))
 	# Empty trust bar into timer
 	problem.troley.in_control = false
 	print("aniùmation start")
@@ -135,6 +139,7 @@ func transition_sequence(reason: new_problem_reason):
 			await SceneTransition.animation_player.animation_finished
 	ui_manager.ui.check_game_phase()
 	update_ui(reason)
+	no_choice_taken.start()
 	if problem != null:
 		problem.queue_free()
 
