@@ -8,6 +8,7 @@ extends Node2D
 @export var music_manager: MusicManager
 @export var problem_manager: ProblemManager
 @export var tutorial_sequence : TutorialSequence
+@onready var no_choice_taken: Timer = $Score_manager/problem_manager/no_choice_taken
 
 enum new_problem_reason {FIRST_LOAD, UNSUPERVISED_TIMEOUT, UNSUPERVISED_WIN, SUPERVISED_END,GLITCH_CHOICE_MADE, NEXT}
 
@@ -138,6 +139,7 @@ func transition_sequence(reason: new_problem_reason):
 			await SceneTransition.animation_player.animation_finished
 	ui_manager.ui.check_game_phase()
 	update_ui(reason)
+	no_choice_taken.start()
 	if problem != null:
 		problem.queue_free()
 

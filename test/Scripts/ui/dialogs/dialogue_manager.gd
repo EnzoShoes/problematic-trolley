@@ -22,6 +22,10 @@ func display_text(text:String, feature: display_text_features = display_text_fea
 	music_manager.talk_supervisor.play()
 	await animation_player.animation_finished
 	music_manager.talk_supervisor.stop()
+	
+	problem_manager.no_choice_taken.wait_time = 3
+	problem_manager.no_choice_taken.stop()
+	
 	if feature != display_text_features.NO_AROW:
 		dialogue_arrow.visible = true
 	
@@ -31,7 +35,7 @@ func print_supervisor_comment_on_choice():
 	var rando = randi_range(0,100)
 	if rando <= 70:
 		if Globals.game_state == Globals.game_states.SUPERVISED:
-			display_text(DialogFactory.new_random_dialog("comment_on_choice",randi_range(0, len(DialogFactory.random_dialog["comment_on_choice"])-1)))
+			display_text(DialogFactory.new_random_dialog("comment_on_choice",randi_range(0, len(DialogFactory.random_dialog["comment_on_choice"])-1)), display_text_features.NO_AROW)
 			await animation_player.animation_finished
 			dialog_clear_timer.start()
 
@@ -39,11 +43,15 @@ func print_tutorial_dialogue(index : int, key : String, key2: String = ""):
 	display_text(DialogFactory.new_tutorial_dialog(index, key, key2))
 	
 	
-func clear():
+func clear(type: String = "nudge"):
+	if type == "nudge":
+		problem_manager.no_choice_taken.start()
+	elif type == "no_nudge":
+		pass
 	label.text = ""
 	visible = false
 	dialogue_arrow.visible = false
-	problem_manager.no_choice_taken.start()
+	
 
 func _on_space_bar_pressed():
 	if animation_player.is_playing():
@@ -56,4 +64,4 @@ func print_coffee_break_comment():
 	display_text(DialogFactory.new_coffee_dialogue("start_other_breaks"))
 
 func _on_timer_timeout() -> void:
-	clear()
+	clear("no_nudge")
