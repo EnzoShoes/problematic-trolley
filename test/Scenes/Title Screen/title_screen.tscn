@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ymutnerw8tac"]
+[gd_scene load_steps=5 format=3 uid="uid://ymutnerw8tac"]
 
 [ext_resource type="Script" path="res://Scripts/scene_manager.gd" id="1_7lwrh"]
 [ext_resource type="PackedScene" uid="uid://cqypb1sid4fvh" path="res://Scenes/Title Screen/title_screen_ui.tscn" id="2_xu3av"]
 [ext_resource type="Texture2D" uid="uid://b7oc3gndlpep1" path="res://Assets/Sprites/Background.png" id="3_b26ne"]
 [ext_resource type="PackedScene" uid="uid://cfktvnfckevaf" path="res://Scenes/Music/title_screen_music.tscn" id="4_samgh"]
-[ext_resource type="PackedScene" uid="uid://cah4mpd32e14d" path="res://Scenes/trolley.tscn" id="5_5c2b4"]
 
 [node name="scene_manager" type="Node" node_paths=PackedStringArray("title_screen_ui", "title_screen")]
 script = ExtResource("1_7lwrh")
@@ -23,6 +22,3 @@ texture = ExtResource("3_b26ne")
 
 [node name="Camera2D" type="Camera2D" parent="Title screen"]
 zoom = Vector2(3, 3)
-
-[node name="Node2D" parent="." instance=ExtResource("5_5c2b4")]
-position = Vector2(3, -31)

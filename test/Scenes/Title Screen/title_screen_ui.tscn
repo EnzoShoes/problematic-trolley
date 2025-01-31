@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqypb1sid4fvh"]
+[gd_scene load_steps=6 format=3 uid="uid://cqypb1sid4fvh"]
 
 [ext_resource type="Theme" uid="uid://bbcxm7ji6ltx3" path="res://Theme/Pixel_art .tres" id="1_la370"]
 [ext_resource type="Script" path="res://Scripts/title_screen.gd" id="2_ocouo"]
+[ext_resource type="PackedScene" uid="uid://cah4mpd32e14d" path="res://Scenes/trolley.tscn" id="3_ldprp"]
+[ext_resource type="Script" path="res://Scripts/ui/title screen/path_follow_2d.gd" id="3_qgc2o"]
+
+[sub_resource type="Curve2D" id="Curve2D_2l1gs"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 326, 134, 0, 0, 0, 0, 399, 134, 0, 0, 0, 0, 688, 134, 0, 0, 0, 0, 702, 151, 0, 0, 0, 0, 702, 178, 0, 0, 0, 0, 689, 192, 0, 0, 0, 0, 267, 192, 0, 0, 0, 0, 261, 186, 0, 0, 0, 0, 261, 141, 0, 0, 0, 0, 267, 134, 0, 0, 0, 0, 326, 134)
+}
+point_count = 11
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 4
@@ -63,6 +71,18 @@ text = "Play"
 [node name="Quit" type="Button" parent="Title screen/Buttons/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_2l1gs")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(532.189, 134)
+progress = 206.19
+script = ExtResource("3_qgc2o")
+
+[node name="Node2D" parent="Path2D/PathFollow2D" instance=ExtResource("3_ldprp")]
+position = Vector2(0, -4)
+scale = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="Title screen/Buttons/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Title screen/Buttons/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
