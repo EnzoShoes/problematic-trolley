@@ -9,6 +9,22 @@ shader_parameter/Stripe_Size = 21.5
 shader_parameter/Displacement = 7.4506e-09
 shader_parameter/Aberation_Intensity = 0.0
 
+[sub_resource type="Animation" id="Animation_n88ed"]
+resource_name = "Blinking lights"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.658333, 0.7, 0.733333, 1.03333, 1.23333, 1.53333, 1.63333),
+"transitions": PackedFloat32Array(1, 1, 13.9288, 0.017337, 23.4254, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0), Color(0, 0, 0, 0.3)]
+}
+
 [sub_resource type="Animation" id="Animation_kxwlc"]
 resource_name = "RESET"
 tracks/0/type = "value"
@@ -90,22 +106,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_n88ed"]
-resource_name = "Blinking lights"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.658333, 0.7, 0.733333, 1.03333, 1.23333, 1.53333, 1.63333, 1.76667),
-"transitions": PackedFloat32Array(1, 1, 13.9288, 0.017337, 23.4254, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0), Color(0, 0, 0, 0.3), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8grah"]
