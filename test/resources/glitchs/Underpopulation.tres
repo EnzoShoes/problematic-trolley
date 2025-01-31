@@ -7,6 +7,6 @@
 script = ExtResource("2_tmolr")
 bug_icon = ExtResource("1_7yiyg")
 Bug_name = "Underpopulation"
-Bug_effect = "There are less people on the tracks"
+Bug_effect = "Less victims on glitch screens."
 Bug_description = "The world faces a unprecedented rise in train related disasters. Quite strange"
 glitch_type = 6
