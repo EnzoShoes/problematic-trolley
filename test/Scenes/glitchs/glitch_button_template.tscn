@@ -84,6 +84,7 @@ offset_top = 54.0
 offset_right = 62.0
 offset_bottom = 109.0
 scale = Vector2(0.75, 0.75)
+mouse_filter = 2
 
 [node name="glitch_effect" type="Label" parent="Bug Background/Control"]
 custom_minimum_size = Vector2(50, 0)
