@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/glitch/glitch_button_template.gd" id="1_eaout"]
 [ext_resource type="Theme" uid="uid://m5p0fuseq3nn" path="res://Theme/Pixel_art_bug .tres" id="2_y13c8"]
 [ext_resource type="Texture2D" uid="uid://c6gll7jyn44y2" path="res://Assets/Sprites/Bug_Icons/utility_monster_happy.png" id="3_wa4s0"]
-[ext_resource type="Theme" uid="uid://dpfwiykyleyad" path="res://Theme/Pixel_art_bug_no_borders .tres" id="4_y8nob"]
+[ext_resource type="Theme" path="res://Theme/Pixel_art_bug_no_borders .tres" id="4_y8nob"]
 [ext_resource type="FontFile" uid="uid://c5nfgy12eyh0c" path="res://Theme/Fonts/PixeloidSans.ttf" id="5_kad4d"]
 
 [node name="glitch_button_template" type="Control" node_paths=PackedStringArray("bug_description", "bug_icon", "glitch_effect", "glitch_name")]

@@ -162,7 +162,7 @@ func new_glitch_choice():
 	glitch_selection.game = get_node(".")
 	music_manager.sfx_glitch_trans.play()
 	SceneTransition.fade_in("glitch")
-	Glitch.glitched = true
+#	Glitch.glitched = true
 	await SceneTransition.animation_player.animation_finished
 	add_child(glitch_selection)
 	

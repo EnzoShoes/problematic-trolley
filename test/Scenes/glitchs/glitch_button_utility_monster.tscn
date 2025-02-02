@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://m5p0fuseq3nn" path="res://Theme/Pixel_art_bug .tres" id="1_2r1je"]
 [ext_resource type="Texture2D" uid="uid://i5ccfo8vulko" path="res://Assets/Sprites/Bug_Icons/utility_monster_sad.png" id="2_ejl3q"]
-[ext_resource type="Theme" uid="uid://dpfwiykyleyad" path="res://Theme/Pixel_art_bug_no_borders .tres" id="3_4d0s0"]
+[ext_resource type="Theme" path="res://Theme/Pixel_art_bug_no_borders .tres" id="3_4d0s0"]
 
 [node name="Utility monster_button" type="Control"]
 custom_minimum_size = Vector2(50, 100)
